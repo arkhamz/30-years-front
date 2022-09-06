@@ -1,6 +1,6 @@
 function Background() {
   return (
-    <div class="background">
+    <div className="background">
       <h1>Background</h1>
     </div>
   );
