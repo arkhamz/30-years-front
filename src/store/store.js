@@ -6,3 +6,5 @@ const store = configureStore({
     battle: battleReducer,
   },
 });
+
+export default store;

@@ -5,7 +5,7 @@ const initialState = {
   battleDetail: null,
 };
 
-const battleSlice = createSlice({
+export const battleSlice = createSlice({
   name: "battle",
   initialState,
   reducers: {
@@ -18,5 +18,5 @@ const battleSlice = createSlice({
   },
 });
 
-export const {} = battleSlice.actions;
+export const { storeBattles, storeSingleBattle } = battleSlice.actions;
 export default battleSlice.reducer;
