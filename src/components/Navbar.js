@@ -9,7 +9,7 @@ function Navbar() {
     <nav>
       <ul className="links">
         <li className="brand">historyMate</li>
-        <Link to="/">Home</Link>
+        <Link to="/atlas">Atlas</Link>
         <Link to="/background">Background</Link>
         <Link to="/commanders">Commanders</Link>
         <Link to="/signup">Signup</Link>
