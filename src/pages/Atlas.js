@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBattles } from "../store/battle/battleThunks";
 import { selectBattles } from "../store/battle/battleSelectors";
+import { Icon } from "leaflet";
 import "./Atlas.css";
-//leaflet imports
+//leaflet imports and leaflet-related
+import gunIcon from "../gun.svg";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -21,33 +23,49 @@ function Atlas() {
   );
 
   //starting coordinate
-  const location = [50.0875, 14.421389];
+  const location = [52.0875, 13.421389];
+  //latitude - increases up, decreases down
+  //longitude - increases right, decreases down
 
-  //leaflet logic
+  //leaflet stuff
   const jawgToken =
     "Mzk1PbCEZQl810DaXxA8HQZWQfi9bYRD7bEkFSoX36DMkyNdF73JeTKCznEesUUb";
+
+  const myIcon = new Icon({
+    iconUrl: gunIcon,
+    iconSize: [80, 80],
+    iconAnchor: [12, 41],
+  });
 
   return (
     <div className="atlas">
       <MapContainer
         className="leaflet-container"
         center={location}
-        zoom={5}
+        zoom={6}
         scrollWheelZoom={false}
-        minZoom={5}
-        maxZoom={5}
+        minZoom={6}
+        maxZoom={6}
+        zoomControl={false}
       >
         <TileLayer
           attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           url="https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=Mzk1PbCEZQl810DaXxA8HQZWQfi9bYRD7bEkFSoX36DMkyNdF73JeTKCznEesUUb"
         />
-        <Marker position={[51.505, -0.09]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        {battles &&
+          battles.map(function (item, index, arr) {
+            return (
+              <Marker
+                key={item.id}
+                position={[+item.latitude, +item.longitude]}
+                icon={myIcon}
+                className="icon"
+              >
+                {/* popup goes here
+                clicking takes you to the battle page???? */}
+              </Marker>
+            );
+          })}
       </MapContainer>
     </div>
   );
