@@ -5,7 +5,7 @@ import { selectBattles } from "../store/battle/battleSelectors";
 import { Icon } from "leaflet";
 import "./Atlas.css";
 //leaflet imports and leaflet-related
-import gunIcon from "../gun.svg";
+import gunIcon from "../gun2.svg";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -43,9 +43,9 @@ function Atlas() {
         className="leaflet-container"
         center={location}
         zoom={6}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         minZoom={6}
-        maxZoom={6}
+        maxZoom={8}
         zoomControl={false}
       >
         <TileLayer
@@ -60,9 +60,14 @@ function Atlas() {
                 position={[+item.latitude, +item.longitude]}
                 icon={myIcon}
                 className="icon"
+                eventHandlers={{
+                  mouseover: (event) => event.target.openPopup(),
+                  
+                }}
               >
-                {/* popup goes here
-                clicking takes you to the battle page???? */}
+                <Popup  offset={[0,-50]}>
+                  <span onClick={e => console.log("hello")}>{item.name} - {item.year}</span>
+                </Popup>
               </Marker>
             );
           })}
