@@ -5,4 +5,11 @@
 
 .popup-text {
   cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+/* customising the popup's container, background colour */
+.leaflet-popup-content-wrapper {
+  background-color: black !important;
 }
