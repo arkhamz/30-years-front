@@ -1,0 +1,54 @@
+.battle-container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #121212;
+  color: white;
+}
+
+.army-one,
+.army-two {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.beligerents {
+  display: flex;
+  gap: 15px;
+}
+
+/* div container of beligerent name and pic */
+.beligerent {
+}
+
+.commanders {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* div container of commander name and pic */
+.commander {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: fit-content;
+  height: fit-content;
+}
+
+/* flag img element */
+.beligerent-flag {
+  width: 100px;
+  height: 100px;
+}
+
+.commander-flag {
+  width: 30px;
+  height: 30px;
+}

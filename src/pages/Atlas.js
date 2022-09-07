@@ -59,7 +59,7 @@ function Atlas() {
             return (
               <Marker
                 key={item.id}
-                position={[+item.latitude, +item.longitude]}
+                position={[item.latitude, item.longitude]}
                 icon={myIcon}
                 className="icon"
                 eventHandlers={{
