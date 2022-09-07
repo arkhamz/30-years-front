@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBattles } from "../store/battle/battleThunks";
 import { selectBattles } from "../store/battle/battleSelectors";
@@ -12,6 +13,7 @@ import "leaflet/dist/leaflet.css";
 function Atlas() {
   const dispatch = useDispatch();
   const battles = useSelector(selectBattles);
+  const navigator = useNavigate();
 
   console.log("state battles", battles);
 
@@ -33,7 +35,7 @@ function Atlas() {
 
   const myIcon = new Icon({
     iconUrl: gunIcon,
-    iconSize: [80, 80],
+    iconSize: [60, 60],
     iconAnchor: [12, 41],
   });
 
@@ -62,11 +64,15 @@ function Atlas() {
                 className="icon"
                 eventHandlers={{
                   mouseover: (event) => event.target.openPopup(),
-                  
                 }}
               >
-                <Popup  offset={[0,-50]}>
-                  <span onClick={e => console.log("hello")}>{item.name} - {item.year}</span>
+                <Popup offset={[20, -20]}>
+                  <span
+                    className="popup-text"
+                    onClick={(e) => navigator(`/battles/${item.id}`)}
+                  >
+                    {item.name} - {item.year}
+                  </span>
                 </Popup>
               </Marker>
             );
