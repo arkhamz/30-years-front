@@ -31,6 +31,7 @@ function BattleDetail() {
     <>
       {battle && (
         <div className="battle-container">
+
           <div className="army">
             {/* ARMY ONE */}
             <div className="beligerents">
@@ -43,6 +44,7 @@ function BattleDetail() {
                 );
               })}
             </div>
+
             <div className="commanders">
               <h2>Commanders</h2>
               {/* ARMY ONE */}
@@ -55,6 +57,7 @@ function BattleDetail() {
                 );
               })}
             </div>
+
             <div className="stats">
               <h2>Battle Statistics</h2>
               <h3>
@@ -74,9 +77,13 @@ function BattleDetail() {
                 {armyOneCasualties && armyOneCasualties}
               </h3>
             </div>
+            
           </div>
+          {/* BATTLE CONTENT  */}
           <div className="content">
-            <div className="battle-title-result">
+
+            
+
               <div className="title">
                 <h1>
                   {battleTitle.startsWith("Siege")
@@ -84,15 +91,30 @@ function BattleDetail() {
                     : `Battle of ${battleTitle} - ${battle.year}`}
                 </h1>
               </div>
-              <div className="battle-img">
-                <img src={battle.imageUrl} alt="" />
-              </div>
-              <div className="year">{battle.year}</div>
-              <div className="result">{battle.result}</div>
-            </div>
 
-            <div className="prelude">{battle.prelude}</div>
-            <div className="main">{battle.description}</div>
+              <div className="battle-img">
+                <img className="battle-pic" src={battle.imageUrl} alt="" />
+              </div>
+
+              <div className="year"><h2>{battle.date}</h2></div>
+              <div className="result"> <h2>Result: {battle.result}</h2></div>
+
+              <div className="battle-detail">
+
+                <div className="prelude">
+                  <h2>Prelude</h2>
+                  <p>{battle.prelude}</p>
+                </div>
+
+                <div className="description">
+                  <h2>Battle Summary</h2>
+                  <p>{battle.description}</p>
+                </div>
+
+                
+              </div>
+
+
           </div>
           {/* ARMY TWO------------------------------------ */}
           <div className="army">

@@ -1,12 +1,15 @@
+/* font for the battle content */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 .battle-container {
   width: 100%;
   min-height: 100%;
-  display: flex;
-  justify-content: space-around;
-  /* background-color: #121212; */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-items: space-between;
+  /* justify-content: space-around; */
   background-image: url("../smoke1.jpeg");
   background-size: cover;
-  /* background-image: url("../smoke3.jpg"); */
   color: white;
 }
 
@@ -21,6 +24,7 @@
 .beligerents {
   display: flex;
   gap: 15px;
+
 }
 
 
@@ -40,6 +44,8 @@
 .commanders {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 
@@ -56,8 +62,43 @@
   height: 25px;
 }
 
+
+
+
 .content {
-  width: fit-content;
-  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
+/* div of main battle <img> */
+.battle-img{
+  width: 50%
+}
+
+/* <img> of main battle */
+.battle-pic{
+  width: 100%;
+}
+
+/* div containing prelude and description divs of header and paragraph */
+.battle-detail{
+  margin: 0 auto;
+  width: 70%;
+  color: whitesmoke;
+  background-image: linear-gradient(rgba(0, 0, 0,0.7),rgba(128, 128, 128,0.4));
+}
+
+.battle-detail p, .battle-detail h2{
+  font-family: "MedievalSharp", cursive;
+  line-height: 25px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.prelude,.description{
+  text-align: justify;
+}
