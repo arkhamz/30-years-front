@@ -15,7 +15,7 @@
 
 /* add medieval font?? */
 
-.battle-container h1, .battle-container h2, .battle-container h3, .battle-container p{
+.battle-container {
   font-family: "MedievalSharp", cursive;
 
 }
@@ -38,6 +38,9 @@
 
 /* div container of beligerent name and pic */
 .beligerent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 

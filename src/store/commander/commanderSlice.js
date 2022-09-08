@@ -15,8 +15,11 @@ export const commanderSlice = createSlice({
     storeSingleCommander(state, action) {
       state.commanderDetail = action.payload;
     },
+    clearCommanderDetail(state,action){
+      state.commanderDetail = null;
+    }
   },
 });
 
-export const { storeCommanders, storeSingleCommander } = commanderSlice.actions;
+export const { storeCommanders, storeSingleCommander, clearCommanderDetail } = commanderSlice.actions;
 export default commanderSlice.reducer;

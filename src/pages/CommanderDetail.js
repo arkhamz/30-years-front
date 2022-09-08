@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "./CommanderDetail.css";
+import { clearCommanderDetail } from "../store/commander/commanderSlice";
 
 function CommanderDetail() {
 
@@ -12,9 +13,19 @@ function CommanderDetail() {
   const dispatch = useDispatch();
   const commander = useSelector(selectOneCommander);
 
+  console.log(commander);
+
   useEffect(function(){
     //dispatch thunk action that gets commander from db
     dispatch(fetchOneCommander(id));
+
+    //BUG FIX
+    //if you go back to commanders page and then click new commander
+    //you see current commander briefly before the redux state is replaced with new one
+    //this should clear it when you leave the page;
+    return function(){
+      dispatch(clearCommanderDetail())
+    }
 
   },[]);
 
@@ -38,7 +49,7 @@ function CommanderDetail() {
 
           <div className="commander-pic-title">
             <h1 className="commander-header">{commander.fullName}</h1>
-            <img className="commander-portrait" src={commander.imageUrl} alt="" />
+            <img loading="lazy" className="commander-portrait" src={commander.imageUrl} alt="" />
             <img className="flag-small" src={commander.loyaltyImageUrl} alt="" />
           </div>
 
