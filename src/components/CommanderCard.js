@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./CommanderCard.css"
+import React from "react"
 
 
 export default function CommanderCard({commander}){

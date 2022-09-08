@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import React from "react"
+
 import { useDispatch, useSelector } from "react-redux";
 import "./Commanders.css"
 import { fetchCommanders } from "../store/commander/commanderThunks";
 import { selectCommanders } from "../store/commander/commanderSelectors";
 import CommanderCard from "../components/CommanderCard";
-import Carousel from "react-elastic-carousel"
+import Carousel from "@itseasy21/react-elastic-carousel"
 
 function Commanders() {
   const dispatch = useDispatch();

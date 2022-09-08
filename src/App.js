@@ -1,4 +1,6 @@
 import "./App.css";
+import React from "react"
+
 import { Routes, Route } from "react-router-dom";
 //pages & components
 import Atlas from "./pages/Atlas";

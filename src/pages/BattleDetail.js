@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import React from "react"
+
 import { selectOneBattle } from "../store/battle/battleSelectors";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -77,7 +79,7 @@ function BattleDetail() {
                 {armyOneCasualties && armyOneCasualties}
               </h3>
             </div>
-            
+
           </div>
           {/* BATTLE CONTENT  */}
           <div className="content">
