@@ -14,7 +14,6 @@ function Navbar() {
         <Link to="/commanders">Commanders</Link>
         <Link to="/signup">Signup</Link>
         <Link to="/login">Login</Link>
-        <Link to="/">Logout</Link>
       </ul>
     </nav>
   );

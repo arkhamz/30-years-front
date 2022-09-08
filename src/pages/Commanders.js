@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import "./Commanders.css"
 import { fetchCommanders } from "../store/commander/commanderThunks";
 import { selectCommanders } from "../store/commander/commanderSelectors";
+import CommanderCard from "../components/CommanderCard";
+import Carousel from "react-elastic-carousel"
 
 function Commanders() {
   const dispatch = useDispatch();
@@ -16,15 +18,29 @@ function Commanders() {
     [dispatch]
   );
 
-  //TODO - loop through the commanders array and display basic commander info
+  const breakPoints = [
+    {width:1, itemsToShow:1},
+    {width:550, itemsToShow:2},
+    {width:768, itemsToShow:3},
+    {width:1200, itemsToShow:4}
+  ]
+
 
   return (
-    <div>
-      <ul className="commander-list">
-        {commanders && commanders.map(function (item, index, arr) {})}
-      </ul>
+    <div className="commanders-container">
+      <h1 className="title">Key Commanders & Leaders</h1>
+      {commanders && (
+        <Carousel breakPoints={breakPoints}>
+          {commanders.map(function (item, index, arr) {
+          return <CommanderCard commander={item} key={item.id}/>
+        })}
+        </Carousel>
+      )}
     </div>
   );
+
+  
 }
 
 export default Commanders;
+

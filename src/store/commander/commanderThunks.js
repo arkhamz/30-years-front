@@ -7,7 +7,6 @@ export function fetchCommanders() {
     try {
       //GET request /commanders
       const response = await axios.get(`http://localhost:4000/commanders`);
-      console.log(response);
       const commandersArr = response.data;
       //update redux store with the commanders array
       dispatch(storeCommanders(commandersArr));

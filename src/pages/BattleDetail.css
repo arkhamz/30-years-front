@@ -3,7 +3,10 @@
   min-height: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: #121212;
+  /* background-color: #121212; */
+  background-image: url("../smoke1.jpeg");
+  background-size: cover;
+  /* background-image: url("../smoke3.jpg"); */
   color: white;
 }
 
