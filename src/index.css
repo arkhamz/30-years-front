@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
 html,
@@ -10,4 +14,11 @@ body,
 .App {
   height: 100%;
   width: 100%;
+}
+
+
+/* active class for <NavLInk> component */
+
+.active{
+  border-bottom: 2px solid white;
 }

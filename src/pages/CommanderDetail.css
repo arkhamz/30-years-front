@@ -1,0 +1,42 @@
+.commander-detail-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 100%;
+    width: 100%;
+    /* background-image: url("../smoke1.jpeg"); */
+    /* background-position: cover; */
+    background-color: #1b1b1b;
+    color: white;
+    justify-content: space-around;
+}
+
+
+/* div of name, portrait and flag img  */
+.commander-pic-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* <img> of commander portrait */
+.commander-portrait{
+    height: 60vh;
+    object-fit: contain;
+}
+
+
+
+/* commander's loyalty flag <img> */
+.flag-small{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+
+
+
+.commander-header{
+    color: white;
+}

@@ -2,8 +2,14 @@
     height: 500px;
     width: 500px;
     margin-right: 5px;
+    transition: transform 300ms ease-in-out;
 }
 
+.commander-card:hover{
+    transform: translateY(20px);
+}
+
+/* div of <img> same width as parent, 80% tall */
 .commander-image{
     width: 100%;
     height: 80%;

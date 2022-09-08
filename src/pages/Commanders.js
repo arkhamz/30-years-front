@@ -17,7 +17,7 @@ function Commanders() {
     },
     [dispatch]
   );
-
+    //code for responsive carousel
   const breakPoints = [
     {width:1, itemsToShow:1},
     {width:550, itemsToShow:2},
@@ -28,7 +28,7 @@ function Commanders() {
 
   return (
     <div className="commanders-container">
-      <h1 className="title">Key Commanders & Leaders</h1>
+      <h1 className="commanders-header">Key Commanders & Leaders</h1>
       {commanders && (
         <Carousel breakPoints={breakPoints}>
           {commanders.map(function (item, index, arr) {

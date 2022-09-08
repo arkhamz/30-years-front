@@ -1,5 +1,6 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
+import test from "../okayTest.svg";
 
 function Navbar() {
   // When logged in, you should not see Home, you should start at atlas
@@ -8,12 +9,13 @@ function Navbar() {
   return (
     <nav>
       <ul className="links">
-        <li className="brand">historyMate</li>
-        <Link to="/atlas">Atlas</Link>
-        <Link to="/background">Background</Link>
-        <Link to="/commanders">Commanders</Link>
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
+        {/* <li className="brand">historyMate</li> */}
+        <img className="nav-logo" src={test} alt="" />
+        <NavLink to="/atlas">Atlas</NavLink>
+        <NavLink to="/background">Background</NavLink>
+        <NavLink to="/commanders">Commanders</NavLink>
+        <NavLink to="/signup">Signup</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </ul>
     </nav>
   );

@@ -12,7 +12,7 @@ export default function CommanderCard({commander}){
         <div className="commander-image">
             <img src={commander.imageUrl} alt={commander.fullName} />
         </div>
-        <Link to={`/commander/${commander.id}`}>
+        <Link to={`/commanders/${commander.id}`}>
         <div style={{
             backgroundImage: `url(${commander.loyaltyImageUrl})`,
             objectFit: "cover",

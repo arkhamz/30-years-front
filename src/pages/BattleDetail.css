@@ -10,8 +10,7 @@
   color: white;
 }
 
-.army-one,
-.army-two {
+.army {
   width: fit-content;
   height: fit-content;
   display: flex;
@@ -24,10 +23,20 @@
   gap: 15px;
 }
 
+
 /* div container of beligerent name and pic */
 .beligerent {
 }
 
+
+/* img element */
+.beligerent-flag {
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
+}
+
+/* COMMANDERS */
 .commanders {
   display: flex;
   flex-direction: column;
@@ -40,18 +49,15 @@
   align-items: center;
 }
 
+/* img element */
+.commander-flag {
+  object-fit: contain;
+  width: 25px;
+  height: 25px;
+}
+
 .content {
   width: fit-content;
   height: fit-content;
 }
 
-/* flag img element */
-.beligerent-flag {
-  width: 100px;
-  height: 100px;
-}
-
-.commander-flag {
-  width: 30px;
-  height: 30px;
-}
