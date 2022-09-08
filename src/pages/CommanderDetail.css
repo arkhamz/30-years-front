@@ -7,7 +7,8 @@
     /* background-position: cover; */
     background-color: #1b1b1b;
     color: white;
-    justify-content: space-around;
+    justify-items: space-around;
+    align-content: center;
 }
 
 
@@ -34,9 +35,28 @@
     object-fit: contain;
 }
 
+.commander-details{
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2rem;
+}
+
+.commander-bio{
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 25px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
 
 
 
 .commander-header{
     color: white;
 }
+
