@@ -6,6 +6,7 @@
   min-height: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  align-content: center;
   justify-items: space-between;
   /* justify-content: space-around; */
   background-image: url("../smoke1.jpeg");
@@ -22,9 +23,11 @@
 
 .army {
   width: fit-content;
-  height: fit-content;
+  height: 70%;
+  justify-self: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   gap: 30px;
 }
