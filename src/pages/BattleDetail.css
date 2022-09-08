@@ -13,11 +13,19 @@
   color: white;
 }
 
+/* add medieval font?? */
+
+.battle-container h1, .battle-container h2, .battle-container h3, .battle-container p{
+  font-family: "MedievalSharp", cursive;
+
+}
+
 .army {
   width: fit-content;
   height: fit-content;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 30px;
 }
 
@@ -87,18 +95,35 @@
 /* div containing prelude and description divs of header and paragraph */
 .battle-detail{
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
   width: 70%;
   color: whitesmoke;
-  background-image: linear-gradient(rgba(0, 0, 0,0.7),rgba(128, 128, 128,0.4));
+  background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(128, 128, 128,0.4));
 }
 
 .battle-detail p, .battle-detail h2{
-  font-family: "MedievalSharp", cursive;
   line-height: 25px;
   letter-spacing: 3px;
   font-weight: bold;
 }
 
 .prelude,.description{
+  margin-top: 20px;
   text-align: justify;
+  overflow-y:scroll;
+  height: 220px;
+
+}
+
+/* CODE FOR EDITING SCROLLBARS */
+
+.prelude::-webkit-scrollbar,.description::-webkit-scrollbar {
+  /* Width of vertical scroll bar */
+ width: 13px;
+}
+::-webkit-scrollbar-thumb {
+ border-radius: 8px;
+ background: #c2c9d2;
 }
