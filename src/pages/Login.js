@@ -1,5 +1,6 @@
 import "./Login.css"
 import {useState} from "react"
+import { login } from "../store/user/userThunks";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +14,11 @@ function Login(){
     function handleSubmit(e){
         e.preventDefault();
 
+        dispatch(login(email,password,navigator));
+
         //clear fields
+        setEmail("");
+        setPassword("");
   
         //thunk will handle the re-direct  
     }

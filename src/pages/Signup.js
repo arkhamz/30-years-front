@@ -1,23 +1,29 @@
 import "./Signup.css"
 import {useState} from "react"
-import { useDispatch } from "react-redux";
+import { signup } from "../store/user/userThunks";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function Signup(){
-    
-    const [username,setUsername] = useState("");
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
-    const dispatch = useDispatch();
-    const navigator = useNavigate()
+  const [username,setUsername] = useState("");
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
 
-    function handleSubmit(e){
-        e.preventDefault();
 
-        //clear fields
+  function handleSubmit(e){
+      e.preventDefault();
+      dispatch(signup(email,password,username,navigator));
+
+      //clear fields
+      setUsername("");
+      setEmail("");
+      setPassword("");
   
-        //thunk will handle the re-direct  
-    }
+      //thunk will handle the re-direct  
+  }
 
     return(
         <div className="signup-container">

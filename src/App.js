@@ -1,4 +1,9 @@
 import "./App.css";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/config";
+import { useDispatch,useSelector } from "react-redux";
+import { AUTH_IS_READY } from "./store/user/userSlice";
 import { Routes, Route } from "react-router-dom";
 //pages & components
 import Atlas from "./pages/Atlas";
@@ -10,8 +15,36 @@ import CommanderDetail from "./pages/CommanderDetail";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import { selectUser } from "./store/user/userSelectors";
+
 
 function App() {
+
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  console.log(user);
+
+  useEffect(function(){
+    // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
+    onAuthStateChanged(auth, function(user){
+      // user will be non-serialisable (complex class object/function) user object if logged in, or null if logged out
+      if(user){
+        // create custom user object, DO NOT STORE non-serialisables in redux state. Store simpler custom obj instead
+        const userToken = user.accessToken;
+        const newUser = {
+          email: user.email,
+          displayName: user.displayName,
+          id: user.uid,
+      }
+       dispatch(AUTH_IS_READY({newUser, userToken}));
+
+      } else{
+        dispatch(AUTH_IS_READY({newUser: null, userToken: null}));
+      }
+    })
+
+  },[])
+
   return (
     <div className="App">
       <Navbar />

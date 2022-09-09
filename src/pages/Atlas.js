@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBattles } from "../store/battle/battleThunks";
 import { selectBattles } from "../store/battle/battleSelectors";
 import { Icon } from "leaflet";
+import { selectUser } from "../store/user/userSelectors";
 import "./Atlas.css";
 //leaflet imports and leaflet-related
 import gunIcon from "../gun2.svg";
@@ -14,6 +15,9 @@ function Atlas() {
   const dispatch = useDispatch();
   const battles = useSelector(selectBattles);
   const navigator = useNavigate();
+  const user = useSelector(selectUser);
+
+  console.log(user);
 
   console.log("state battles", battles);
 
