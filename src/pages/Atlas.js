@@ -17,10 +17,6 @@ function Atlas() {
   const navigator = useNavigate();
   const user = useSelector(selectUser);
 
-  console.log(user);
-
-  console.log("state battles", battles);
-
   useEffect(
     function () {
       dispatch(fetchBattles());
@@ -34,8 +30,7 @@ function Atlas() {
   //longitude - increases right, decreases down
 
   //leaflet stuff
-  const jawgToken =
-    "Mzk1PbCEZQl810DaXxA8HQZWQfi9bYRD7bEkFSoX36DMkyNdF73JeTKCznEesUUb";
+
 
   const myIcon = new Icon({
     iconUrl: gunIcon,

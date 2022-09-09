@@ -15,18 +15,19 @@ import CommanderDetail from "./pages/CommanderDetail";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import { selectUser } from "./store/user/userSelectors";
+import { selectAuthCheck, selectUser } from "./store/user/userSelectors";
 
 
 function App() {
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const authCheck = useSelector(selectAuthCheck);
   console.log(user);
 
   useEffect(function(){
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
-    onAuthStateChanged(auth, function(user){
+    const unsub = onAuthStateChanged(auth, function(user){
       // user will be non-serialisable (complex class object/function) user object if logged in, or null if logged out
       if(user){
         // create custom user object, DO NOT STORE non-serialisables in redux state. Store simpler custom obj instead
@@ -41,13 +42,19 @@ function App() {
       } else{
         dispatch(AUTH_IS_READY({newUser: null, userToken: null}));
       }
-    })
+    });
+    return function(){
+      unsub();
+    }
+
 
   },[])
 
   return (
     <div className="App">
-      <Navbar />
+      {authCheck && (
+        <>
+        <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/atlas" element={<Atlas />} />
@@ -58,6 +65,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+        </>
+      )}
+      
     </div>
   );
 }

@@ -5,3 +5,7 @@ export function selectUser(reduxState){
 export function selectToken(reduxState){
     return reduxState.user.token;
 }
+
+export function selectAuthCheck(reduxState){
+    return reduxState.user.authCheck;
+}
