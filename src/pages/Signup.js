@@ -37,7 +37,7 @@ function Signup(){
                 </div>
                
                 <div className="signup-form-button">
-                    <button onClick={handleSubmit}>signup</button>
+                    <button onClick={handleSubmit}>Signup</button>
                 </div>
             </form>
          

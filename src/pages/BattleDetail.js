@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchOneBattle } from "../store/battle/battleThunks";
 import { v4 as uuidv4 } from "uuid";
+import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull,GiHospitalCross} from "react-icons/gi"
 import "./BattleDetail.css";
 
 function BattleDetail() {
@@ -61,20 +62,20 @@ function BattleDetail() {
             <div className="stats">
               <h2>Battle Statistics</h2>
               <h3>
-                Strength:
+              <GiPikeman/> -
                 {armyOneStrength.number !== 0
-                  ? `${armyOneStrength.number}`
-                  : "unknown"}
+                  ? ` ${armyOneStrength.number}`
+                  : "   unknown"}
               </h3>
               <h3>
-                Guns:
+              <GiCannon/> - 
                 {armyOneStrength.guns !== 0
-                  ? `${armyOneStrength.guns}`
-                  : "unknown"}
+                  ? `   ${armyOneStrength.guns}`
+                  : "   unknown"}
               </h3>
               <h3>
-                Casualties:
-                {armyOneCasualties && armyOneCasualties}
+                <GiDeathSkull/> / <GiArmBandage/> - 
+                {armyOneCasualties && `   ${armyOneCasualties}`}
               </h3>
             </div>
             
@@ -145,20 +146,20 @@ function BattleDetail() {
             <div className="stats">
               <h2>Battle Statistics</h2>
               <h3>
-                Strength:
+              <GiPikeman/> -
                 {armyTwoStrength.number !== 0
-                  ? `${armyTwoStrength.number}`
-                  : "unknown"}
+                  ? ` ${armyTwoStrength.number}`
+                  : "   unknown"}
               </h3>
               <h3>
-                Guns:
+              <GiCannon/> - 
                 {armyTwoStrength.guns !== 0
-                  ? `${armyTwoStrength.guns}`
-                  : "unknown"}
+                  ? `   ${armyTwoStrength.guns}`
+                  : "   unknown"}
               </h3>
               <h3>
-                Casualties:
-                {armyTwoCasualties && armyTwoCasualties}
+                <GiDeathSkull/> / <GiArmBandage/> - 
+                {armyTwoCasualties && `   ${armyTwoCasualties}`}
               </h3>
             </div>
           </div>

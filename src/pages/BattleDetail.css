@@ -57,6 +57,7 @@
 /* COMMANDERS */
 .commanders {
   display: flex;
+  width:max-content;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -67,6 +68,8 @@
 .commander {
   display: flex;
   align-items: center;
+  align-self: baseline;
+  /* baseline align-self aligns each child with other children */
 }
 
 /* img element */
