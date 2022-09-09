@@ -1,6 +1,6 @@
 .signup-container{
     background-color: #1b1b1b;
-    min-height: 100%;
+    min-height: calc(100% - 100px);
     width: 100%;
     color: white;
     display: flex;

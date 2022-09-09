@@ -50,7 +50,7 @@
 /* img element */
 .beligerent-flag {
   object-fit: contain;
-  width: 100px;
+  width: 150px;
   height: 100px;
 }
 
@@ -67,20 +67,19 @@
 /* div container of commander name and pic */
 .commander {
   display: flex;
+  gap: 3px;
   align-items: center;
   align-self: baseline;
   /* baseline align-self aligns each child with other children */
 }
 
-/* img element */
+/* img element,border radius of 60% to make round, and cover not contain */
 .commander-flag {
-  object-fit: contain;
-  width: 25px;
-  height: 25px;
+  object-fit: cover;
+  border-radius: 60%;
+  width: 50px;
+  height: 50px;
 }
-
-
-
 
 .content {
   width: 100%;
@@ -110,6 +109,7 @@
   width: 70%;
   color: whitesmoke;
   background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(128, 128, 128,0.4));
+  backdrop-filter: blur(5px);
 }
 
 .battle-detail p, .battle-detail h2{
@@ -126,6 +126,13 @@
 
 }
 
+.prelude h2,.description h2{
+  background-color:  black;
+  color: white;
+  width: fit-content;
+  padding: 4px;
+}
+
 /* CODE FOR EDITING SCROLLBARS */
 
 .prelude::-webkit-scrollbar,.description::-webkit-scrollbar {
@@ -135,4 +142,12 @@
 ::-webkit-scrollbar-thumb {
  border-radius: 8px;
  background: #c2c9d2;
+}
+
+.stats{
+  
+  display: flex;
+  border-radius: 4px;
+  flex-direction: column;
+  gap: 15px;
 }
