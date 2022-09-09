@@ -40,9 +40,9 @@ function CommanderDetail() {
         <div className="commander-detail-container">
           
           <div className="commander-details">
+            <h2>Title: {commander.title}</h2>
             <h2> Birth Date: {commander.birthDate}</h2>
             <h2>Birth Place: {commander.birthPlace}</h2>
-            <h2>Title: {commander.title}</h2>
             <h2>Allegiance: {commander.loyalty}</h2>
             <h2>Died on: {commander.died}</h2>
           </div>
