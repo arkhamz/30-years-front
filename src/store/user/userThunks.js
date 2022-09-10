@@ -23,11 +23,13 @@ export function signup(email,password,username,navigator){
             //update firebase user's displayName property to match username param
             await updateProfile(user,{displayName:username});
             console.log(user);
+            // create simplified firebase, will store in REDUX STATE
             const newUser = {
                 email: user.email,
                 displayName: user.displayName,
-                id: user.uid,
+                uid: user.uid,
             }
+            //newUser and token will be stored in redux state
 
             //CREATE SEQUELIZE USER - {id (auto),displayName, email,uid}
             const dbresponse = await axios.post(`http://localhost:4000/users/new`, {
@@ -73,7 +75,7 @@ export function login(email,password, navigator){
             const newUser = {
                 email: user.email,
                 displayName: user.displayName,
-                id: user.uid,
+                uid: user.uid,
             }
             dispatch(LOGIN({newUser, userToken}));
             navigator("/atlas");

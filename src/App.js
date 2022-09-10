@@ -35,7 +35,7 @@ function App() {
         const newUser = {
           email: user.email,
           displayName: user.displayName,
-          id: user.uid,
+          uid: user.uid,
       }
        dispatch(AUTH_IS_READY({newUser, userToken}));
 
