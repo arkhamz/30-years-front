@@ -1,22 +1,28 @@
 import { useState,useEffect } from "react"
 import {v4 as uuidv4} from "uuid";
+import { fetchProgress } from "../store/battle/battleThunks";
+import { useDispatch, useSelector } from "react-redux";
+import { unlockNext } from "../store/battle/battleThunks";
+import { selectProgress } from "../store/user/userSelectors";
 
 
-export default function Quiz({questions}){
+export default function Quiz({questions, uid, battleId}){
 
     const [current,setCurrent] = useState(0);
     //current will act as questions index, represents question user is on
     // current will be increased by one whenever an answer button is clicked
     //e.g. starts with 1st question visible, then moves to next question
     //since we are looping through array of questions
-    const [score, setScore] = useState(0)
+    const [score, setScore] = useState(0);
+    const dispatch = useDispatch();
+    const progress = useSelector(selectProgress);
 
     
 
   function handleClick(answer){
 
     // If answer is true, increase score. As long as score is not equal to 2
-    if(answer && score !== 2){
+    if(answer === true && score !== 2){
             setScore( score + 1)
     }
 
@@ -29,8 +35,10 @@ export default function Quiz({questions}){
 
   useEffect(function(){
     if(score === 2){
-        //dispatch thunk that unlocks next battle
-        console.log("hello")
+        //dispatch thunk that unlocks next battle and update progress
+        dispatch(unlockNext(battleId, uid));
+        // update progress
+        dispatch(fetchProgress());
     }
   })
    
@@ -45,7 +53,7 @@ export default function Quiz({questions}){
     
     return (
         <>
-        {questions && (
+        {questions && score < 2 ? (
             <div className="questions-container">
                 <div className="score">
                     Score: {score}
@@ -66,7 +74,7 @@ export default function Quiz({questions}){
                 
             </div>
          
-        )}
+        ) : null}
         </>
        
     )

@@ -38,6 +38,8 @@ function Atlas() {
     iconAnchor: [12, 41],
   });
 
+  console.log(battles);
+
   return (
     <div className="atlas">
       <MapContainer

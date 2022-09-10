@@ -45,7 +45,8 @@ export function signup(email,password,username,navigator){
 
             // CREATE SEQUELIZE USERPROGRESS INSTANCE FOR USER
             const progressResponse = await axios.post(`http://localhost:4000/progress/new`,{
-                userId: userId,
+                // userId: userId, replaced this with uid as unlockNext thunk can't get userid
+                uid: user.uid,
                 battleId: 1
             });
             console.log("hello")

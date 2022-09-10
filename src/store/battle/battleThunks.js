@@ -69,9 +69,6 @@ export function fetchOneBattle(id) {
 export function fetchProgress() {
   return async function (dispatch, getState) {
     try {
-
-      // USER IN STATE HAS UID = ID
-
       // get logged in user
       const user = selectUser(getState());
 
@@ -88,6 +85,23 @@ export function fetchProgress() {
       if(!progress) return
       // store battlesArr in state and update state progress
       dispatch(UPDATE_PROGRESS(progress))
+    } catch (e) {
+      console.log(e);
+      console.log(e.message);
+    }
+  };
+}
+
+export function unlockNext(battleId,uid) {
+  return async function (dispatch, getState) {
+    try {
+      //unlock next one
+      const response = await axios.post(`http://localhost:4000/progress/new`, {
+        battleId: Number(battleId) + 1,
+        uid
+      });
+      const msg = response.data;
+      if(!msg)throw new Error("Unlock error")
     } catch (e) {
       console.log(e);
       console.log(e.message);

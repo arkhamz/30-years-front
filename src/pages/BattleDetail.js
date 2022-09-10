@@ -6,7 +6,7 @@ import { fetchOneBattle, fetchProgress } from "../store/battle/battleThunks";
 import { v4 as uuidv4 } from "uuid";
 import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull} from "react-icons/gi"
 import "./BattleDetail.css";
-import { selectProgress } from "../store/user/userSelectors";
+import { selectProgress,selectUser } from "../store/user/userSelectors";
 import Quiz from "../components/Quiz";
 
 function BattleDetail() {
@@ -14,6 +14,7 @@ function BattleDetail() {
   const battle = useSelector(selectOneBattle);
   const progress = useSelector(selectProgress)
   const dispatch = useDispatch();
+  const user = useSelector(selectUser)
   console.log(progress);
 
   useEffect(function () {
@@ -37,8 +38,9 @@ function BattleDetail() {
     <>
       {battle && (
         <div className="battle-container">
-
-          {progress && progress === Number(id) ? (
+          {/* render page content if progress exists & user progress is greater than or equal to battle Id */}
+          {/* greater than means that the user has already unlocked it */}
+          {progress && progress >= Number(id) ? (
             <>
             <div className="army">
             {/* ARMY ONE */}
@@ -176,8 +178,8 @@ function BattleDetail() {
           </div>
 
           <div className="quiz-wrapper">
-            {/* render quiz if battle id matches current unlock */}
-            {Number(id) === progress && <Quiz questions={battle.questions}/>}
+            {/* render quiz if battle id/param matches current unlock/progress */}
+            {Number(id) === progress && <Quiz battleId={id} uid={user.uid} questions={battle.questions}/>}
           </div>
 
             
