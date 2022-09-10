@@ -2,20 +2,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectOneBattle } from "../store/battle/battleSelectors";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchOneBattle } from "../store/battle/battleThunks";
+import { fetchOneBattle, fetchProgress } from "../store/battle/battleThunks";
 import { v4 as uuidv4 } from "uuid";
-import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull,GiHospitalCross} from "react-icons/gi"
+import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull} from "react-icons/gi"
 import "./BattleDetail.css";
+import { selectProgress } from "../store/user/userSelectors";
 import Quiz from "../components/Quiz";
 
 function BattleDetail() {
   const { id } = useParams();
   const battle = useSelector(selectOneBattle);
+  const progress = useSelector(selectProgress)
   const dispatch = useDispatch();
+  console.log(progress);
 
   useEffect(function () {
     //dispatch thunk action to get battle
     dispatch(fetchOneBattle(id));
+    dispatch(fetchProgress());
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -170,7 +174,7 @@ function BattleDetail() {
           </div>
 
           <div className="quiz-wrapper">
-            <Quiz questions={battle.questions}/>
+            {Number(id) === progress && <Quiz questions={battle.questions}/>}
           </div>
 
 

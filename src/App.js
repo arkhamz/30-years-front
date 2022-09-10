@@ -15,7 +15,8 @@ import CommanderDetail from "./pages/CommanderDetail";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import { selectAuthCheck, selectUser } from "./store/user/userSelectors";
+import { selectAuthCheck, selectProgress, selectUser } from "./store/user/userSelectors";
+import { fetchBattles } from "./store/battle/battleThunks";
 
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const authCheck = useSelector(selectAuthCheck);
+  const progress = useSelector(selectProgress);
+
   console.log(user);
+  console.log(progress)
 
   useEffect(function(){
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
@@ -47,8 +51,8 @@ function App() {
       unsub();
     }
 
-
   },[])
+
 
   return (
     <div className="App">

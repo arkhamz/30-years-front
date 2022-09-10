@@ -65,3 +65,32 @@ export function fetchOneBattle(id) {
     }
   };
 }
+
+export function fetchProgress() {
+  return async function (dispatch, getState) {
+    try {
+
+      // USER IN STATE HAS UID = ID
+
+      // get logged in user
+      const user = selectUser(getState());
+
+      if(!user) return;
+      // fetch database user
+      const uid = user.uid;
+      const userResponse = await axios.get(`http://localhost:4000/users/${uid}`);
+      const dbUser = userResponse.data;
+      if(!dbUser) return;
+      //fetch battles based on user progress
+      const userId = dbUser.id;
+      const battleResponse = await axios.get(`http://localhost:4000/progress/${userId}/battles`);
+      const {progress} = battleResponse.data;
+      if(!progress) return
+      // store battlesArr in state and update state progress
+      dispatch(UPDATE_PROGRESS(progress))
+    } catch (e) {
+      console.log(e);
+      console.log(e.message);
+    }
+  };
+}
