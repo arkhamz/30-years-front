@@ -38,7 +38,9 @@ function BattleDetail() {
       {battle && (
         <div className="battle-container">
 
-          <div className="army">
+          {progress && progress === Number(id) ? (
+            <>
+            <div className="army">
             {/* ARMY ONE */}
             <div className="beligerents">
               {battle.armyOne?.beligerents.map(function (item) {
@@ -177,6 +179,9 @@ function BattleDetail() {
             {Number(id) === progress && <Quiz questions={battle.questions}/>}
           </div>
 
+            
+            </>
+          ) : null}
 
         </div>
       )}
