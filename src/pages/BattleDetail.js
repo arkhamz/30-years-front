@@ -176,12 +176,13 @@ function BattleDetail() {
           </div>
 
           <div className="quiz-wrapper">
+            {/* render quiz if battle id matches current unlock */}
             {Number(id) === progress && <Quiz questions={battle.questions}/>}
           </div>
 
             
             </>
-          ) : null}
+          ) : <h1 style={{position:"absolute", top:"50%", left: "30%"}}>This battle has not been unlocked</h1>}
 
         </div>
       )}
