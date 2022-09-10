@@ -6,6 +6,7 @@ import { fetchOneBattle } from "../store/battle/battleThunks";
 import { v4 as uuidv4 } from "uuid";
 import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull,GiHospitalCross} from "react-icons/gi"
 import "./BattleDetail.css";
+import Quiz from "../components/Quiz";
 
 function BattleDetail() {
   const { id } = useParams();
@@ -120,6 +121,7 @@ function BattleDetail() {
           {/* ARMY TWO------------------------------------ */}
           <div className="army">
             {/* ARMY TWO */}
+
             <div className="beligerents">
               {/* ARMY TWO */}
               {battle.armyTwo.beligerents.map(function (item) {
@@ -132,6 +134,7 @@ function BattleDetail() {
                 );
               })}
             </div>
+
             <div className="commanders">
               <h2>Commanders</h2>
               {battle.armyTwo.commanders.map(function (item) {
@@ -143,6 +146,7 @@ function BattleDetail() {
                 );
               })}
             </div>
+
             <div className="stats">
               <h2>Battle Statistics</h2>
               <h3>
@@ -162,7 +166,14 @@ function BattleDetail() {
                 {armyTwoCasualties && `   ${armyTwoCasualties}`}
               </h3>
             </div>
+
           </div>
+
+          <div className="quiz-wrapper">
+            <Quiz questions={battle.questions}/>
+          </div>
+
+
         </div>
       )}
     </>

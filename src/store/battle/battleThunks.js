@@ -1,5 +1,6 @@
 import axios from "axios";
 import { selectUser } from "../user/userSelectors";
+import { UPDATE_PROGRESS } from "../user/userSlice";
 import { storeBattles, storeSingleBattle } from "./battleSlice";
 
 
@@ -9,7 +10,7 @@ export function fetchBattles() {
 
       // USER IN STATE HAS UID = ID
 
-      // get user
+      // get logged in user
       const user = selectUser(getState());
 
       if(!user) return;
@@ -21,10 +22,12 @@ export function fetchBattles() {
       //fetch battles based on user progress
       const userId = dbUser.id;
       const battleResponse = await axios.get(`http://localhost:4000/progress/${userId}/battles`);
-      const battlesArr = battleResponse.data;
+      const {battlesArr,progress} = battleResponse.data;
       if(!battlesArr || battlesArr.length < 1) return;
       
+      // store battlesArr in state and update state progress
       dispatch(storeBattles(battlesArr));
+      dispatch(UPDATE_PROGRESS(progress))
     } catch (e) {
       console.log(e);
       console.log(e.message);

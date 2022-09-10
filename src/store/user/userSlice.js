@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: null,
   token: null,
-  authCheck: false
+  authCheck: false,
+  progress: null,
 };
 
 export const userSlice = createSlice({
@@ -28,8 +29,11 @@ export const userSlice = createSlice({
       state.user = newUser;
       state.token = userToken;
     },
+    UPDATE_PROGRESS(state,action){
+      state.progress = action.payload;
+    }
   },
 });
 
-export const { LOGIN, AUTH_IS_READY, LOGOUT } = userSlice.actions;
+export const { LOGIN, AUTH_IS_READY, LOGOUT, UPDATE_PROGRESS } = userSlice.actions;
 export default userSlice.reducer;
