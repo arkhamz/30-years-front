@@ -8,6 +8,7 @@ import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull} from "react-icons/gi"
 import "./BattleDetail.css";
 import { selectProgress,selectUser } from "../store/user/userSelectors";
 import Quiz from "../components/Quiz";
+import { clearBattleDetail } from "../store/battle/battleSlice";
 
 function BattleDetail() {
   const { id } = useParams();
@@ -21,6 +22,20 @@ function BattleDetail() {
     //dispatch thunk action to get battle
     dispatch(fetchOneBattle(id));
     dispatch(fetchProgress());
+
+    //BUG FIX
+    //if you visit battle page then go to another 
+    //takes a while for new battleDetail to replace new battleDetail state. old content visible
+    //for a split second. cleanup function should clear battleDetail state when we exit the page
+   
+    return function(){
+      dispatch(clearBattleDetail())
+    }
+
+
+
+
+
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////

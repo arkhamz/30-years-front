@@ -15,8 +15,11 @@ export const battleSlice = createSlice({
     storeSingleBattle(state, action) {
       state.battleDetail = action.payload;
     },
+    clearBattleDetail(state,action){
+      state.battleDetail = null;
+    }
   },
 });
 
-export const { storeBattles, storeSingleBattle } = battleSlice.actions;
+export const { storeBattles, storeSingleBattle,clearBattleDetail } = battleSlice.actions;
 export default battleSlice.reducer;
