@@ -23,20 +23,20 @@ function Atlas() {
     },
     [dispatch]
   );
+//leaflet stuff
 
   //starting coordinate
   const location = [52.0875, 13.421389];
   //latitude - increases up, decreases down
   //longitude - increases right, decreases down
 
-  //leaflet stuff
-
-
-  const myIcon = new Icon({
-    iconUrl: gunIcon,
-    iconSize: [60, 60],
-    iconAnchor: [12, 41],
-  });
+  // defining a marker icon with options
+  // const myIcon = new Icon({
+  //   iconUrl: gunIcon,
+  //   iconSize: [60, 60],
+  //   iconAnchor: [12, 41],
+  //   className : "dum"
+  // });
 
   console.log(battles);
 
@@ -57,12 +57,19 @@ function Atlas() {
         />
         {battles &&
           battles.map(function (item, index, arr) {
+
+            const myIcon = new Icon({
+              iconUrl: gunIcon,
+              iconSize: [60, 60],
+              iconAnchor: [12, 41],
+              className : index === arr.length - 1 ? "recent" : ""
+            });
+
             return (
               <Marker
                 key={item.id}
                 position={[item.latitude, item.longitude]}
                 icon={myIcon}
-                className="icon"
                 eventHandlers={{
                   mouseover: (event) => event.target.openPopup(),
                 }}

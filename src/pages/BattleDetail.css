@@ -1,26 +1,31 @@
-/* font for the battle content */
+/* medieval font? */
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
-.battle-container {
+/* grid container - layout via grid-template-columns */
+/* .battle-container {
   width: 100%;
   min-height: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-content: center;
   justify-items: space-between;
-  /* justify-content: space-around; */
+  background-image: url("../smoke1.jpeg");
+  background-size: cover;
+  color: white;
+} */
+
+.battle-container {
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  align-content: center;
+  justify-items: space-between;
   background-image: url("../smoke1.jpeg");
   background-size: cover;
   color: white;
 }
 
-/* add medieval font?? */
-
-.battle-container {
-  font-family: "MedievalSharp", cursive;
-
-}
-
+/* container div for army's beligerents, commanders and stats */
 .army {
   width: fit-content;
   height: 70%;
@@ -32,12 +37,11 @@
   gap: 30px;
 }
 
+/* container div for beligierent divs */
 .beligerents {
   display: flex;
   gap: 15px;
-
 }
-
 
 /* div container of beligerent name and pic */
 .beligerent {
@@ -46,7 +50,6 @@
   align-items: center;
 }
 
-
 /* img element */
 .beligerent-flag {
   object-fit: contain;
@@ -54,7 +57,7 @@
   height: 100px;
 }
 
-/* COMMANDERS */
+/* container div for commander divs */
 .commanders {
   display: flex;
   width:max-content;
@@ -77,8 +80,8 @@
 .commander-flag {
   object-fit: cover;
   border-radius: 60%;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 
 .content {
@@ -106,7 +109,7 @@
   display: flex;
   flex-direction: column;
   gap:20px;
-  width: 70%;
+  width:100%;
   color: whitesmoke;
   background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(128, 128, 128,0.4));
   backdrop-filter: blur(5px);
@@ -121,8 +124,9 @@
 .prelude,.description{
   margin-top: 20px;
   text-align: justify;
-  overflow-y:scroll;
-  height: 220px;
+  width: 100%;
+  /* overflow-y:scroll; */
+  /* height: 220px; */
 
 }
 
@@ -134,20 +138,23 @@
 }
 
 /* CODE FOR EDITING SCROLLBARS */
-
-.prelude::-webkit-scrollbar,.description::-webkit-scrollbar {
   /* Width of vertical scroll bar */
+
+/* .prelude::-webkit-scrollbar,.description::-webkit-scrollbar {
  width: 13px;
 }
 ::-webkit-scrollbar-thumb {
  border-radius: 8px;
  background: #c2c9d2;
-}
+} */
 
 .stats{
-  
   display: flex;
   border-radius: 4px;
   flex-direction: column;
   gap: 15px;
+}
+
+.quiz-wrapper {
+  justify-self: center;
 }

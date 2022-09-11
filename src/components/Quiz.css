@@ -1,0 +1,4 @@
+.questions-container{
+    background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(128, 128, 128,0.4));
+    backdrop-filter: blur(5px);
+}

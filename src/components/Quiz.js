@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react"
+import "./Quiz.css"
 import {v4 as uuidv4} from "uuid";
 import { fetchProgress } from "../store/battle/battleThunks";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,16 +42,8 @@ export default function Quiz({questions, uid, battleId}){
         dispatch(fetchProgress());
     }
   })
-   
-    // {
-    //     text: "dsdsdss",
-    //     answerOptions: [
-    //         {answerText: "dsdsd", isCorrect: true},
-    //         ...
-    //     ]
-    // }
-    
-    
+
+
     return (
         <>
         {questions && score < 2 ? (
