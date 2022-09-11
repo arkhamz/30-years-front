@@ -42,9 +42,11 @@ function BattleDetail() {
           {/* greater than means that the user has already unlocked it */}
           {progress && progress >= Number(id) ? (
             <>
-            <div className="army">
+            
             {/* ARMY ONE */}
-            <div className="beligerents">
+          <div className="army-1">
+
+            <div className="beligerents-1">
               {battle.armyOne?.beligerents.map(function (item) {
                 return (
                   <div className="beligerent" key={uuidv4()}>
@@ -55,7 +57,7 @@ function BattleDetail() {
               })}
             </div>
 
-            <div className="commanders">
+            <div className="commanders-1">
               <h2>Commanders</h2>
               {/* ARMY ONE */}
               {battle.armyOne?.commanders.map(function (item) {
@@ -68,7 +70,7 @@ function BattleDetail() {
               })}
             </div>
 
-            <div className="stats">
+            <div className="stats-1">
               <h2>Battle Statistics</h2>
               <h3>
               <GiPikeman/> -
@@ -89,11 +91,9 @@ function BattleDetail() {
             </div>
             
           </div>
-          {/* BATTLE CONTENT  */}
+          
+          {/* BATTLE CONTENT - title,picture,date */}
           <div className="content">
-
-            
-
               <div className="title">
                 <h1>
                   {battleTitle.startsWith("Siege")
@@ -109,28 +109,27 @@ function BattleDetail() {
               <div className="year"><h2>{battle.date}</h2></div>
               <div className="result"> <h2>Result: {battle.result}</h2></div>
 
-              <div className="battle-detail">
-
-                <div className="prelude">
-                  <h2>Prelude</h2>
-                  <p>{battle.prelude}</p>
-                </div>
-
-                <div className="description">
-                  <h2>Battle Summary</h2>
-                  <p>{battle.description}</p>
-                </div>
-
-                
-              </div>
-
-
           </div>
+
+          <div className="battle-detail">
+            <div className="prelude">
+              <h2>Prelude</h2>
+              <p>{battle.prelude}</p>
+            </div>
+
+            <div className="description">
+              <h2>Battle Summary</h2>
+              <p>{battle.description}</p>
+            </div>
+          </div>
+
           {/* ARMY TWO------------------------------------ */}
-          <div className="army">
+         
             {/* ARMY TWO */}
 
-            <div className="beligerents">
+          <div className="army-2">
+
+            <div className="beligerents-2">
               {/* ARMY TWO */}
               {battle.armyTwo.beligerents.map(function (item) {
                 return (
@@ -143,7 +142,7 @@ function BattleDetail() {
               })}
             </div>
 
-            <div className="commanders">
+            <div className="commanders-2">
               <h2>Commanders</h2>
               {battle.armyTwo.commanders.map(function (item) {
                 return (
@@ -155,7 +154,7 @@ function BattleDetail() {
               })}
             </div>
 
-            <div className="stats">
+            <div className="stats-2">
               <h2>Battle Statistics</h2>
               <h3>
               <GiPikeman/> -
