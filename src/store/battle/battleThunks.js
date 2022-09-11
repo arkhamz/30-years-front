@@ -95,6 +95,15 @@ export function fetchProgress() {
 export function unlockNext(battleId,uid) {
   return async function (dispatch, getState) {
     try {
+
+      // if on last battle, battleId of 12, prevent trying to unlock the next battle.
+      //no battle with id of 13 exists
+
+
+      if(battleId === "12" || battleId === 12) {
+        return
+      }
+
       //unlock next one
       const response = await axios.post(`http://localhost:4000/progress/new`, {
         battleId: Number(battleId) + 1,

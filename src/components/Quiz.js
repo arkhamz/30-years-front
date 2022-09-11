@@ -2,10 +2,9 @@ import { useState,useEffect } from "react"
 import "./Quiz.css"
 import {v4 as uuidv4} from "uuid";
 import { fetchProgress } from "../store/battle/battleThunks";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { unlockNext } from "../store/battle/battleThunks";
-import { selectProgress } from "../store/user/userSelectors";
-
+import {TiTickOutline} from "react-icons/ti"
 
 export default function Quiz({questions, uid, battleId}){
 
@@ -16,9 +15,6 @@ export default function Quiz({questions, uid, battleId}){
     //since we are looping through array of questions
     const [score, setScore] = useState(0);
     const dispatch = useDispatch();
-    const progress = useSelector(selectProgress);
-
-    
 
   function handleClick(answer){
 
@@ -35,10 +31,11 @@ export default function Quiz({questions, uid, battleId}){
   }
 
   useEffect(function(){
-    if(score === 2){
+    // only unlock the next battle if battleId is not currently 12, i.e. last battle
+    if(score === 2 & battleId != "12"){
         //dispatch thunk that unlocks next battle and update progress
         dispatch(unlockNext(battleId, uid));
-        // update progress
+        // update progress in state
         dispatch(fetchProgress());
     }
   })
@@ -48,18 +45,38 @@ export default function Quiz({questions, uid, battleId}){
         <>
         {questions && score < 2 ? (
             <div className="questions-container">
-                <div className="score">
-                    Score: {score}
+
+                <div className="questions-">
+                    <div className="score">
+                        Score: {score}
+                    </div>
+                    
+                    <div className="question-count">
+                        {/* <span>Question {current + 1}</span> / {questions.length} */}
+                        <h2>Question {current + 1} / {questions.length} </h2>
+                    </div>
+                    
+                    <div className="question-text">
+                        <h3>{questions[current].text}</h3>
+                    </div>
+
+                    <div className="score-icon">
+                        {score === 1 && <TiTickOutline/>}
+                        {score === 2 && (
+                            <>
+                            <TiTickOutline/>
+                            <TiTickOutline/>
+                            
+                            </>
+                        )}
+
+                    </div>
+
                 </div>
-                <div className="question-count">
-                    <span>Question {current + 1}</span> / {questions.length}
-                </div>
-                <div className="question-text">
-                    {questions[current].text}
-                </div>
+                
                 <div className="answer-section">
                     {questions[current] && questions[current].answerOptions.map(function(item,index,arr){
-                        return <button key={uuidv4()} onClick={() => handleClick(item.isCorrect)}>{item.answerText}</button>
+                        return <button className="answer-btn" key={uuidv4()} onClick={() => handleClick(item.isCorrect)}>{item.answerText}</button>
                     })}
                 </div>
 

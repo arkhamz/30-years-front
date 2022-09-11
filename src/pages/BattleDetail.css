@@ -189,6 +189,12 @@
   text-align: center;
 }
 
+.stats-1 h3, .stats-2 h3 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .stats-2{
   display: flex;
   border-radius: 4px;
@@ -204,9 +210,16 @@
 
 }
 
+/* flip the battle statistic icons on the right to face left side */
+.stats-2 svg{
+  transform: scaleX(-1);
+}
+
 .quiz-wrapper {
+  margin-top: 20px;
   justify-self: center;
   grid-area:quiz;
+  width: 70%;
 }
 
 
