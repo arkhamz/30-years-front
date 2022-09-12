@@ -1,48 +1,46 @@
-
-.commanders-container{
-    width: 100%;
-    /* height: 100%; */
-    height: calc(100% - 100px);
-    /* background-image: url("../smoke1.jpeg"); */
-    /* background-size: cover; */
-    background-color: #1b1b1b;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.commanders-container {
+  width: 100%;
+  /* height: 100%; */
+  height: calc(100% - 100px);
+  /* background-image: url("../smoke1.jpeg"); */
+  /* background-size: cover; */
+  background-color: #1b1b1b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.commanders-header{
-    color: white;
-    position: fixed;
-    top: 15%
+.commanders-header {
+  color: white;
+  position: fixed;
+  top: 15%;
 }
 
-a{
-    text-decoration: none;
-    margin-right: 5px;
+a {
+  text-decoration: none;
+  margin-right: 5px;
 }
-
-
 
 /* OVWEWRITING STYLING OF CAROUEL BUTTONS AND ICON */
 
-
 /* react-elastic carousel class for the next and prev buttons */
-.eWjCzc{
-    background-color: #121212 !important;
+.eWjCzc {
+  background-color: #121212 !important;
 }
 
-.jhmYzC{
-    box-shadow: 0 0 1px 3px white !important;
+.jhmYzC {
+  box-shadow: 0 0 1px 3px white !important;
 }
 
-.jhmYzC:focus{
-    box-shadow: 0 0 1px 3px white !important;
+.jhmYzC:focus {
+  box-shadow: 0 0 1px 3px white !important;
 }
 
 /* react-elastic carousel button inner*/
-.krmNah{
-    background-color:  silver !important;
-    box-shadow: 0 0 1px 3px white !important;
+.krmNah {
+  background-color: silver !important;
+  box-shadow: 0 0 1px 3px white !important;
 }
+
+/* media queries */

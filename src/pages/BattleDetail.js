@@ -4,18 +4,24 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchOneBattle, fetchProgress } from "../store/battle/battleThunks";
 import { v4 as uuidv4 } from "uuid";
-import {GiCannon,GiPikeman,GiArmBandage,GiDeathSkull} from "react-icons/gi"
+import {
+  GiCannon,
+  GiPikeman,
+  GiArmBandage,
+  GiDeathSkull,
+} from "react-icons/gi";
 import "./BattleDetail.css";
-import { selectProgress,selectUser } from "../store/user/userSelectors";
+import { selectProgress, selectUser } from "../store/user/userSelectors";
 import Quiz from "../components/Quiz";
 import { clearBattleDetail } from "../store/battle/battleSlice";
+import { Fade } from "react-awesome-reveal";
 
 function BattleDetail() {
   const { id } = useParams();
   const battle = useSelector(selectOneBattle);
-  const progress = useSelector(selectProgress)
+  const progress = useSelector(selectProgress);
   const dispatch = useDispatch();
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   console.log(progress);
 
   useEffect(function () {
@@ -24,18 +30,13 @@ function BattleDetail() {
     dispatch(fetchProgress());
 
     //BUG FIX
-    //if you visit battle page then go to another 
+    //if you visit battle page then go to another
     //takes a while for new battleDetail to replace new battleDetail state. old content visible
     //for a split second. cleanup function should clear battleDetail state when we exit the page
-   
-    return function(){
-      dispatch(clearBattleDetail())
-    }
 
-
-
-
-
+    return function () {
+      dispatch(clearBattleDetail());
+    };
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -57,149 +58,163 @@ function BattleDetail() {
           {/* greater than means that the user has already unlocked it */}
           {progress && progress >= Number(id) ? (
             <>
-            
-            {/* ARMY ONE */}
-          <div className="army-1">
-
-            <div className="beligerents-1">
-              {battle.armyOne?.beligerents.map(function (item) {
-                return (
-                  <div className="beligerent" key={uuidv4()}>
-                    <img className="beligerent-flag" src={item[1]} alt="" />
-                    <h3>{item[0]}</h3>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="commanders-1">
-              <h2>Commanders</h2>
               {/* ARMY ONE */}
-              {battle.armyOne?.commanders.map(function (item) {
-                return (
-                  <div key={uuidv4()} className="commander">
-                    <img className="commander-flag" src={item[1]} alt="" />
-                    <p>{item[0]}</p>
+              <div className="army-1">
+                <div className="beligerents-1">
+                  {battle.armyOne?.beligerents.map(function (item) {
+                    return (
+                      <div className="beligerent" key={uuidv4()}>
+                        <img className="beligerent-flag" src={item[1]} alt="" />
+                        <h3>{item[0]}</h3>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="commanders-1">
+                  <h2>Commanders</h2>
+                  {/* ARMY ONE */}
+                  {battle.armyOne?.commanders.map(function (item) {
+                    return (
+                      <div key={uuidv4()} className="commander">
+                        <img className="commander-flag" src={item[1]} alt="" />
+                        <p>{item[0]}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="stats-1">
+                  <h2>Battle Statistics</h2>
+                  <h3>
+                    <GiPikeman /> -
+                    {armyOneStrength.number !== 0
+                      ? ` ${armyOneStrength.number}`
+                      : "   unknown"}
+                  </h3>
+                  <h3>
+                    <GiCannon /> -
+                    {armyOneStrength.guns !== 0
+                      ? `   ${armyOneStrength.guns}`
+                      : "   unknown"}
+                  </h3>
+                  <h3>
+                    <GiDeathSkull /> / <GiArmBandage /> -
+                    {armyOneCasualties && `   ${armyOneCasualties}`}
+                  </h3>
+                </div>
+              </div>
+
+              {/* BATTLE CONTENT - title,picture,date */}
+              <div className="content">
+                <div className="title">
+                  <h1>
+                    {battleTitle.startsWith("Siege")
+                      ? `${battleTitle} - ${battle.year}`
+                      : `Battle of ${battleTitle} - ${battle.year}`}
+                  </h1>
+                </div>
+
+                <div className="battle-img">
+                  <Fade direction={"top"}>
+                    <img className="battle-pic" src={battle.imageUrl} alt="" />
+                  </Fade>
+                </div>
+
+                <div className="year">
+                  <h2>{battle.date}</h2>
+                </div>
+                <div className="result">
+                  {" "}
+                  <h2>Result: {battle.result}</h2>
+                </div>
+              </div>
+
+              <div className="battle-detail">
+                <Fade>
+                  <div className="prelude">
+                    <h2>Prelude</h2>
+                    <p>{battle.prelude}</p>
                   </div>
-                );
-              })}
-            </div>
+                </Fade>
 
-            <div className="stats-1">
-              <h2>Battle Statistics</h2>
-              <h3>
-              <GiPikeman/> -
-                {armyOneStrength.number !== 0
-                  ? ` ${armyOneStrength.number}`
-                  : "   unknown"}
-              </h3>
-              <h3>
-              <GiCannon/> - 
-                {armyOneStrength.guns !== 0
-                  ? `   ${armyOneStrength.guns}`
-                  : "   unknown"}
-              </h3>
-              <h3>
-                <GiDeathSkull/> / <GiArmBandage/> - 
-                {armyOneCasualties && `   ${armyOneCasualties}`}
-              </h3>
-            </div>
-            
-          </div>
-          
-          {/* BATTLE CONTENT - title,picture,date */}
-          <div className="content">
-              <div className="title">
-                <h1>
-                  {battleTitle.startsWith("Siege")
-                    ? `${battleTitle} - ${battle.year}`
-                    : `Battle of ${battleTitle} - ${battle.year}`}
-                </h1>
+                <Fade>
+                  <div className="description">
+                    <h2>Battle Summary</h2>
+                    <p>{battle.description}</p>
+                  </div>
+                </Fade>
               </div>
 
-              <div className="battle-img">
-                <img className="battle-pic" src={battle.imageUrl} alt="" />
-              </div>
+              {/* ARMY TWO------------------------------------ */}
 
-              <div className="year"><h2>{battle.date}</h2></div>
-              <div className="result"> <h2>Result: {battle.result}</h2></div>
-
-          </div>
-
-          <div className="battle-detail">
-            <div className="prelude">
-              <h2>Prelude</h2>
-              <p>{battle.prelude}</p>
-            </div>
-
-            <div className="description">
-              <h2>Battle Summary</h2>
-              <p>{battle.description}</p>
-            </div>
-          </div>
-
-          {/* ARMY TWO------------------------------------ */}
-         
-            {/* ARMY TWO */}
-
-          <div className="army-2">
-
-            <div className="beligerents-2">
               {/* ARMY TWO */}
-              {battle.armyTwo.beligerents.map(function (item) {
-                return (
-                  <div className="beligerent" key={uuidv4()}>
-                    <img className="beligerent-flag" src={item[1]} alt="" />
 
-                    <h3>{item[0]}</h3>
-                  </div>
-                );
-              })}
-            </div>
+              <div className="army-2">
+                <div className="beligerents-2">
+                  {/* ARMY TWO */}
+                  {battle.armyTwo.beligerents.map(function (item) {
+                    return (
+                      <div className="beligerent" key={uuidv4()}>
+                        <img className="beligerent-flag" src={item[1]} alt="" />
 
-            <div className="commanders-2">
-              <h2>Commanders</h2>
-              {battle.armyTwo.commanders.map(function (item) {
-                return (
-                  <div key={uuidv4()} className="commander">
-                    <img className="commander-flag" src={item[1]} alt="" />
-                    <p>{item[0]}</p>
-                  </div>
-                );
-              })}
-            </div>
+                        <h3>{item[0]}</h3>
+                      </div>
+                    );
+                  })}
+                </div>
 
-            <div className="stats-2">
-              <h2>Battle Statistics</h2>
-              <h3>
-              <GiPikeman/> -
-                {armyTwoStrength.number !== 0
-                  ? ` ${armyTwoStrength.number}`
-                  : "   unknown"}
-              </h3>
-              <h3>
-              <GiCannon/> - 
-                {armyTwoStrength.guns !== 0
-                  ? `   ${armyTwoStrength.guns}`
-                  : "   unknown"}
-              </h3>
-              <h3>
-                <GiDeathSkull/> / <GiArmBandage/> - 
-                {armyTwoCasualties && `   ${armyTwoCasualties}`}
-              </h3>
-            </div>
+                <div className="commanders-2">
+                  <h2>Commanders</h2>
+                  {battle.armyTwo.commanders.map(function (item) {
+                    return (
+                      <div key={uuidv4()} className="commander">
+                        <img className="commander-flag" src={item[1]} alt="" />
+                        <p>{item[0]}</p>
+                      </div>
+                    );
+                  })}
+                </div>
 
-          </div>
+                <div className="stats-2">
+                  <h2>Battle Statistics</h2>
+                  <h3>
+                    <GiPikeman /> -
+                    {armyTwoStrength.number !== 0
+                      ? ` ${armyTwoStrength.number}`
+                      : "   unknown"}
+                  </h3>
+                  <h3>
+                    <GiCannon /> -
+                    {armyTwoStrength.guns !== 0
+                      ? `   ${armyTwoStrength.guns}`
+                      : "   unknown"}
+                  </h3>
+                  <h3>
+                    <GiDeathSkull /> / <GiArmBandage /> -
+                    {armyTwoCasualties && `   ${armyTwoCasualties}`}
+                  </h3>
+                </div>
+              </div>
 
-          <div className="quiz-wrapper">
-            {/* render quiz if battle id/param matches current unlock/progress */}
-            {Number(id) === progress && <Quiz battleId={id} uid={user.uid} questions={battle.questions}/>}
-          </div>
-
-            
+              <div className="quiz-wrapper">
+                {/* render quiz if battle id/param matches current unlock/progress */}
+                {Number(id) === progress && (
+                  <Fade>
+                    <Quiz
+                      battleId={id}
+                      uid={user.uid}
+                      questions={battle.questions}
+                    />
+                  </Fade>
+                )}
+              </div>
             </>
-          ) : <h1 style={{position:"absolute", top:"50%", left: "30%"}}>This battle has not been unlocked</h1>}
-
+          ) : (
+            <h1 style={{ position: "absolute", top: "50%", left: "30%" }}>
+              This battle has not been unlocked
+            </h1>
+          )}
         </div>
       )}
     </>
