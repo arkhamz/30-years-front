@@ -1,6 +1,13 @@
-.commander-card {
+/* .commander-card {
   max-height: 400px;
   width: 400px;
+  margin-right: 5px;
+  transition: transform 300ms ease-in-out;
+} */
+
+.commander-card {
+  width: 20vw;
+  height: 55vh;
   margin-right: 5px;
   transition: transform 300ms ease-in-out;
 }
@@ -27,4 +34,15 @@
 
   text-align: center;
   border-radius: 0px 0px 4px 4px;
+}
+
+
+@media screen and (max-width:1100px) {
+
+  .commander-card {
+    width: 30vw;
+    height: 50vh;
+   
+  }
+  
 }
