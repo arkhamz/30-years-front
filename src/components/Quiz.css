@@ -1,43 +1,44 @@
-.questions-container{
-    background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(128, 128, 128,0.4));
-    backdrop-filter: blur(5px);
-    display: flex;
-    width: 100%;
-    gap: 10px;
-    height: 150px;
+.questions-container {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(128, 128, 128, 0.4)
+  );
+  backdrop-filter: blur(5px);
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  height: 150px;
 }
 
-
-.questions{
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 50%;
+.questions {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.answer-section{
-    display:flex;
-    width: 50%;
-    flex-direction: column;
-    justify-content: center;
-    gap:10px;
-    align-items: center;
-    
+.answer-section {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
 }
 
 .answer-btn {
-    width: fit-content;
-    padding: 2px;
-    background-color: rgba(128, 128, 128,0.4);
-    outline: none;
-    border: 2px solid silver;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 200ms ease-in-out;
+  width: 100%;
+  padding: 2px;
+  background-color: rgba(128, 128, 128, 0.4);
+  outline: none;
+  border: 2px solid silver;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
 }
 
-.answer-btn:hover{
-    background-color: rgba(245, 236, 236, 0.4);
-    font-weight: bold;
+.answer-btn:hover {
+  background-color: rgba(245, 236, 236, 0.4);
+  font-weight: bold;
 }

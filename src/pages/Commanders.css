@@ -1,20 +1,18 @@
 .commanders-container {
   width: 100%;
-  /* height: 100%; */
-  height: calc(100% - 100px);
-  /* background-image: url("../smoke1.jpeg"); */
-  /* background-size: cover; */
+  height: 100%;
   background-color: #1b1b1b;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
 }
 
 .commanders-header {
   color: white;
-  position: fixed;
-  top: 15%;
+  /* position: fixed;
+  top: 15%; */
 }
 
 a {
@@ -22,7 +20,7 @@ a {
   margin-right: 5px;
 }
 
-/* OVWEWRITING STYLING OF CAROUEL BUTTONS AND ICON */
+/* OVERWRITING STYLING OF CAROUEL BUTTONS AND ICON */
 
 /* react-elastic carousel class for the next and prev buttons */
 .eWjCzc {

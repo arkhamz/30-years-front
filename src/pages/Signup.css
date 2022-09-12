@@ -1,49 +1,75 @@
-.signup-container{
-    background-color: #1b1b1b;
-    min-height: calc(100% - 100px);
-    width: 100%;
-    color: white;
-    display: flex;
-    align-items: center;
+.signup-container {
+  background-color: #1b1b1b;
+  min-height: calc(100% - 100px);
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-
-.signup-form{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: -20%;
-    gap: 20px;
+.signup-form {
+  display: flex;
+  background-color: #2b2a2a;
+  width: 30vw;
+  height: 60vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .signup-form > div {
-    display:flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .signup-form input {
-    outline: none;
-    font-weight: bold;
-    background-color: #1b1b1b;
-    border: none;
-    border-bottom: 2px solid white;
-    padding: 5px;
-    border-radius: 2px;
-    color: white;
-    box-shadow: 0px 1px 1px 0px black;
+  font-size: large;
+  outline: none;
+  font-weight: bold;
+  background-color: #1b1b1b;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 5px;
+  border-radius: 2px;
+  color: white;
+  box-shadow: 0px 1px 1px 0px black;
 }
 
-.signup-form button{
-    width: 140px;
-    height: 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 4px;
-    border: none;
-    outline: none;
-    box-shadow: 2px 2px 4px 2px white;
+.signup-form button {
+  width: 140px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 4px;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 4px 2px white;
+}
+
+.signup-form a {
+  margin-top: 10px;
+  color: white;
+}
+
+.signup-form a span {
+  text-decoration: underline;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1440px) {
+  .signup-form {
+    width: 60vw;
+    height: 70vh;
+  }
+
+  .signup-form input {
+    font-size: medium;
+  }
 }

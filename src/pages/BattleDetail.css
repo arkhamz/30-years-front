@@ -1,5 +1,5 @@
 /* medieval font? */
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
 
 /* grid container - layout via grid-template-columns */
 /* .battle-container {
@@ -18,10 +18,10 @@
   width: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-areas: 
-  "army1 content army2"
-  "army1 detail army2"
-  ". quiz .";
+  grid-template-areas:
+    "army1 content army2"
+    "army1 detail army2"
+    ". quiz .";
   align-items: center;
   justify-items: center;
   background-image: url("../smoke1.jpeg");
@@ -30,7 +30,7 @@
 }
 
 /* container div for army's beligerents, commanders and stats */
-.army-1{
+.army-1 {
   width: fit-content;
   height: 70%;
   display: flex;
@@ -38,14 +38,14 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 30px;
-  grid-area:army1;
+  grid-area: army1;
   align-self: center;
   justify-self: center;
   position: sticky;
-  top:1px;
+  top: 1px;
 }
 
-.army-2{
+.army-2 {
   width: fit-content;
   height: 70%;
   display: flex;
@@ -53,24 +53,22 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 30px;
-  grid-area:army2;
+  grid-area: army2;
   align-self: center;
   justify-self: center;
   position: sticky;
-  top:1px;
+  top: 1px;
 }
 
 /* container div for beligierent divs */
-.beligerents-1{
+.beligerents-1 {
   display: flex;
   gap: 15px;
- 
 }
 
-.beligerents-2{
+.beligerents-2 {
   display: flex;
   gap: 15px;
-  
 }
 
 /* div container of beligerent name and pic */
@@ -89,7 +87,7 @@
 
 /* container div for commander divs */
 .commanders-1 {
-  width:max-content;
+  width: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,14 +96,13 @@
 }
 
 .commanders-2 {
-  width:max-content;
+  width: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-
 
 /* div container of commander name and pic */
 .commander {
@@ -131,56 +128,61 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  grid-area:content;
+  grid-area: content;
 }
 
 /* div of main battle <img> */
-.battle-img{
+.battle-img {
   width: 100%;
   object-fit: contain;
 }
 
 /* <img> of main battle */
-.battle-pic{
+.battle-pic {
   width: 100%;
 }
 
 /* div containing prelude and description divs of header and paragraph */
-.battle-detail{
+.battle-detail {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap:20px;
-  width:70%;
+  gap: 20px;
+  width: 70%;
   color: whitesmoke;
-  background-image: linear-gradient(rgba(0, 0, 0,0.3),rgba(128, 128, 128,0.4));
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(128, 128, 128, 0.4)
+  );
   backdrop-filter: blur(5px);
-  grid-area:detail;
+  grid-area: detail;
 }
 
-.battle-detail p, .battle-detail h2{
+.battle-detail p,
+.battle-detail h2 {
   line-height: 25px;
   letter-spacing: 3px;
   font-weight: bold;
 }
 
-.prelude,.description{
+.prelude,
+.description {
   margin-top: 20px;
   text-align: justify;
   width: 100%;
   /* overflow-y:scroll; */
   /* height: 220px; */
-
 }
 
-.prelude h2,.description h2{
-  background-color:  black;
+.prelude h2,
+.description h2 {
+  background-color: black;
   color: white;
   width: fit-content;
   padding: 4px;
 }
 
-.stats-1{
+.stats-1 {
   display: flex;
   border-radius: 4px;
   flex-direction: column;
@@ -189,13 +191,14 @@
   text-align: center;
 }
 
-.stats-1 h3, .stats-2 h3 {
-  display:flex;
+.stats-1 h3,
+.stats-2 h3 {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.stats-2{
+.stats-2 {
   display: flex;
   border-radius: 4px;
   flex-direction: column;
@@ -204,28 +207,25 @@
   text-align: center;
 }
 
-.stats-1 svg, .stats-2 svg {
-
+.stats-1 svg,
+.stats-2 svg {
   font-size: 2rem;
-
 }
 
 /* flip the battle statistic icons on the right to face left side */
-.stats-2 svg{
+.stats-2 svg {
   transform: scaleX(-1);
 }
 
 .quiz-wrapper {
   margin-top: 20px;
   justify-self: center;
-  grid-area:quiz;
+  grid-area: quiz;
   width: 70%;
 }
 
-
-
 /* CODE FOR EDITING SCROLLBARS */
-  /* Width of vertical scroll bar */
+/* Width of vertical scroll bar */
 
 /* .prelude::-webkit-scrollbar,.description::-webkit-scrollbar {
  width: 13px;
@@ -234,3 +234,38 @@
  border-radius: 8px;
  background: #c2c9d2;
 } */
+
+/* -------------MEDIA QUERIES ------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .battle-container {
+    grid-template-areas:
+      "content content"
+      "army1 army2"
+      "detail detail"
+      "quiz quiz";
+    align-content: center;
+  }
+
+  .army-1,
+  .army-2 {
+    position: static;
+    top: 0;
+    height: auto;
+    align-self: baseline;
+  }
+
+  .battle-img {
+    width: 50%;
+    object-fit: contain;
+  }
+
+  .beligerent-flag {
+    object-fit: contain;
+    width: 70px;
+    height: 70px;
+  }
+
+  .commander-flag {
+  }
+}
