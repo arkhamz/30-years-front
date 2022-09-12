@@ -10,7 +10,7 @@ export default function CommanderCard({commander}){
     
     return <article className="commander-card">
         <div className="commander-image">
-            <img src={commander.imageUrl} alt={commander.fullName} />
+            <img loading="lazy" src={commander.imageUrl} alt={commander.fullName} />
         </div>
         <Link to={`/commanders/${commander.id}`}>
         <div style={{

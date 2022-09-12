@@ -64,7 +64,7 @@ function BattleDetail() {
                   {battle.armyOne?.beligerents.map(function (item) {
                     return (
                       <div className="beligerent" key={uuidv4()}>
-                        <img className="beligerent-flag" src={item[1]} alt="" />
+                        <img loading="lazy" className="beligerent-flag" src={item[1]} alt="" />
                         <h3>{item[0]}</h3>
                       </div>
                     );
@@ -77,7 +77,7 @@ function BattleDetail() {
                   {battle.armyOne?.commanders.map(function (item) {
                     return (
                       <div key={uuidv4()} className="commander">
-                        <img className="commander-flag" src={item[1]} alt="" />
+                        <img loading="lazy" className="commander-flag" src={item[1]} alt="" />
                         <p>{item[0]}</p>
                       </div>
                     );
@@ -117,7 +117,7 @@ function BattleDetail() {
 
                 <div className="battle-img">
                   <Fade direction={"top"}>
-                    <img className="battle-pic" src={battle.imageUrl} alt="" />
+                    <img loading="lazy" className="battle-pic" src={battle.imageUrl} alt="" />
                   </Fade>
                 </div>
 
@@ -156,7 +156,7 @@ function BattleDetail() {
                   {battle.armyTwo.beligerents.map(function (item) {
                     return (
                       <div className="beligerent" key={uuidv4()}>
-                        <img className="beligerent-flag" src={item[1]} alt="" />
+                        <img loading="lazy" className="beligerent-flag" src={item[1]} alt="" />
 
                         <h3>{item[0]}</h3>
                       </div>
@@ -169,7 +169,7 @@ function BattleDetail() {
                   {battle.armyTwo.commanders.map(function (item) {
                     return (
                       <div key={uuidv4()} className="commander">
-                        <img className="commander-flag" src={item[1]} alt="" />
+                        <img loading="lazy" className="commander-flag" src={item[1]} alt="" />
                         <p>{item[0]}</p>
                       </div>
                     );
