@@ -31,7 +31,7 @@
   font-size: large;
   outline: none;
   font-weight: bold;
-  background-color: #1b1b1b;
+  background-color: inherit;
   border: none;
   border-bottom: 2px solid white;
   padding: 5px;
