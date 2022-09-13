@@ -34,13 +34,15 @@ function CommanderDetail() {
     <>
       {commander && (
         <div className="commander-detail-container">
-          <Fade>
+          
             <div className="commander-details">
-              <h2>Title: {commander.title}</h2>
+             <Fade>
+             <h2>Title: {commander.title}</h2>
               <h2> Birth Date: {commander.birthDate}</h2>
               <h2>Birth Place: {commander.birthPlace}</h2>
               <h2>Allegiance: {commander.loyalty}</h2>
               <h2>Died on: {commander.died}</h2>
+             </Fade>
             </div>
 
             <div className="commander-pic-title">
@@ -59,9 +61,11 @@ function CommanderDetail() {
             </div>
 
             <div className="commander-bio">
+              <Fade>
               <p>{commander.bio}</p>
+              </Fade>
             </div>
-          </Fade>
+          
         </div>
       )}
     </>
