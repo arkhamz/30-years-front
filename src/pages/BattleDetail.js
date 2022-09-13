@@ -211,8 +211,8 @@ function BattleDetail() {
               </div>
 
               <div className="video">
-                {/*show video if battleId not equal to progress - i.e. not equal to the currently unlocked one */}
-              {Number(id) !== progress && (
+                {/*show video if battle ID is less than progress, i.e. already unlocked/not the current unlock  */}
+              {Number(id) < progress && (
                 <>
                   <iframe width="560" height="315" src={battle.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </>

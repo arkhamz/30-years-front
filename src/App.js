@@ -16,16 +16,17 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import {selectAuthCheck,selectToken,} from "./store/user/userSelectors";
+import Spinner from "./components/Spinner";
 
 function App() {
   const dispatch = useDispatch();
   const authCheck = useSelector(selectAuthCheck);
   const token = useSelector(selectToken);
 
-  //secret Paraguayan tech
-  function protectedRoute(Component,redirectPath){
-    return token ? <Component /> : <Navigate to={redirectPath} /> 
-  }
+  // //secret Paraguayan tech
+  // function protectedRoute(Component,redirectPath){
+  //   return token ? <Component /> : <Navigate to={redirectPath} /> 
+  // }
 
   useEffect(function () {
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
@@ -55,6 +56,7 @@ function App() {
       {authCheck && (
         <>
           <Navbar />
+          <Spinner/>
           <Routes>
             <Route path="/" element={ !token ? <Home /> : <Navigate to="/atlas" />} />
             <Route path="/atlas" element={ token ? <Atlas /> : <Navigate to="/login"/>} />
