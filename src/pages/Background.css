@@ -1,6 +1,22 @@
 .background-container{
     background-color: #1b1b1b;
     min-height: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     color: white;
+}
+
+.background-content{
+    width: 50vw;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: justify;
+    letter-spacing: 3px;
+
 }

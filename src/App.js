@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/config";
 import { useDispatch, useSelector } from "react-redux";
 import { AUTH_IS_READY } from "./store/user/userSlice";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Navigate } from "react-router-dom";
 //pages & components
 import Atlas from "./pages/Atlas";
 import Background from "./pages/Background";
@@ -17,19 +17,14 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import {
   selectAuthCheck,
-  selectProgress,
-  selectUser,
+  selectToken,
 } from "./store/user/userSelectors";
-import { fetchBattles } from "./store/battle/battleThunks";
 
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
   const authCheck = useSelector(selectAuthCheck);
-  const progress = useSelector(selectProgress);
+  const token = useSelector(selectToken);
 
-  console.log(user);
-  console.log(progress);
 
   useEffect(function () {
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
@@ -43,6 +38,7 @@ function App() {
           displayName: user.displayName,
           uid: user.uid,
         };
+        // set auth check to true, store user and token in redux state
         dispatch(AUTH_IS_READY({ newUser, userToken }));
       } else {
         dispatch(AUTH_IS_READY({ newUser: null, userToken: null }));
@@ -59,14 +55,14 @@ function App() {
         <>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/atlas" element={<Atlas />} />
-            <Route path="/battles/:id" element={<BattleDetail />} />
-            <Route path="/commanders" element={<Commanders />} />
-            <Route path="/commanders/:id" element={<CommanderDetail />} />
+            <Route path="/" element={ !token ? <Home /> : <Navigate to="/atlas" />} />
+            <Route path="/atlas" element={ token ? <Atlas /> : <Navigate to="/login"/>} />
+            <Route path="/battles/:id" element={ token ? <BattleDetail /> : <Navigate to="/login" />} />
+            <Route path="/commanders" element={ token ? <Commanders /> : <Navigate to="/login" />} />
+            <Route path="/commanders/:id" element={ token ? <CommanderDetail/> : <Navigate to="/login" /> } />
             <Route path="/background" element={<Background />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/atlas" />} />
+            <Route path="/login" element={!token ? <Login /> : <Navigate to="/atlas" />} />
           </Routes>
         </>
       )}
