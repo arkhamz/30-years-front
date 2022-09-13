@@ -49,3 +49,12 @@ li.brand {
   color: white;
   font-size: 2rem;
 }
+
+nav svg{
+  font-size:2rem;
+  transition: rotate 1s ease-in-out;
+}
+
+nav svg:hover{
+  rotate: 360deg;
+}
