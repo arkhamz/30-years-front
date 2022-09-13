@@ -21,7 +21,8 @@
   grid-template-areas:
     "army1 content army2"
     "army1 detail army2"
-    ". quiz .";
+    ". quiz ."
+    ". frame .";
   align-items: center;
   justify-items: center;
   background-image: url("../smoke1.jpeg");
@@ -225,16 +226,15 @@
   width: 70%;
 }
 
-/* CODE FOR EDITING SCROLLBARS */
-/* Width of vertical scroll bar */
-
-/* .prelude::-webkit-scrollbar,.description::-webkit-scrollbar {
- width: 13px;
+.video {
+  width: 70%;
+  grid-area: frame;
 }
-::-webkit-scrollbar-thumb {
- border-radius: 8px;
- background: #c2c9d2;
-} */
+
+.video iframe{
+  margin-top: 10px;
+  width: 100%;
+}
 
 /* -------------MEDIA QUERIES ------------------------------------- */
 
@@ -244,7 +244,8 @@
       "content content"
       "army1 army2"
       "detail detail"
-      "quiz quiz";
+      "quiz quiz"
+      "frame frame";
     align-content: center;
   }
 
@@ -254,6 +255,7 @@
     top: 0;
     height: auto;
     align-self: baseline;
+    font-size: smaller;
   }
 
   .battle-img {
@@ -267,6 +269,5 @@
     height: 70px;
   }
 
-  .commander-flag {
-  }
+
 }

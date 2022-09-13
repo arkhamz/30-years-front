@@ -46,11 +46,11 @@ ul.links a {
   font-size: 1.5rem;
 }
 
-li.brand {
+/* li.brand {
   margin-right: auto;
   color: white;
   font-size: 2rem;
-}
+} */
 
 nav svg{
   font-size:2rem;
@@ -101,10 +101,15 @@ nav svg{
     height: 60vh;
     display: flex;
     flex-direction: column;
+    gap:20px;
     align-items: center;
     transition: 200ms ease-in-out;
     background-color: #2b2a2a;
     backdrop-filter: blur(5px);
     z-index: 400;
+  }
+
+  .nav-logo{
+    margin-right:0;
   }
 }
