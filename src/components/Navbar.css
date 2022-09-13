@@ -19,6 +19,7 @@ nav button{
   padding: 3px;
   color: white;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .nav-logo{
@@ -36,6 +37,7 @@ ul.links {
   display: flex;
   list-style-type: none;
   padding-right: 5px;
+  background-color: inherit;
 }
 
 ul.links a {
@@ -55,6 +57,54 @@ nav svg{
   transition: rotate 1s ease-in-out;
 }
 
-nav svg:hover{
+.globe:hover{
   rotate: 360deg;
+}
+
+
+/* -------------------collapsible navbar code-------------- */
+
+/* div containing menu icons  */
+.nav-toggler{
+  display: none;
+  margin-left: 2rem;
+}
+
+.menu-icon{
+  margin-top: 10px;
+  font-size: 3rem;
+  text-decoration:none;
+  color: white;
+}
+
+/* ul with links & links-active class */
+.links.links-active{
+  top: 0%;
+}
+
+
+@media screen and (max-width:768px) {
+  /* normally hidden div - contains menu icons */
+  .nav-toggler{
+    display:block;
+    position:fixed;
+    left:3%;
+    z-index: 400;
+    /* makes div visible, and the icons inside.
+    is fixed on screen, 3% from the left of viewport */
+  }
+  /* <ul> of navigation list items */
+  ul.links{
+    position: fixed;
+    top:-100%;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 200ms ease-in-out;
+    background-color: #2b2a2a;
+    backdrop-filter: blur(5px);
+    z-index: 400;
+  }
 }

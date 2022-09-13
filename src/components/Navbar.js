@@ -13,32 +13,44 @@ function Navbar() {
   //When logged in, you should not see signup or logout
 
   const dispatch = useDispatch();
+  // token represents currently logged in user, loads faster than user state
   const token = useSelector(selectToken);
   const [menuOpen,setMenuOpen] = useState(false);
-  // token represents currently logged in user, loads faster than user state
 
   function handleClick(){
     dispatch(logout())
   }
 
+
   function handleMenuClick(){
     setMenuOpen(!menuOpen);
+  }
+
+  // Code for closing the collapsible <ul> when you click on a link
+  function handleLinkClick(e){
+    
+    if(e.target.tagName === "A"){
+      if(menuOpen){
+        setMenuOpen(false);
+      }
+    }
 
   }
 
 
   return (
     <nav>
-      <ul className={menuOpen ? "links-menu" : "links"}>
-        {/* <li className="brand">historyMate</li> */}
+      <ul onClick={handleLinkClick} className={menuOpen ? "links links-active" : "links"}>
         <img className="nav-logo" src={test} alt="" />
-        <NavLink to="/atlas"><FaGlobeEurope/></NavLink>
+        <NavLink to="/atlas"><FaGlobeEurope className="globe"/></NavLink>
         <NavLink to="/background">Background</NavLink>
         <NavLink to="/commanders">Commanders</NavLink>
         {!token ? <NavLink to="/signup">Signup</NavLink> : null }
        { !token ? <NavLink to="/login">Login</NavLink> : <button onClick={handleClick}>Logout</button> }
-        
       </ul>
+      <div onClick={handleMenuClick} className="nav-toggler">
+        <Link className="menu-icon" to="#"> {menuOpen ? <AiOutlineClose/> : <AiOutlineMenu/>  }</Link>
+      </div>
     </nav>
   );
 }
