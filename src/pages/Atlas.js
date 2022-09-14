@@ -5,6 +5,7 @@ import { fetchBattles } from "../store/battle/battleThunks";
 import { selectBattles } from "../store/battle/battleSelectors";
 import { Icon } from "leaflet";
 import { selectUser } from "../store/user/userSelectors";
+import { selectProgress } from "../store/user/userSelectors";
 import "./Atlas.css";
 //leaflet imports and leaflet-related
 import gunIcon from "../gun2.svg";
@@ -15,17 +16,22 @@ function Atlas() {
   const dispatch = useDispatch();
   const battles = useSelector(selectBattles);
   const navigator = useNavigate();
-  const user = useSelector(selectUser);
-
+  const progress = useSelector(selectProgress);
 
   useEffect(
     function () {
+
+      if(progress && progress === 1){
+        dispatch(fetchBattles());
+      } else if(progress && progress > 1){
+
+        dispatch(fetchBattles());
+      }
       console.log("atlas fetch battles");
       
-        dispatch(fetchBattles());
       
     },
-    [dispatch]
+    [progress]
   );
 //leaflet stuff
 

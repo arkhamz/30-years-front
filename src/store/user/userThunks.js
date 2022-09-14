@@ -1,4 +1,4 @@
-import { LOGIN,LOGOUT } from "./userSlice"
+import { LOGIN,LOGOUT, UPDATE_PROGRESS } from "./userSlice"
 import axios from "axios"
 // import { auth } from "../../firebase/config"
 import {createUserWithEmailAndPassword, updateProfile,signInWithEmailAndPassword,signOut,getAuth} from "firebase/auth"
@@ -61,6 +61,8 @@ export function signup(email,password,username,navigator){
             if(dbresponse && progressResponse){
                 // localStorage.setItem("userToken", userToken);
                 dispatch(LOGIN({newUser, userToken}));
+                // set progress to 1, this will be overwritten to 1 when fetch happens
+                dispatch(UPDATE_PROGRESS(1));
             }
 
             // dispatch(LOGIN({newUser, userToken}));

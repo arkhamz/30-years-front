@@ -24,7 +24,7 @@ export default function Quiz({questions, uid, battleId}){
     // If answer is true, increase score. As long as score is not equal to 2
     if(answer === true){
             if(score < 2){
-                setScore( score + 1)
+                setScore( score + 1);
             }
     }
     //Increase currentObject index if current index is less than last index
