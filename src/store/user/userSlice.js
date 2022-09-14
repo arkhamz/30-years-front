@@ -22,7 +22,7 @@ export const userSlice = createSlice({
         //set state.user to null
         state.user = null;
         state.token = null;
-        state.authCheck = false;
+        // state.authCheck = false;
         state.progress = null;
       
     },

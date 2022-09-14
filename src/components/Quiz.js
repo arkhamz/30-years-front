@@ -15,6 +15,7 @@ export default function Quiz({questions, uid, battleId}){
     //e.g. starts with 1st question visible, then moves to next question
     //since we are looping through array of questions
     const [score, setScore] = useState(0);
+    const [unlocked, setUnlocked] = useState(false);
     const dispatch = useDispatch();
     console.log(score);
 
@@ -36,14 +37,20 @@ export default function Quiz({questions, uid, battleId}){
   useEffect(function(){
     // only unlock the next battle if battleId is not currently 12, i.e. last battle
     if(score === 2 && battleId != "12"){
-        //dispatch thunk that unlocks next battle and update progress
+        if(!unlocked){
+            //dispatch thunk that unlocks next battle and update progress
         dispatch(unlockNext(battleId, uid));
+        setUnlocked(true);
         // show message popup
-        dispatch(showMessage("A New Battle Is Available on The Map!\nVideo unlocked!"));
+        dispatch(showMessage(`A New Battle Is Available on The Map!
+         Video unlocked!`));
         // update progress in state
         // dispatch(fetchProgress());
+
+        }
+        
     }
-  },[score])
+  },[score,unlocked])
 
 
     return (
