@@ -18,15 +18,15 @@ function Atlas() {
   const navigator = useNavigate();
   const progress = useSelector(selectProgress);
 
+  console.log("progress", progress);
+  console.log("battles",battles)
+
   useEffect(
     function () {
 
-      if(progress && progress === 1){
+      if(progress && progress >= 1){
         dispatch(fetchBattles());
-      } else if(progress && progress > 1){
-
-        dispatch(fetchBattles());
-      }
+      } 
       console.log("atlas fetch battles");
       
       

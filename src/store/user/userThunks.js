@@ -60,9 +60,9 @@ export function signup(email,password,username,navigator){
             // if new user created in database and new unlock, update redux state with token
             if(dbresponse && progressResponse){
                 // localStorage.setItem("userToken", userToken);
-                dispatch(LOGIN({newUser, userToken}));
+                await dispatch(LOGIN({newUser, userToken}));
                 // set progress to 1, this will be overwritten to 1 when fetch happens
-                dispatch(UPDATE_PROGRESS(1));
+                // dispatch(UPDATE_PROGRESS(1));
             }
 
             // dispatch(LOGIN({newUser, userToken}));
