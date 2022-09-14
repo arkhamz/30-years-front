@@ -26,11 +26,6 @@ function App() {
   const token = useSelector(selectToken);
   const user = useSelector(selectUser)
 
-  // //secret Paraguayan tech
-  // function protectedRoute(Component,redirectPath){
-  //   return token ? <Component /> : <Navigate to={redirectPath} /> 
-  // }
-
   useEffect(function () {
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
     const unsub = onAuthStateChanged(auth, function (user) {
