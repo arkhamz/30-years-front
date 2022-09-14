@@ -3,6 +3,7 @@ import axios from "axios"
 // import { auth } from "../../firebase/config"
 import {createUserWithEmailAndPassword, updateProfile,signInWithEmailAndPassword,signOut,getAuth} from "firebase/auth"
 import { clearBattles } from "../battle/battleSlice"
+import { showMessage } from "../appState/appStateThunks"
 
 const auth = getAuth()
 
@@ -96,6 +97,8 @@ export function login(email,password, navigator){
         } catch (e) {
             console.log(e);
             console.log(e.message);  
+            dispatch(showMessage("Invalid email address or password"));
+
         }
 
     }

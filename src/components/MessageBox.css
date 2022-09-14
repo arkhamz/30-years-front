@@ -3,8 +3,8 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 40vw;
-    height: 10vh;
+    width: 30vw;
+    height: 7vh;
     top: -100%;
     left: 50%;
     background-color:#2b2a2a;
@@ -20,7 +20,7 @@
 
 
 .message-box.message-active{
-    top: 50%;
+    top: 40%;
     transform: translate(-50%,-50%);
     /* opacity:1; */
 }

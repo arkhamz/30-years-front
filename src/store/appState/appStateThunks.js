@@ -1,7 +1,7 @@
 import { SET_MESSAGE,CLEAR_MESSAGE } from "./appStateSlice";
 
 
-//takes message text
+//takes message text, saves it in state then clears it from state after 2.5 secs
 //saves object with type and text to message state - only used text
 //clears message from state after 2 secs
 export function showMessage(text){
