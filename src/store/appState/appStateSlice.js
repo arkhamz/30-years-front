@@ -9,7 +9,7 @@ export const appStateSlice = createSlice({
   name: "appState",
   initialState,
   reducers: {
-    LOADING: (state) => {
+    LOADING_START: (state) => {
       state.loading = true;
     },
     LOADING_DONE: (state) => {
@@ -24,7 +24,7 @@ export const appStateSlice = createSlice({
   },
 });
 
-export const { LOADING, LOADING_DONE, SET_MESSAGE, CLEAR_MESSAGE } =
+export const { LOADING_START, LOADING_DONE, SET_MESSAGE, CLEAR_MESSAGE } =
   appStateSlice.actions;
 
 export default appStateSlice.reducer;

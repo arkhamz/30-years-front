@@ -7,11 +7,13 @@ import { v4 as uuidv4 } from "uuid";
 import "./CommanderDetail.css";
 import { clearCommanderDetail } from "../store/commander/commanderSlice";
 import { Fade } from "react-awesome-reveal";
+import { selectLoading } from "../store/appState/appStateSelectors";
 
 function CommanderDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const commander = useSelector(selectOneCommander);
+  const loading = useSelector(selectLoading);
 
   console.log(commander);
 

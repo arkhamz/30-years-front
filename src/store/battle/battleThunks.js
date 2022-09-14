@@ -2,6 +2,7 @@ import axios from "axios";
 import { selectUser } from "../user/userSelectors";
 import { UPDATE_PROGRESS } from "../user/userSlice";
 import { storeBattles, storeSingleBattle } from "./battleSlice";
+import { LOADING_START, LOADING_DONE } from "../appState/appStateSlice";
 
 
 export function fetchBattles() {
@@ -35,9 +36,7 @@ export function fetchBattles() {
   };
 }
 
-
-
-// //get all battles irrespective of user progresss
+// //get all battles 
 // export function fetchBattles() {
 //   return async function (dispatch, getState) {
 //     try {
@@ -54,12 +53,15 @@ export function fetchBattles() {
 
 export function fetchOneBattle(id) {
   return async function (dispatch, getState) {
+    dispatch(LOADING_START())
     try {
       //GET REQUEST /battles/:id
       const response = await axios.get(`http://localhost:4000/battles/${id}`);
       const battle = response.data;
       dispatch(storeSingleBattle(battle));
+      dispatch(LOADING_DONE());
     } catch (e) {
+      dispatch(LOADING_DONE())
       console.log(e);
       console.log(e.message);
     }
