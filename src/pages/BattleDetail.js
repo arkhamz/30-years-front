@@ -126,7 +126,7 @@ function BattleDetail() {
                 </div>
                 <div className="result">
                   {" "}
-                  <h2>Result: {battle.result}</h2>
+                  <h2>Result: {battleResult}</h2>
                 </div>
               </div>
 
@@ -134,14 +134,14 @@ function BattleDetail() {
                 <Fade>
                   <div className="prelude">
                     <h2>Prelude</h2>
-                    <p>{battle.prelude}</p>
+                    <p>{battlePrelude}</p>
                   </div>
                 </Fade>
 
                 <Fade>
                   <div className="description">
                     <h2>Battle Summary</h2>
-                    <p>{battle.description}</p>
+                    <p>{battleDescription}</p>
                   </div>
                 </Fade>
               </div>
@@ -214,7 +214,7 @@ function BattleDetail() {
                 {/*show video if battle ID is less than progress, i.e. already unlocked/not the current unlock  */}
               {Number(id) < progress && (
                 <>
-                  <iframe width="560" height="315" src={battle.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe loading="lazy" width="560" height="315" src={battle.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </>
               )}
               </div>

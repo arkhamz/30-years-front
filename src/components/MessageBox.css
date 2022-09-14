@@ -1,0 +1,28 @@
+.message-box{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 40vw;
+    height: 10vh;
+    top: -100%;
+    left: 50%;
+    background-color:#2b2a2a;
+    border-radius: 6px;
+    border: 1px solid grey;
+    z-index: 1000;
+    color: white;
+    font-size: large;
+    /* opacity:0; */
+    transition: 600ms ease-in-out;
+
+}
+
+
+.message-box.message-active{
+    top: 50%;
+    transform: translate(-50%,-50%);
+    /* opacity:1; */
+}
+
+

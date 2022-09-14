@@ -2,18 +2,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectOneCommander } from "../store/commander/commanderSelectors";
 import { fetchOneCommander } from "../store/commander/commanderThunks";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Navigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "./CommanderDetail.css";
 import { clearCommanderDetail } from "../store/commander/commanderSlice";
 import { Fade } from "react-awesome-reveal";
 import { selectLoading } from "../store/appState/appStateSelectors";
+import { showMessage } from "../store/appState/appStateThunks";
 
 function CommanderDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const commander = useSelector(selectOneCommander);
-  const loading = useSelector(selectLoading);
+
 
   console.log(commander);
 
@@ -21,10 +22,7 @@ function CommanderDetail() {
     //dispatch thunk action that gets commander from db
     dispatch(fetchOneCommander(id));
 
-    //BUG FIX
-    //if you go back to commanders page and then click new commander
-    //you see current commander briefly before the redux state is replaced with new one
-    //this should clear it when you leave the page;
+    //clear commander from redux state when we leave the page s
     return function () {
       dispatch(clearCommanderDetail());
     };
@@ -51,6 +49,7 @@ function CommanderDetail() {
               <h1 className="commander-header">{commander.fullName}</h1>
               <img
                 loading="lazy"
+                onClick={e => dispatch(showMessage("hello"))}
                 className="commander-portrait"
                 src={commander.imageUrl}
                 alt=""

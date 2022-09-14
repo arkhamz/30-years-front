@@ -1,22 +1,22 @@
 import { SET_MESSAGE,CLEAR_MESSAGE } from "./appStateSlice";
 
 
-//takes a type and text
-//saves object with type and text to message state
+//takes message text
+//saves object with type and text to message state - only used text
 //clears message from state after 2 secs
-export function showMessage(type,text){
+export function showMessage(text){
 
     return function(dispatch,getState){
-        dispatch(SET_MESSAGE(type,text));
+        // store message in state via dispatch action
+        dispatch(SET_MESSAGE(text));
 
-        //clear message after 2000ms/2 seconds
-
+        //clear state message after 2000ms/2 seconds via dispatch action
         setTimeout(function(){
-            dispatch(CLEAR_MESSAGE)
-        }, 2000)
+            dispatch(CLEAR_MESSAGE())
+        }, 2500)
     }
 
 }
 
-// popup component will select message fromk state
+// popup component will take message message fromk state
 //store it

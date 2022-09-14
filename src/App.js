@@ -17,6 +17,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import {selectAuthCheck,selectToken,} from "./store/user/userSelectors";
 import Spinner from "./components/Spinner";
+import Error from "./pages/Error";
+import MessageBox from "./components/MessageBox";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +59,7 @@ function App() {
         <>
           <Navbar />
           <Spinner/>
+          <MessageBox/>
           <Routes>
             <Route path="/" element={ !token ? <Home /> : <Navigate to="/atlas" />} />
             <Route path="/atlas" element={ token ? <Atlas /> : <Navigate to="/login"/>} />
@@ -66,6 +69,8 @@ function App() {
             <Route path="/background" element={<Background />} />
             <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/atlas" />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to="/atlas" />} />
+            <Route path="/404" element={<Error/>} />
+            <Route path ="*" element={<Navigate to="/404" />} />
           </Routes>
         </>
       )}

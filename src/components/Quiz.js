@@ -5,6 +5,7 @@ import { fetchProgress } from "../store/battle/battleThunks";
 import { useDispatch } from "react-redux";
 import { unlockNext } from "../store/battle/battleThunks";
 import {TiTickOutline} from "react-icons/ti"
+import { showMessage } from "../store/appState/appStateThunks";
 
 export default function Quiz({questions, uid, battleId}){
 
@@ -16,14 +17,13 @@ export default function Quiz({questions, uid, battleId}){
     const [score, setScore] = useState(0);
     const dispatch = useDispatch();
 
+    //handler for answer button
   function handleClick(answer){
-
     // If answer is true, increase score. As long as score is not equal to 2
     if(answer === true && score !== 2){
             setScore( score + 1)
     }
-
-    //only increase current is less than total no. of questions it
+    //Increase currentObject index if current index is less than last index
     if(current  < questions.length - 1){
         setCurrent(current + 1);
     };
@@ -35,6 +35,8 @@ export default function Quiz({questions, uid, battleId}){
     if(score === 2 & battleId != "12"){
         //dispatch thunk that unlocks next battle and update progress
         dispatch(unlockNext(battleId, uid));
+        // show message popup
+        dispatch(showMessage("A New Battle Is Available on The Map!\nVideo unlocked!"));
         // update progress in state
         dispatch(fetchProgress());
     }

@@ -3,7 +3,6 @@ import axios from "axios";
 import { storeCommanders, storeSingleCommander } from "./commanderSlice";
 import { LOADING_START, LOADING_DONE } from "../appState/appStateSlice";
 
-
 export function fetchCommanders() {
   return async function (dispatch, getState) {
     try {
@@ -31,11 +30,14 @@ export function fetchOneCommander(id) {
         `http://localhost:4000/commanders/${id}`
       );
       const commander = response.data;
+
+      
       //update redux store with commanders detail
       dispatch(storeSingleCommander(commander));
       dispatch(LOADING_DONE());
     } catch (e) {
       dispatch(LOADING_DONE());
+   
       console.log(e);
       console.log(e.message);
     }
