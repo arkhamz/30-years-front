@@ -37,6 +37,7 @@ export default function Quiz({questions, uid, battleId}){
   useEffect(function(){
     // only unlock the next battle if battleId is not currently 12, i.e. last battle
     if(score === 2 && battleId != "12"){
+        // unlocked state makes it so the unlock only happens once
         if(!unlocked){
             //dispatch thunk that unlocks next battle and update progress
         dispatch(unlockNext(battleId, uid));
@@ -45,7 +46,7 @@ export default function Quiz({questions, uid, battleId}){
         dispatch(showMessage(`A New Battle Is Available on The Map!
          Video unlocked!`));
         // update progress in state
-        // dispatch(fetchProgress());
+        dispatch(fetchProgress());
 
         }
         
