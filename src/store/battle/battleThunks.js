@@ -24,8 +24,10 @@ export function fetchBattles() {
       const userId = dbUser.id;
       const battleResponse = await axios.get(`http://localhost:4000/progress/${userId}/battles`);
       const {battlesArr,progress} = battleResponse.data;
+      console.log(battlesArr);
       if(!battlesArr || battlesArr.length < 1) return;
-      
+      console.log(battlesArr)
+
       // store battlesArr in state and update state progress
       dispatch(storeBattles(battlesArr));
       dispatch(UPDATE_PROGRESS(progress))
@@ -39,6 +41,7 @@ export function fetchBattles() {
 // //get all battles 
 // export function fetchBattles() {
 //   return async function (dispatch, getState) {
+//     try {
 //     try {
 //       //DO GET REQUEST /battles
 //       const response = await axios.get(`http://localhost:4000/battles`);

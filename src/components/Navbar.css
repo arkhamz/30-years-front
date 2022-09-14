@@ -87,15 +87,15 @@ nav svg{
   /* normally hidden div - contains menu icons */
   .nav-toggler{
     display:block;
-    position:fixed;
+    position:absolute;
     left:3%;
-    z-index: 400;
+    z-index: 4000000;
     /* makes div visible, and the icons inside.
     is fixed on screen, 3% from the left of viewport */
   }
   /* <ul> of navigation list items */
   ul.links{
-    position: fixed;
+    position: absolute;
     top:-100%;
     width: 100%;
     height: 60vh;
@@ -106,7 +106,9 @@ nav svg{
     transition: 200ms ease-in-out;
     background-color: #2b2a2a;
     backdrop-filter: blur(5px);
-    z-index: 400;
+    z-index: 4000000;
+    /* high Z index needed to show over everything, had 4000 previously
+    but leaflet map was higher, had to do a large number to override leaflet map */
   }
 
   .nav-logo{

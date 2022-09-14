@@ -22,6 +22,9 @@ export const userSlice = createSlice({
         //set state.user to null
         state.user = null;
         state.token = null;
+        state.authCheck = false;
+        state.progress = null;
+      
     },
     AUTH_IS_READY(state, action) {
       const {newUser, userToken} = action.payload
@@ -31,9 +34,9 @@ export const userSlice = createSlice({
     },
     UPDATE_PROGRESS(state,action){
       state.progress = action.payload;
-    }
+    },
   },
 });
 
-export const { LOGIN, AUTH_IS_READY, LOGOUT, UPDATE_PROGRESS } = userSlice.actions;
+export const { LOGIN, AUTH_IS_READY, LOGOUT, UPDATE_PROGRESS, } = userSlice.actions;
 export default userSlice.reducer;

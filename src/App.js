@@ -15,7 +15,7 @@ import CommanderDetail from "./pages/CommanderDetail";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import {selectAuthCheck,selectToken,} from "./store/user/userSelectors";
+import {selectAuthCheck,selectToken,selectUser} from "./store/user/userSelectors";
 import Spinner from "./components/Spinner";
 import Error from "./pages/Error";
 import MessageBox from "./components/MessageBox";
@@ -24,6 +24,7 @@ function App() {
   const dispatch = useDispatch();
   const authCheck = useSelector(selectAuthCheck);
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser)
 
   // //secret Paraguayan tech
   // function protectedRoute(Component,redirectPath){
@@ -36,14 +37,15 @@ function App() {
       // user will be non-serialisable (complex class object/function) user object if logged in, or null if logged out
       if (user) {
         // create custom user object, DO NOT STORE non-serialisables in redux state. Store simpler custom obj instead
-        const userToken = user.accessToken;
+        // const userToken = user.accessToken;
         const newUser = {
           email: user.email,
           displayName: user.displayName,
           uid: user.uid,
         };
         // set auth check to true, store user and token in redux state
-        dispatch(AUTH_IS_READY({ newUser, userToken }));
+        // dispatch(AUTH_IS_READY({ newUser, userToken }));
+        dispatch(AUTH_IS_READY({ newUser, token }));
       } else {
         dispatch(AUTH_IS_READY({ newUser: null, userToken: null }));
       }
@@ -70,7 +72,7 @@ function App() {
             <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/atlas" />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to="/atlas" />} />
             <Route path="/404" element={<Error/>} />
-            <Route path ="*" element={<Navigate to="/404" />} />
+            {/* <Route path ="*" element={<Navigate to="/404" />} /> */}
           </Routes>
         </>
       )}

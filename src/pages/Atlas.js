@@ -17,9 +17,13 @@ function Atlas() {
   const navigator = useNavigate();
   const user = useSelector(selectUser);
 
+
   useEffect(
     function () {
-      dispatch(fetchBattles());
+      console.log("atlas fetch battles");
+      
+        dispatch(fetchBattles());
+      
     },
     [dispatch]
   );
@@ -37,8 +41,6 @@ function Atlas() {
   //   iconAnchor: [12, 41],
   //   className : "dum"
   // });
-
-  console.log(battles);
 
   return (
     <div className="atlas">

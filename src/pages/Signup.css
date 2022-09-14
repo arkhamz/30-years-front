@@ -27,6 +27,11 @@
   gap: 5px;
 }
 
+input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0 30px inset #2b2a2a !important;
+  -webkit-text-fill-color: white !important;
+}
+
 .signup-form input {
   font-size: large;
   outline: none;

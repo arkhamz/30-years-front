@@ -49,7 +49,6 @@ function CommanderDetail() {
               <h1 className="commander-header">{commander.fullName}</h1>
               <img
                 loading="lazy"
-                onClick={e => dispatch(showMessage("hello"))}
                 className="commander-portrait"
                 src={commander.imageUrl}
                 alt=""

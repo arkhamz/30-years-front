@@ -26,10 +26,11 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   }
 
-  // Code for closing the collapsible <ul> when you click on a link
+  // Code for closing the collapsible <ul> when you click on a link OR LOGOUT BUTTON
   function handleLinkClick(e){
+
     
-    if(e.target.tagName === "A"){
+    if(e.target.tagName === "A" || e.target.tagName === "BUTTON"){
       if(menuOpen){
         setMenuOpen(false);
       }

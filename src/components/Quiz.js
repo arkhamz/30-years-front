@@ -16,12 +16,15 @@ export default function Quiz({questions, uid, battleId}){
     //since we are looping through array of questions
     const [score, setScore] = useState(0);
     const dispatch = useDispatch();
+    console.log(score);
 
     //handler for answer button
   function handleClick(answer){
     // If answer is true, increase score. As long as score is not equal to 2
-    if(answer === true && score !== 2){
-            setScore( score + 1)
+    if(answer === true){
+            if(score < 2){
+                setScore( score + 1)
+            }
     }
     //Increase currentObject index if current index is less than last index
     if(current  < questions.length - 1){
@@ -32,15 +35,15 @@ export default function Quiz({questions, uid, battleId}){
 
   useEffect(function(){
     // only unlock the next battle if battleId is not currently 12, i.e. last battle
-    if(score === 2 & battleId != "12"){
+    if(score === 2 && battleId != "12"){
         //dispatch thunk that unlocks next battle and update progress
         dispatch(unlockNext(battleId, uid));
         // show message popup
         dispatch(showMessage("A New Battle Is Available on The Map!\nVideo unlocked!"));
         // update progress in state
-        dispatch(fetchProgress());
+        // dispatch(fetchProgress());
     }
-  })
+  },[score])
 
 
     return (
