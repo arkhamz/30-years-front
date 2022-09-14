@@ -59,6 +59,7 @@ export function signup(email,password,username,navigator){
 
             // if new user created in database and new unlock, update redux state with token
             if(dbresponse && progressResponse){
+                // localStorage.setItem("userToken", userToken);
                 dispatch(LOGIN({newUser, userToken}));
             }
 
@@ -92,6 +93,7 @@ export function login(email,password, navigator){
                 uid: user.uid,
             }
             dispatch(LOGIN({newUser, userToken}));
+            // localStorage.setItem("userToken", userToken);
             navigator("/atlas");
             
         } catch (e) {

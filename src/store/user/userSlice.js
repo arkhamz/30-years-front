@@ -15,13 +15,15 @@ export const userSlice = createSlice({
         //this will also be used for signup, since firebase auth signup
         ///will auto log in
         const {newUser, userToken} = action.payload
+        // localStorage.setItem("userToken", userToken)
+        state.token = userToken;
       state.user = newUser;
-      state.token = userToken;
     },
     LOGOUT(state,action){
         //set state.user to null
-        state.user = null;
+        // localStorage.removeItem("userToken")
         state.token = null;
+        state.user = null;
         // state.authCheck = false;
         state.progress = null;
       

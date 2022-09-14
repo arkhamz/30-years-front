@@ -24,7 +24,6 @@ function App() {
   const dispatch = useDispatch();
   const authCheck = useSelector(selectAuthCheck);
   const token = useSelector(selectToken);
-  const user = useSelector(selectUser)
 
   useEffect(function () {
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
