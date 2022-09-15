@@ -74,9 +74,6 @@ export function signup(email, password, username, navigator) {
         // dispatch(UPDATE_PROGRESS(1));
       }
 
-      // dispatch(LOGIN({newUser, userToken}));
-      // move to atlas page
-      // navigator("/atlas");
     } catch (e) {
       console.log(e);
       console.log(e.message);
@@ -100,7 +97,9 @@ export function login(email, password, navigator) {
       };
       dispatch(LOGIN({ newUser, userToken }));
       // call dispatch fetchProgress to get the user's progress immediately and not wait until atlas to do it
-      //   without this, progress is set to 1 by slice, then atlas has to fetch the updated one
+      // Will get user's new progress and set it to state, overriding LOGIN case reducer's progress = 1 this
+      //progress is updated at login, instead of when atlast page is loaded, which would happen of we didn't fetch it now
+      //we're dispatching a thunk inside a thunk
       dispatch(fetchProgress());
       // localStorage.setItem("userToken", userToken);
       navigator("/atlas");
