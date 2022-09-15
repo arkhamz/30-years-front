@@ -1,12 +1,17 @@
 import "./Navbar.css";
 import { useState } from "react";
-import { Link,NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { logout } from "../store/user/userThunks";
 import { useDispatch, useSelector } from "react-redux";
 import test from "../okayTest.svg";
-import { selectToken, selectUser } from "../store/user/userSelectors";
-import {AiOutlineMenu,AiOutlineClose} from "react-icons/ai"
-import {FaGlobeEurope} from "react-icons/fa"
+import {
+  selectProgress,
+  selectToken,
+  selectUser,
+} from "../store/user/userSelectors";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaGlobeEurope } from "react-icons/fa";
+import { GiCrossedSwords } from "react-icons/gi";
 
 function Navbar() {
   // When logged in, you should not see Home, you should start at atlas
@@ -15,42 +20,71 @@ function Navbar() {
   const dispatch = useDispatch();
   // token represents currently logged in user, loads faster than user state
   const token = useSelector(selectToken);
-  const [menuOpen,setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const progress = useSelector(selectProgress);
 
-  function handleClick(){
-    dispatch(logout())
+  function handleClick() {
+    dispatch(logout());
   }
 
-
-  function handleMenuClick(){
+  function handleMenuClick() {
     setMenuOpen(!menuOpen);
   }
 
   // Code for closing the collapsible <ul> when you click on a link OR LOGOUT BUTTON
-  function handleLinkClick(e){
-
-    
-    if(e.target.tagName === "A" || e.target.tagName === "BUTTON"){
-      if(menuOpen){
+  function handleLinkClick(e) {
+    if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
+      if (menuOpen) {
         setMenuOpen(false);
       }
     }
-
   }
 
+  function statusIcons() {
+    let iconsArr = [];
+
+    for (let i = 1; i < 13; i++) {
+      if (progress && i <= progress) {
+        iconsArr.push({ Component: GiCrossedSwords, class: "status-light" });
+      } else if (progress && i > progress) {
+        iconsArr.push({ Component: GiCrossedSwords, class: "status-dark" });
+      }
+    }
+
+    return iconsArr;
+  }
 
   return (
     <nav>
-      <ul onClick={handleLinkClick} className={menuOpen ? "links links-active" : "links"}>
+      <ul
+        onClick={handleLinkClick}
+        className={menuOpen ? "links links-active" : "links"}
+      >
         <img className="nav-logo" src={test} alt="" />
-        <NavLink to="/atlas"><FaGlobeEurope className="globe"/></NavLink>
+        <div className="status">
+          {progress
+            ? statusIcons().map(function (item, index, arr) {
+                return <item.Component key={index} className={item.class} />;
+              })
+            : null}
+        </div>
+        <NavLink to="/atlas">
+          <FaGlobeEurope className="globe" />
+        </NavLink>
         <NavLink to="/background">Background</NavLink>
         <NavLink to="/commanders">Commanders</NavLink>
-        {!token ? <NavLink to="/signup">Signup</NavLink> : null }
-       { !token ? <NavLink to="/login">Login</NavLink> : <button onClick={handleClick}>Logout</button> }
+        {!token ? <NavLink to="/signup">Signup</NavLink> : null}
+        {!token ? (
+          <NavLink to="/login">Login</NavLink>
+        ) : (
+          <button onClick={handleClick}>Logout</button>
+        )}
       </ul>
       <div onClick={handleMenuClick} className="nav-toggler">
-        <Link className="menu-icon" to="#"> {menuOpen ? <AiOutlineClose/> : <AiOutlineMenu/>  }</Link>
+        <Link className="menu-icon" to="#">
+          {" "}
+          {menuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+        </Link>
       </div>
     </nav>
   );

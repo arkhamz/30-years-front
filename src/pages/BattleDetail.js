@@ -64,7 +64,12 @@ function BattleDetail() {
                   {battle.armyOne?.beligerents.map(function (item) {
                     return (
                       <div className="beligerent" key={uuidv4()}>
-                        <img loading="lazy" className="beligerent-flag" src={item[1]} alt="" />
+                        <img
+                          loading="lazy"
+                          className="beligerent-flag"
+                          src={item[1]}
+                          alt=""
+                        />
                         <h3>{item[0]}</h3>
                       </div>
                     );
@@ -77,7 +82,12 @@ function BattleDetail() {
                   {battle.armyOne?.commanders.map(function (item) {
                     return (
                       <div key={uuidv4()} className="commander">
-                        <img loading="lazy" className="commander-flag" src={item[1]} alt="" />
+                        <img
+                          loading="lazy"
+                          className="commander-flag"
+                          src={item[1]}
+                          alt=""
+                        />
                         <p>{item[0]}</p>
                       </div>
                     );
@@ -117,7 +127,12 @@ function BattleDetail() {
 
                 <div className="battle-img">
                   <Fade direction={"top"}>
-                    <img loading="lazy" className="battle-pic" src={battle.imageUrl} alt="" />
+                    <img
+                      loading="lazy"
+                      className="battle-pic"
+                      src={battle.imageUrl}
+                      alt=""
+                    />
                   </Fade>
                 </div>
 
@@ -156,7 +171,12 @@ function BattleDetail() {
                   {battle.armyTwo.beligerents.map(function (item) {
                     return (
                       <div className="beligerent" key={uuidv4()}>
-                        <img loading="lazy" className="beligerent-flag" src={item[1]} alt="" />
+                        <img
+                          loading="lazy"
+                          className="beligerent-flag"
+                          src={item[1]}
+                          alt=""
+                        />
 
                         <h3>{item[0]}</h3>
                       </div>
@@ -169,7 +189,12 @@ function BattleDetail() {
                   {battle.armyTwo.commanders.map(function (item) {
                     return (
                       <div key={uuidv4()} className="commander">
-                        <img loading="lazy" className="commander-flag" src={item[1]} alt="" />
+                        <img
+                          loading="lazy"
+                          className="commander-flag"
+                          src={item[1]}
+                          alt=""
+                        />
                         <p>{item[0]}</p>
                       </div>
                     );
@@ -212,11 +237,20 @@ function BattleDetail() {
 
               <div className="video">
                 {/*show video if battle ID is less than progress, i.e. already unlocked/not the current unlock  */}
-              {Number(id) < progress && (
-                <>
-                  <iframe loading="lazy" width="560" height="315" src={battle.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                </>
-              )}
+                {Number(id) < progress && (
+                  <>
+                    <iframe
+                      loading="lazy"
+                      width="560"
+                      height="315"
+                      src={battle.videoUrl}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </>
+                )}
               </div>
             </>
           ) : (

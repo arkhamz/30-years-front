@@ -42,9 +42,8 @@
   grid-area: army1;
   align-self: center;
   justify-self: center;
-  position: sticky;
+  /* position: sticky; */
   top: 1px;
-  
 }
 
 .army-2 {
@@ -58,7 +57,7 @@
   grid-area: army2;
   align-self: center;
   justify-self: center;
-  position: sticky;
+  /* position: sticky; */
   top: 1px;
 }
 
@@ -152,7 +151,7 @@
   gap: 20px;
   width: 70%;
   color: whitesmoke;
-  
+
   backdrop-filter: blur(5px);
   grid-area: detail;
 }
@@ -169,7 +168,7 @@
   margin-top: 20px;
   text-align: justify;
   width: 100%;
-  
+
   /* overflow-y:scroll; */
   /* height: 220px; */
 }
@@ -229,14 +228,14 @@
   grid-area: frame;
 }
 
-.video iframe{
+.video iframe {
   margin-top: 10px;
   width: 100%;
 }
 
 /* -------------MEDIA QUERIES ------------------------------------- */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
   .battle-container {
     grid-template-areas:
       "content content"
@@ -266,6 +265,4 @@
     width: 70px;
     height: 70px;
   }
-
-
 }

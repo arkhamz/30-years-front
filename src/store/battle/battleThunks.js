@@ -4,41 +4,47 @@ import { UPDATE_PROGRESS } from "../user/userSlice";
 import { storeBattles, storeSingleBattle } from "./battleSlice";
 import { LOADING_START, LOADING_DONE } from "../appState/appStateSlice";
 
-
 export function fetchBattles() {
   return async function (dispatch, getState) {
     try {
+      dispatch(LOADING_START());
 
       // USER IN STATE HAS UID = ID
 
       // get logged in user
       const user = selectUser(getState());
 
-      if(!user) return;
+      if (!user) return;
       // fetch database user
       const uid = user.uid;
-      const userResponse = await axios.get(`http://localhost:4000/users/${uid}`);
+      const userResponse = await axios.get(
+        `http://localhost:4000/users/${uid}`
+      );
       const dbUser = userResponse.data;
-      if(!dbUser) return;
+      if (!dbUser) return;
       //fetch battles based on user progress
       const userId = dbUser.id;
-      const battleResponse = await axios.get(`http://localhost:4000/progress/${userId}/battles`);
-      const {battlesArr,progress} = battleResponse.data;
+      const battleResponse = await axios.get(
+        `http://localhost:4000/progress/${userId}/battles`
+      );
+      const { battlesArr, progress } = battleResponse.data;
       console.log(battlesArr);
-      if(!battlesArr || battlesArr.length < 1) return;
-      console.log(battlesArr)
+      if (!battlesArr || battlesArr.length < 1) return;
+      console.log(battlesArr);
 
       // store battlesArr in state and update state progress
       dispatch(storeBattles(battlesArr));
-      dispatch(UPDATE_PROGRESS(progress))
+      dispatch(LOADING_DONE());
+      dispatch(UPDATE_PROGRESS(progress));
     } catch (e) {
+      dispatch(LOADING_DONE());
       console.log(e);
       console.log(e.message);
     }
   };
 }
 
-// //get all battles 
+// //get all battles
 // export function fetchBattles() {
 //   return async function (dispatch, getState) {
 //     try {
@@ -56,7 +62,7 @@ export function fetchBattles() {
 
 export function fetchOneBattle(id) {
   return async function (dispatch, getState) {
-    dispatch(LOADING_START())
+    dispatch(LOADING_START());
     try {
       //GET REQUEST /battles/:id
       const response = await axios.get(`http://localhost:4000/battles/${id}`);
@@ -64,7 +70,7 @@ export function fetchOneBattle(id) {
       dispatch(storeSingleBattle(battle));
       dispatch(LOADING_DONE());
     } catch (e) {
-      dispatch(LOADING_DONE())
+      dispatch(LOADING_DONE());
       console.log(e);
       console.log(e.message);
     }
@@ -77,19 +83,23 @@ export function fetchProgress() {
       // get logged in user
       const user = selectUser(getState());
 
-      if(!user) return;
+      if (!user) return;
       // fetch database user
       const uid = user.uid;
-      const userResponse = await axios.get(`http://localhost:4000/users/${uid}`);
+      const userResponse = await axios.get(
+        `http://localhost:4000/users/${uid}`
+      );
       const dbUser = userResponse.data;
-      if(!dbUser) return;
+      if (!dbUser) return;
       //fetch battles based on user progress
       const userId = dbUser.id;
-      const battleResponse = await axios.get(`http://localhost:4000/progress/${userId}/battles`);
-      const {progress} = battleResponse.data;
-      if(!progress) return
+      const battleResponse = await axios.get(
+        `http://localhost:4000/progress/${userId}/battles`
+      );
+      const { progress } = battleResponse.data;
+      if (!progress) return;
       // store battlesArr in state and update state progress
-      dispatch(UPDATE_PROGRESS(progress))
+      dispatch(UPDATE_PROGRESS(progress));
     } catch (e) {
       console.log(e);
       console.log(e.message);
@@ -97,25 +107,23 @@ export function fetchProgress() {
   };
 }
 
-export function unlockNext(battleId,uid) {
+export function unlockNext(battleId, uid) {
   return async function (dispatch, getState) {
     try {
-
       // if on last battle, battleId of 12, prevent trying to unlock the next battle.
       //no battle with id of 13 exists
 
-
-      if(battleId === "12" || battleId === 12) {
-        return
+      if (battleId === "12" || battleId === 12) {
+        return;
       }
 
       //unlock next one
       const response = await axios.post(`http://localhost:4000/progress/new`, {
         battleId: Number(battleId) + 1,
-        uid
+        uid,
       });
       const msg = response.data;
-      if(!msg)throw new Error("Unlock error")
+      if (!msg) throw new Error("Unlock error");
     } catch (e) {
       console.log(e);
       console.log(e.message);
