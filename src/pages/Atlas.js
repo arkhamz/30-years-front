@@ -28,6 +28,9 @@ function Atlas() {
       }
       console.log("atlas fetch battles");
     },
+    // add progress as dependency, as when signup sets progress to 1
+    // this will retrigger and get the data.
+    //fetch battles also stores the current progress
     [progress]
   );
   //leaflet stuff

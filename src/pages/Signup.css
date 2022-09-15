@@ -27,7 +27,7 @@
   gap: 5px;
 }
 
-input:-webkit-autofill{
+input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px inset #2b2a2a !important;
   -webkit-text-fill-color: white !important;
 }
@@ -42,7 +42,7 @@ input:-webkit-autofill{
   padding: 5px;
   border-radius: 2px;
   color: white;
-  box-shadow: 0px 1px 1px 0px black;
+  /* box-shadow: 0px 1px 1px 0px black; */
 }
 
 .signup-form button {

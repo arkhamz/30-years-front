@@ -7,12 +7,11 @@ nav {
   /* background-color: rgb(33,33,33);
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5); */
   /* background-color: #212121; */
-   background-color: #2b2a2a;
+  background-color: #2b2a2a;
   box-shadow: 0 3px 5px 10px rgb(0 0 0 / 50%);
- 
 }
 
-nav button{
+nav button {
   background-color: #2b2a2a;
   border: 1px solid white;
   border-radius: 4px;
@@ -22,12 +21,11 @@ nav button{
   cursor: pointer;
 }
 
-.nav-logo{
+.nav-logo {
   width: 220px;
   margin-right: auto;
   object-fit: contain;
 }
-
 
 ul.links {
   width: 100%;
@@ -52,56 +50,54 @@ ul.links a {
   font-size: 2rem;
 } */
 
-nav svg{
-  font-size:2rem;
-  transition: rotate 1s ease-in-out;
+.globe {
+  font-size: 2rem;
+  transition: transform 1s ease-in-out;
 }
 
-.globe:hover{
-  rotate: 360deg;
+.globe:hover {
+  transform: rotate(360deg) !important;
 }
-
 
 /* -------------------collapsible navbar code-------------- */
 
 /* div containing menu icons  */
-.nav-toggler{
+.nav-toggler {
   display: none;
   margin-left: 2rem;
 }
 
-.menu-icon{
+.menu-icon {
   margin-top: 10px;
   font-size: 3rem;
-  text-decoration:none;
+  text-decoration: none;
   color: white;
 }
 
 /* ul with links & links-active class */
-.links.links-active{
+.links.links-active {
   top: 0%;
 }
 
-
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   /* normally hidden div - contains menu icons */
-  .nav-toggler{
-    display:block;
-    position:absolute;
-    left:3%;
+  .nav-toggler {
+    display: block;
+    position: absolute;
+    left: 3%;
     z-index: 4000000;
     /* makes div visible, and the icons inside.
     is fixed on screen, 3% from the left of viewport */
   }
   /* <ul> of navigation list items */
-  ul.links{
+  ul.links {
     position: absolute;
-    top:-100%;
+    top: -100%;
     width: 100%;
     height: 60vh;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
     align-items: center;
     transition: 200ms ease-in-out;
     background-color: #2b2a2a;
@@ -111,7 +107,20 @@ nav svg{
     but leaflet map was higher, had to do a large number to override leaflet map */
   }
 
-  .nav-logo{
-    margin-right:0;
+  .nav-logo {
+    margin-right: 0;
   }
+}
+
+/* progress icons on navbar */
+
+nav .status {
+  border-left: 3px double white;
+  border-radius: 3px;
+}
+
+.status-light {
+  color: white;
+  filter: contrast(2);
+  transition: color 300ms ease-in-out;
 }
