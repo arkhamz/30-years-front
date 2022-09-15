@@ -17,8 +17,8 @@ export const userSlice = createSlice({
         const {newUser, userToken} = action.payload
         // localStorage.setItem("userToken", userToken)
         state.token = userToken;
-      state.user = newUser;
-      state.progress = 1;
+        state.user = newUser;
+        state.progress = 1;
     },
     LOGOUT(state,action){
         //set state.user to null
