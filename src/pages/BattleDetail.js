@@ -47,7 +47,7 @@ function BattleDetail() {
   const armyTwoCasualties = battle && battle.armyTwo.casualties;
   const battlePrelude = battle && battle.prelude;
   const battleDescription = battle && battle.description;
-  const battleResult = battle && battle.description;
+  const battleResult = battle && battle.result;
   const battleTitle = battle && battle.name;
 
   return (
