@@ -45,9 +45,9 @@ export default function Quiz({questions, uid, battleId}){
         // show message popup
         dispatch(showMessage(`A New Battle Is Available on The Map!
          Video unlocked!`));
-        // update progress in state
-        dispatch(fetchProgress());
-
+        } else if (unlocked){
+            //if unlocked, fetch progress so that detail page progress updates and video appears
+            dispatch(fetchProgress());
         }
         
     }

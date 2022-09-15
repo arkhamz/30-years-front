@@ -39,6 +39,12 @@ function BattleDetail() {
     };
   }, []);
 
+  // // 2nd useEffect to monitor progress so that video appears without refresh
+  // useEffect(function(){
+  //   dispatch(fetchProgress());
+
+  // },[progress])
+
   //////////////////////////////////////////////////////////////////////////////
 
   const armyOneStrength = battle && battle.armyOne.strength;
