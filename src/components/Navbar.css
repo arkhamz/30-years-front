@@ -115,7 +115,7 @@ ul.links a {
 /* progress icons on navbar */
 
 nav .status {
-  border-left: 3px double white;
+  /* border-left: 3px double white; */
   border-radius: 3px;
 }
 

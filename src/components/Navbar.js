@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { logout } from "../store/user/userThunks";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +11,8 @@ import {
 } from "../store/user/userSelectors";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaGlobeEurope } from "react-icons/fa";
-import { GiCrossedSwords } from "react-icons/gi";
+// import { GiCrossedSwords } from "react-icons/gi";
+import {statusIcons, titler} from "../helpers";
 
 function Navbar() {
   // When logged in, you should not see Home, you should start at atlas
@@ -20,8 +21,10 @@ function Navbar() {
   const dispatch = useDispatch();
   // token represents currently logged in user, loads faster than user state
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
   const [menuOpen, setMenuOpen] = useState(false);
   const progress = useSelector(selectProgress);
+  const [title,setTitle] = useState("");
 
   function handleClick() {
     dispatch(logout());
@@ -40,22 +43,14 @@ function Navbar() {
     }
   }
 
-  function statusIcons() {
-    let iconsArr = []; //will contain array of {component,class}
-    //max items are 12
-    for (let i = 1; i < 13; i++) {
-      //if i/number less than or equal to progress, add icon object with status-light class
-      //i.e. if you have unlocked it
-      if (progress && i <= progress) {
-        iconsArr.push({ Component: GiCrossedSwords, class: "status-light" });
-      } else if (progress && i > progress) {
-        // if i is greater than progress, i.e. u haven't unlocked it, 
-        iconsArr.push({ Component: GiCrossedSwords, class: "status-dark" });
-      }
-    }
+  useEffect(function(){
 
-    return iconsArr;
-  }
+    if(progress >= 1){
+      const newTitle = titler(progress);
+      setTitle(newTitle);
+    }
+  },[progress]);
+
 
   return (
     <nav>
@@ -66,11 +61,12 @@ function Navbar() {
         <img className="nav-logo" src={test} alt="" />
         <div className="status">
           {progress
-            ? statusIcons().map(function (item, index, arr) {
+            ? statusIcons(progress).map(function (item, index, arr) {
                 return <item.Component key={index} className={item.class} />;
               })
             : null}
         </div>
+        {user && title ?  <span>{user.displayName}(<em>{title}</em>)</span> : null}
         <NavLink to="/atlas">
           <FaGlobeEurope className="globe" />
         </NavLink>

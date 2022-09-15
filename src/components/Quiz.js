@@ -47,6 +47,8 @@ export default function Quiz({questions, uid, battleId}){
          Video unlocked!`));
         } else if (unlocked){
             //if unlocked, fetch progress so that detail page progress updates and video appears
+            // dispatch fetchProgress thunk if unlocked state of quiz component is true. If next battle is unlocked, we want to update progress, so that the video then appears due to conditional in battleDetail, and navbar updates"
+
             dispatch(fetchProgress());
         }
         
