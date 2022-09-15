@@ -1,6 +1,11 @@
+.atlas {
+  background-color: #1b1b1b;
+}
+
 .leaflet-container {
   width: 100%;
   height: 100vh;
+  background-color: #1b1b1b;
 }
 
 .popup-text {
@@ -24,23 +29,17 @@ low brightness to full brightness */
   clip-path: circle(40% at 27px 27px);
   animation-name: heartbeat;
   animation-duration: 1s;
-  animation-iteration-count:infinite;
+  animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
-  animation-timing-function: ease-in-out
+  animation-timing-function: ease-in-out;
 }
 
-
 @keyframes heartbeat {
-
-  0%{
-    filter:brightness(1);
-  }
-  
-  100%{
-   filter: brightness(0.3);
-    
+  0% {
+    filter: brightness(1);
   }
 
-
-
+  100% {
+    filter: brightness(0.3);
+  }
 }
