@@ -11,6 +11,7 @@ import {
 import { clearBattles } from "../battle/battleSlice";
 import { showMessage } from "../appState/appStateThunks";
 import { fetchProgress } from "../battle/battleThunks";
+import { API_URL } from "../../config";
 
 const auth = getAuth();
 
@@ -43,7 +44,7 @@ export function signup(email, password, username, navigator) {
       //newUser and token will be stored in redux state
 
       //CREATE SEQUELIZE USER - {id (auto),displayName, email,uid}
-      const dbresponse = await axios.post(`http://localhost:4000/users/new`, {
+      const dbresponse = await axios.post(`${API_URL}/users/new`, {
         displayName: username,
         email: email,
         uid: user.uid,
@@ -57,7 +58,7 @@ export function signup(email, password, username, navigator) {
 
       // CREATE SEQUELIZE USERPROGRESS record FOR USER
       const progressResponse = await axios.post(
-        `http://localhost:4000/progress/new`,
+        `${API_URL}/progress/new`,
         {
           // userId: userId, replaced this with uid as unlockNext thunk can't get userid
           uid: user.uid,

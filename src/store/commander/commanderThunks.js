@@ -2,13 +2,14 @@ import axios from "axios";
 //action creators
 import { storeCommanders, storeSingleCommander } from "./commanderSlice";
 import { LOADING_START, LOADING_DONE } from "../appState/appStateSlice";
+import { API_URL } from "../../config";
 
 export function fetchCommanders() {
   return async function (dispatch, getState) {
     try {
       dispatch(LOADING_START());
       //GET request /commanders
-      const response = await axios.get(`http://localhost:4000/commanders`);
+      const response = await axios.get(`${API_URL}/commanders`);
       const commandersArr = response.data;
       //update redux store with the commanders array
       dispatch(storeCommanders(commandersArr));
@@ -27,7 +28,7 @@ export function fetchOneCommander(id) {
       dispatch(LOADING_START());
       //GET request /commanders
       const response = await axios.get(
-        `http://localhost:4000/commanders/${id}`
+        `${API_URL}/commanders/${id}`
       );
       const commander = response.data;
 

@@ -1,8 +1,9 @@
 import axios from "axios";
-import { selectUser } from "../user/userSelectors";
+import { selectUser,selectToken } from "../user/userSelectors";
 import { UPDATE_PROGRESS } from "../user/userSlice";
 import { storeBattles, storeSingleBattle } from "./battleSlice";
 import { LOADING_START, LOADING_DONE } from "../appState/appStateSlice";
+import { API_URL } from "../../config";
 
 export function fetchBattles() {
   return async function (dispatch, getState) {
@@ -13,19 +14,23 @@ export function fetchBattles() {
 
       // get logged in user
       const user = selectUser(getState());
+      const token = selectToken(getState());
 
-      if (!user) return;
+      if (!user || !token) return;
       // fetch database user
       const uid = user.uid;
       const userResponse = await axios.get(
-        `http://localhost:4000/users/${uid}`
+        `${API_URL}/users/${uid}`
       );
       const dbUser = userResponse.data;
-      if (!dbUser) return;
+      if (!dbUser) return; 
       //fetch battles based on user progress
       const userId = dbUser.id;
       const battleResponse = await axios.get(
-        `http://localhost:4000/progress/${userId}/battles`
+        `${API_URL}/progress/${userId}/battles`,
+        {
+          headers: {Authorization: `Bearer ${token}`}
+        }
       );
       const { battlesArr, progress } = battleResponse.data;
       console.log(battlesArr);
@@ -65,7 +70,7 @@ export function fetchOneBattle(id) {
     dispatch(LOADING_START());
     try {
       //GET REQUEST /battles/:id
-      const response = await axios.get(`http://localhost:4000/battles/${id}`);
+      const response = await axios.get(`${API_URL}/battles/${id}`);
       const battle = response.data;
       dispatch(storeSingleBattle(battle));
       dispatch(LOADING_DONE());
@@ -87,14 +92,14 @@ export function fetchProgress() {
       // fetch database user
       const uid = user.uid;
       const userResponse = await axios.get(
-        `http://localhost:4000/users/${uid}`
+        `${API_URL}/users/${uid}`
       );
       const dbUser = userResponse.data;
       if (!dbUser) return;
       //fetch battles based on user progress
       const userId = dbUser.id;
       const battleResponse = await axios.get(
-        `http://localhost:4000/progress/${userId}/battles`
+        `${API_URL}/progress/${userId}/battles`
       );
       const { progress } = battleResponse.data;
       if (!progress) return;
@@ -118,7 +123,7 @@ export function unlockNext(battleId, uid) {
       }
 
       //unlock next one
-      const response = await axios.post(`http://localhost:4000/progress/new`, {
+      const response = await axios.post(`${API_URL}/progress/new`, {
         battleId: Number(battleId) + 1,
         uid,
       });
