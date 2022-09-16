@@ -21,6 +21,11 @@ nav button {
   cursor: pointer;
 }
 
+nav button:hover{
+  filter:invert(1);
+  font-weight: bold;
+}
+
 .nav-logo {
   width: 220px;
   margin-right: auto;

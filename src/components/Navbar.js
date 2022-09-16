@@ -68,7 +68,7 @@ function Navbar() {
         </div>
         {user && title ?  <span>{user.displayName}(<em>{title}</em>)</span> : null}
         <NavLink to="/atlas">
-          <FaGlobeEurope className="globe" />
+          <FaGlobeEurope onClick={e => setMenuOpen(false)} className="globe" />
         </NavLink>
         <NavLink to="/background">Background</NavLink>
         <NavLink to="/commanders">Commanders</NavLink>

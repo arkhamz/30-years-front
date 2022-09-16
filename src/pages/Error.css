@@ -28,3 +28,7 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
+
+.error-page .message button:hover{
+    filter:invert(1);
+  }

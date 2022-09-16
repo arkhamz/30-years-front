@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import "./Home.css";
+import Footer from "../components/Footer";
 // import sand1 from "../sand1.svg";
 // import sand2 from "../sand2.svg";
 
@@ -49,6 +50,7 @@ function Home() {
   }
 
   return (
+    <>
     <div className="home-container">
       <Fade>
         <div className="home-content">
@@ -68,6 +70,9 @@ function Home() {
         </div>
       </Fade>
     </div>
+    <Footer/>
+    </>
+    
   );
 }
 
