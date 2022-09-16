@@ -77,6 +77,7 @@ export function signup(email, password, username, navigator) {
     } catch (e) {
       console.log(e);
       console.log(e.message);
+      dispatch(showMessage("An error occured during signup, please try again later"));
     }
   };
 }
