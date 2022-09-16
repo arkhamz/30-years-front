@@ -1,3 +1,30 @@
 .error-page{
-    
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+.message{
+    display:flex;
+    color: white;
+    flex-direction:column;
+    gap: 10px;
+}
+
+.error-page .message{
+    position:relative;
+    top: 20%;
+}
+
+.error-page .message button {
+    background-color: #2b2a2a;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 3px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }

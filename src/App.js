@@ -68,7 +68,7 @@ function App() {
             <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/atlas" />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to="/atlas" />} />
             <Route path="/404" element={<Error/>} />
-            {/* <Route path ="*" element={<Navigate to="/404" />} /> */}
+            <Route path ="*" element={<Navigate to="/404" />} />
           </Routes>
         </>
       )}
