@@ -5,7 +5,7 @@ import { AiFillFacebook, AiFillTwitterCircle,AiFillInstagram } from "react-icons
 
 export default function Footer(){
     return <header className="home-footer">
-        <div className="logo">
+        <div className="footer-logo-container">
             <img className="footer-logo" src={test} alt="" />
         </div>
         <div className="internal">

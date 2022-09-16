@@ -3,7 +3,7 @@
     width: 100%;
     background-color: #2b2a2a;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     color: white;
 }
@@ -11,15 +11,21 @@
 .home-footer a{
     color: white;
     text-decoration: none;
+    width:fit-content;
+}
+
+.home-footer div{
+    width: 50%;
 }
 
 .home-footer .internal{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.home-footer div{
-    width: 100%;
+.footer-logo-container{
+    text-align: center;
 }
 
 .footer-logo{
@@ -29,6 +35,8 @@
 .social{
     display:flex;
     gap:5px;
+    justify-content: center;
+
 }
 
 .social svg{
