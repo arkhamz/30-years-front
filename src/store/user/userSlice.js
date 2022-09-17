@@ -4,7 +4,7 @@ const initialState = {
   user: null,
   token: null,
   authCheck: false,
-  progress: null,
+  progress: 1,
 };
 
 export const userSlice = createSlice({
@@ -18,7 +18,7 @@ export const userSlice = createSlice({
         // localStorage.setItem("userToken", userToken)
         state.token = userToken;
         state.user = newUser;
-        state.progress = 1;
+        // state.progress = 1;
     },
     LOGOUT(state,action){
         //set state.user to null

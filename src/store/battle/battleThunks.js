@@ -87,8 +87,9 @@ export function fetchProgress() {
     try {
       // get logged in user
       const user = selectUser(getState());
+      const token = selectToken(getState());
 
-      if (!user) return;
+      if (!user || !token) return;
       // fetch database user
       const uid = user.uid;
       const userResponse = await axios.get(
@@ -99,7 +100,10 @@ export function fetchProgress() {
       //fetch battles based on user progress
       const userId = dbUser.id;
       const battleResponse = await axios.get(
-        `${API_URL}/progress/${userId}/battles`
+        `${API_URL}/progress/${userId}/battles`,
+        {
+          headers: {Authorization: `Bearer ${token}`}
+        }
       );
       const { progress } = battleResponse.data;
       if (!progress) return;
