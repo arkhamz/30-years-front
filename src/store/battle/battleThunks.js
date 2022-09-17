@@ -70,7 +70,15 @@ export function fetchOneBattle(id) {
     dispatch(LOADING_START());
     try {
       //GET REQUEST /battles/:id
-      const response = await axios.get(`${API_URL}/battles/${id}`);
+
+      const token = selectToken(getState());
+
+      if(!token) return;
+
+      const response = await axios.get(`${API_URL}/battles/${id}`,
+      {
+        headers: {Authorization: `Bearer ${token}`}
+      });
       const battle = response.data;
       dispatch(storeSingleBattle(battle));
       dispatch(LOADING_DONE());
