@@ -134,10 +134,16 @@ export function unlockNext(battleId, uid) {
         return;
       }
 
+      const token = selectToken(getState());
+
+      if(!token) return;
+
       //unlock next one
       const response = await axios.post(`${API_URL}/progress/new`, {
         battleId: Number(battleId) + 1,
         uid,
+      }, {
+        headers: {Authorization: `Bearer ${token}`}
       });
       const msg = response.data;
       if (!msg) throw new Error("Unlock error");
