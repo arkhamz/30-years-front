@@ -59,7 +59,7 @@ function Home() {
             An interactive journey through history
           </h4>
           <button onClick={handleClick} className="home-btn">
-            Start your adventure
+            Thirty Years' War (1618-1648)
           </button>
         </div>
       </Fade>
