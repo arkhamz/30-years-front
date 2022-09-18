@@ -83,23 +83,6 @@ export function fetchBattles() {
   };
 }
 
-
-// //get all battles
-// export function fetchBattles() {
-//   return async function (dispatch, getState) {
-//     try {
-//     try {
-//       //DO GET REQUEST /battles
-//       const response = await axios.get(`http://localhost:4000/battles`);
-//       const battlesArr = response.data;
-//       dispatch(storeBattles(battlesArr));
-//     } catch (e) {
-//       console.log(e);
-//       console.log(e.message);
-//     }
-//   };
-// }
-
 export function fetchOneBattle(id) {
   return async function (dispatch, getState) {
     dispatch(LOADING_START());

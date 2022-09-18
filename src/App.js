@@ -28,8 +28,8 @@ function App() {
 
   useEffect(function () {
     // monitor app for auth state changes e.g. initial auth connection, logins,logouts etc
-    const unsub = onAuthStateChanged(auth, function (user) {
-      // user will be non-serialisable (complex class object/function) user object if logged in, or null if logged out
+    const unsubscribe = onAuthStateChanged(auth, function (user) {
+
       if (user) {
         // create custom user object, DO NOT STORE non-serialisables in redux state. Store simpler custom obj instead
         // const userToken = user.accessToken;
@@ -39,7 +39,7 @@ function App() {
           uid: user.uid,
         };
         // set auth check to true, store user and token in redux state
-        console.log("hello")
+        console.log("executing onAuthStateChange callback")
         // dispatch(fetchProgress());
         dispatch(AUTH_IS_READY({ newUser, userToken:user.accessToken }));
         // dispatch(AUTH_IS_READY({ newUser, token })); ///this does not cause the immdiate signup re-direct bugq
@@ -47,8 +47,9 @@ function App() {
         dispatch(AUTH_IS_READY({ newUser: null, userToken: null }));
       }
     });
+
     return function () {
-      unsub();
+      unsubscribe();
     };
   }, []);
 
@@ -66,7 +67,7 @@ function App() {
             <Route path="/commanders" element={ token ? <Commanders /> : <Navigate to="/login" />} />
             <Route path="/commanders/:id" element={ token ? <CommanderDetail/> : <Navigate to="/login" /> } />
             <Route path="/background" element={<Background />} />
-            <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/atlas" />} />
+            <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/background" />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to="/atlas" />} />
             <Route path="/404" element={<Error/>} />
             <Route path ="*" element={<Navigate to="/404" />} />

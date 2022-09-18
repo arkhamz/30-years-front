@@ -18,15 +18,12 @@ function Atlas() {
   const navigator = useNavigate();
   const progress = useSelector(selectProgress);
 
-  console.log("progress", progress);
-  console.log("battles", battles);
-
   useEffect(
     function () {
       if (progress) {
+        console.log("Fetching battles");
         dispatch(fetchBattles());
       }
-      console.log("atlas fetch battles");
     },
     // add progress as dependency, as when signup sets progress to 1
     // this will retrigger and get the data.

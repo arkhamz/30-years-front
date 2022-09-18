@@ -16,7 +16,6 @@ const auth = getAuth();
 
 export function signup(email, password, username, navigator) {
   // had bug earlier, logging params before sending to firebase helped me see that the values were incorrect
-  // console.log(email,password,username);
   return async function (dispatch, getState) {
     try {
       //CREATE USER ON FIREBASE AUTH
@@ -41,20 +40,18 @@ export function signup(email, password, username, navigator) {
         displayName: username,
         uid: firebaseUser.uid,
       };
-      //newUser and token will be stored in redux state
-      
-      console.log("creating SQL user record and user progress")
+
+      // Create new user and a progress of level 1 for them
       const dbresponse = await axios.post(`${API_URL}/users/new`, {
         displayName: username,
         email: email,
         uid: firebaseUser.uid,
       });
-      // console.log("db user", dbresponse.data);
+
       if (!dbresponse || !dbresponse.data) {
         throw new Error("Error during new user creation");
       }
 
-      
       // if new user created in database and new unlock, update redux state with token
       if (dbresponse && dbresponse.data) {
         // localStorage.setItem("userToken", userToken);
