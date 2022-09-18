@@ -9,7 +9,7 @@ import { selectProgress } from "../store/user/userSelectors";
 import "./Atlas.css";
 //leaflet imports and leaflet-related
 import gunIcon from "../gun2.svg";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 function Atlas() {
@@ -23,7 +23,7 @@ function Atlas() {
 
   useEffect(
     function () {
-      if (progress && progress >= 1) {
+      if (progress) {
         dispatch(fetchBattles());
       }
       console.log("atlas fetch battles");
@@ -33,20 +33,9 @@ function Atlas() {
     //fetch battles also stores the current progress
     [progress]
   );
-  //leaflet stuff
 
-  //starting coordinate
   const location = [52.0875, 13.421389];
-  //latitude - increases up, decreases down
-  //longitude - increases right, decreases down
-
-  // defining a marker icon with options
-  // const myIcon = new Icon({
-  //   iconUrl: gunIcon,
-  //   iconSize: [60, 60],
-  //   iconAnchor: [12, 41],
-  //   className : "dum"
-  // });
+ 
 
   return (
     <div className="atlas">

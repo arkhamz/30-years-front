@@ -5,29 +5,63 @@ import { storeBattles, storeSingleBattle } from "./battleSlice";
 import { LOADING_START, LOADING_DONE } from "../appState/appStateSlice";
 import { API_URL } from "../../config";
 
+//uses userID as params, gets user in front end and uses that returned value to make another request
+// export function fetchBattles() {
+//   return async function (dispatch, getState) {
+//     try {
+//       dispatch(LOADING_START());
+
+//       // get logged in user
+//       const user = selectUser(getState());
+//       const token = selectToken(getState());
+
+//       if (!user || !token) return;
+//       // fetch database user
+//       const uid = user.uid;
+//       const userResponse = await axios.get(
+//         `${API_URL}/users/${uid}`
+//       );
+//       const dbUser = userResponse.data;
+//       if (!dbUser) return; 
+//       //fetch battles based on user progress
+//       const userId = dbUser.id;
+//       const battleResponse = await axios.get(
+//         `${API_URL}/progress/${userId}/battles`,
+//         {
+//           headers: {Authorization: `Bearer ${token}`}
+//         }
+//       );
+//       const { battlesArr, progress } = battleResponse.data;
+//       console.log(battlesArr);
+//       if (!battlesArr || battlesArr.length < 1) return;
+//       console.log(battlesArr);
+
+//       // store battlesArr in state and update state progress
+//       dispatch(storeBattles(battlesArr));
+//       dispatch(LOADING_DONE());
+//       dispatch(UPDATE_PROGRESS(progress));
+//     } catch (e) {
+//       dispatch(LOADING_DONE());
+//       console.log(e);
+//       console.log(e.message);
+//     }
+//   };
+// }
+
 export function fetchBattles() {
   return async function (dispatch, getState) {
     try {
       dispatch(LOADING_START());
-
-      // USER IN STATE HAS UID = ID
 
       // get logged in user
       const user = selectUser(getState());
       const token = selectToken(getState());
 
       if (!user || !token) return;
-      // fetch database user
       const uid = user.uid;
-      const userResponse = await axios.get(
-        `${API_URL}/users/${uid}`
-      );
-      const dbUser = userResponse.data;
-      if (!dbUser) return; 
-      //fetch battles based on user progress
-      const userId = dbUser.id;
+     
       const battleResponse = await axios.get(
-        `${API_URL}/progress/${userId}/battles`,
+        `${API_URL}/progress/${uid}/battles`,
         {
           headers: {Authorization: `Bearer ${token}`}
         }
@@ -48,6 +82,7 @@ export function fetchBattles() {
     }
   };
 }
+
 
 // //get all battles
 // export function fetchBattles() {
@@ -108,7 +143,7 @@ export function fetchProgress() {
       //fetch battles based on user progress
       const userId = dbUser.id;
       const battleResponse = await axios.get(
-        `${API_URL}/progress/${userId}/battles`,
+        `${API_URL}/progress/${uid}/battles`,
         {
           headers: {Authorization: `Bearer ${token}`}
         }

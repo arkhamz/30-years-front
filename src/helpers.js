@@ -3,9 +3,7 @@ import { GiCrossedSwords } from "react-icons/gi";
 export function titler(progress){
     let title;
 
-    if(progress === 1){
-      title = "Heathen";
-    } else if (progress <= 3){
+    if(progress <= 3){
       title = "Commoner";
     } else if(progress <= 6){
       title = "Count";

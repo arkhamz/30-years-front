@@ -58,6 +58,11 @@ ul.links a {
   transform: rotate(360deg) !important;
 }
 
+
+.user-name{
+  color: white;
+}
+
 /* -------------------collapsible navbar code-------------- */
 
 /* div containing menu icons  */

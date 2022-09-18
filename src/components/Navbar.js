@@ -60,13 +60,13 @@ function Navbar() {
       >
         <img className="nav-logo" src={test} alt="" />
         <div className="status">
-          {progress
+          {token && progress
             ? statusIcons(progress).map(function (item, index, arr) {
                 return <item.Component key={index} className={item.class} />;
               })
             : null}
         </div>
-        {user && title ?  <span>{user.displayName}(<em>{title}</em>)</span> : null}
+        {user && title ?  <span className="user-name">{user.displayName}(<em>{title}</em>)</span> : null}
         <NavLink to="/atlas">
           <FaGlobeEurope onClick={e => setMenuOpen(false)} className="globe" />
         </NavLink>

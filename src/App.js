@@ -40,7 +40,7 @@ function App() {
         };
         // set auth check to true, store user and token in redux state
         console.log("hello")
-        dispatch(fetchProgress());
+        // dispatch(fetchProgress());
         dispatch(AUTH_IS_READY({ newUser, userToken:user.accessToken }));
         // dispatch(AUTH_IS_READY({ newUser, token })); ///this does not cause the immdiate signup re-direct bugq
       } else {
