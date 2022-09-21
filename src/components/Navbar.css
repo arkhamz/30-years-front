@@ -64,10 +64,10 @@ ul.links a {
 }
 
 /* active class for <NavLInk> component */
-
 .active{
   border-bottom: 2px solid white;
 }
+
 
 /* -------------------collapsible navbar code-------------- */
 
@@ -97,7 +97,7 @@ ul.links a {
     /* <ul> of navigation list items */
     ul.links {
       position: absolute;
-      top: -100%;
+      top: -150%;
       width: 100%;
       height: 60vh;
       display: flex;

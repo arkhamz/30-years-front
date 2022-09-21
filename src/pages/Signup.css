@@ -1,6 +1,6 @@
 .signup-container {
   background-color: #1b1b1b;
-  min-height: calc(100% - 100px);
+  min-height: calc(100vh - 100px);
   width: 100%;
   color: white;
   display: flex;
@@ -66,6 +66,11 @@ input:-webkit-autofill {
   text-decoration: underline;
 }
 
+
+.test {
+  margin-top: 100px;
+}
+
 /* media queries */
 
 @media screen and (max-width: 1440px) {
@@ -84,9 +89,21 @@ input:-webkit-autofill {
 
   .signup-form {
    
-    width: 80vw;
-    height: 60vh;
-   
+    /* width: 80vw;
+    height: 60vh; */
+    width: 80%;
+    min-height: 65%;
+    position:fixed;
+    background-attachment:scroll;
+    
+  }
+
+  .signup-title{
+    font-size: 1.5rem;
+  }
+
+  .signup-form input{
+    height: 20%;
   }
 
 }

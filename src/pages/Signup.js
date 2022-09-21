@@ -26,8 +26,10 @@ function Signup() {
 
   return (
     <div className="signup-container">
-      <h1>Create an Account</h1>
+      {/* <h1>Create an Account</h1> */}
       <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
+      <h1 className="signup-title">Create an Account</h1>
+
         <div className="signup-username">
           <label htmlFor="signup-username">Username:</label>
           <input
