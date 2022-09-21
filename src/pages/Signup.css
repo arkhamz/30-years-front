@@ -78,3 +78,15 @@ input:-webkit-autofill {
     font-size: medium;
   }
 }
+
+/* MEDIA QUERIES - mobile  */
+@media screen and (max-width: 500px) {
+
+  .signup-form {
+   
+    width: 80vw;
+    height: 60vh;
+   
+  }
+
+}

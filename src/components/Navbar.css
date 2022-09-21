@@ -63,6 +63,12 @@ ul.links a {
   color: white;
 }
 
+/* active class for <NavLInk> component */
+
+.active{
+  border-bottom: 2px solid white;
+}
+
 /* -------------------collapsible navbar code-------------- */
 
 /* div containing menu icons  */

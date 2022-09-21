@@ -20,9 +20,3 @@ body,
   background-color: #1b1b1b;
 }
 
-
-/* active class for <NavLInk> component */
-
-.active{
-  border-bottom: 2px solid white;
-}
