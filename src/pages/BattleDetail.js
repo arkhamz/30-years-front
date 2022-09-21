@@ -14,7 +14,9 @@ import "./BattleDetail.css";
 import { selectProgress, selectUser } from "../store/user/userSelectors";
 import Quiz from "../components/Quiz";
 import { clearBattleDetail } from "../store/battle/battleSlice";
-import { Fade } from "react-awesome-reveal";
+// import { Fade } from "react-awesome-reveal";
+import SpringFade from "../components/Fade";
+
 
 function BattleDetail() {
   const { id } = useParams();
@@ -132,14 +134,14 @@ function BattleDetail() {
                 </div>
 
                 <div className="battle-img">
-                  <Fade direction={"top"}>
+                  <SpringFade>
                     <img
                       loading="lazy"
                       className="battle-pic"
                       src={battle.imageUrl}
                       alt=""
                     />
-                  </Fade>
+                  </SpringFade>
                 </div>
 
                 <div className="year">
@@ -152,19 +154,19 @@ function BattleDetail() {
               </div>
 
               <div className="battle-detail">
-                <Fade>
+                <SpringFade>
                   <div className="prelude">
                     <h2>Prelude</h2>
                     <p>{battlePrelude}</p>
                   </div>
-                </Fade>
+                </SpringFade>
 
-                <Fade>
+                <SpringFade>
                   <div className="description">
                     <h2>Battle Summary</h2>
                     <p>{battleDescription}</p>
                   </div>
-                </Fade>
+                </SpringFade>
               </div>
 
               {/* ARMY TWO------------------------------------ */}
@@ -231,13 +233,13 @@ function BattleDetail() {
               <div className="quiz-wrapper">
                 {/* render quiz if battle id/param matches current unlock/progress */}
                 {Number(id) === progress && (
-                  <Fade>
+                  <SpringFade>
                     <Quiz
                       battleId={id}
                       uid={user.uid}
                       questions={battle.questions}
                     />
-                  </Fade>
+                  </SpringFade>
                 )}
               </div>
 

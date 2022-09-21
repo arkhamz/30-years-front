@@ -3,12 +3,10 @@ import { selectOneCommander } from "../store/commander/commanderSelectors";
 import { fetchOneCommander } from "../store/commander/commanderThunks";
 import { useEffect } from "react";
 import { useParams,Navigate } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 import "./CommanderDetail.css";
 import { clearCommanderDetail } from "../store/commander/commanderSlice";
-import { Fade } from "react-awesome-reveal";
-import { selectLoading } from "../store/appState/appStateSelectors";
-import { showMessage } from "../store/appState/appStateThunks";
+// import { Fade } from "react-awesome-reveal";
+import SpringFade from "../components/Fade";
 
 function CommanderDetail() {
   const { id } = useParams();
@@ -36,13 +34,13 @@ function CommanderDetail() {
         <div className="commander-detail-container">
           
             <div className="commander-details">
-             <Fade>
+             <SpringFade>
              <h2>Title: {commander.title}</h2>
               <h2> Birth Date: {commander.birthDate}</h2>
               <h2>Birth Place: {commander.birthPlace}</h2>
               <h2>Allegiance: {commander.loyalty}</h2>
               <h2>Died on: {commander.died}</h2>
-             </Fade>
+             </SpringFade>
             </div>
 
             <div className="commander-pic-title">
@@ -61,9 +59,9 @@ function CommanderDetail() {
             </div>
 
             <div className="commander-bio">
-              <Fade>
+              <SpringFade>
               <p>{commander.bio}</p>
-              </Fade>
+              </SpringFade>
             </div>
           
         </div>

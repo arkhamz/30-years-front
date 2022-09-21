@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { Fade } from "react-awesome-reveal";
+// import { Fade } from "react-awesome-reveal";
+import SpringFade from "../components/Fade";
 import "./Home.css";
 import Footer from "../components/Footer";
 // import sand1 from "../sand1.svg";
 // import sand2 from "../sand2.svg";
+
 
 function Icon() {
   return (
@@ -52,7 +54,7 @@ function Home() {
   return (
     <>
     <div className="home-container">
-      <Fade>
+      <SpringFade>
         <div className="home-content">
           <h2 className="home-title"> Explore Historical Battles & Events</h2>
           <h4 className="home-subtitle">
@@ -62,13 +64,13 @@ function Home() {
             Thirty Years' War (1618-1648)
           </button>
         </div>
-      </Fade>
+      </SpringFade>
 
-      <Fade>
+      <SpringFade>
         <div className="home-icon">
           <Icon />
         </div>
-      </Fade>
+      </SpringFade>
     </div>
     <Footer/>
     </>
