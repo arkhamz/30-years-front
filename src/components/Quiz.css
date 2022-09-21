@@ -5,9 +5,11 @@
   );
   backdrop-filter: blur(5px);
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   gap: 10px;
-  height: 150px;
+  max-height: 50vh;
 }
 
 .questions {
@@ -41,4 +43,20 @@
 .answer-btn:hover {
   background-color: rgba(245, 236, 236, 0.4);
   font-weight: bold;
+}
+
+
+
+/* MEDIA QUERIES - mobile  */
+@media screen and (max-width: 500px) {
+  
+  .questions-container {
+   width: 100%;
+   min-height: 45vh;
+   margin: 0 auto;
+   align-items: center;
+  }
+
+ 
+
 }

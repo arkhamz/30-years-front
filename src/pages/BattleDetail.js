@@ -125,7 +125,7 @@ function BattleDetail() {
 
               {/* BATTLE CONTENT - title,picture,date */}
               <div className="content">
-                <div className="title">
+                <div className="battle-title">
                   <h1>
                     {battleTitle.startsWith("Siege")
                       ? `${battleTitle} - ${battle.year}`
@@ -233,13 +233,11 @@ function BattleDetail() {
               <div className="quiz-wrapper">
                 {/* render quiz if battle id/param matches current unlock/progress */}
                 {Number(id) === progress && (
-                  <SpringFade>
                     <Quiz
                       battleId={id}
                       uid={user.uid}
                       questions={battle.questions}
                     />
-                  </SpringFade>
                 )}
               </div>
 

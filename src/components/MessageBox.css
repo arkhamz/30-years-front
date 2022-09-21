@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 30vw;
+    min-width: 60vw;
     height: 7vh;
     top: -100%;
     left: 50%;

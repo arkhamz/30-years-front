@@ -20,6 +20,7 @@
 /* container div for army's beligerents, commanders and stats */
 .army-1 {
   width: fit-content;
+  /* width: 30vw; */
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -29,12 +30,12 @@
   grid-area: army1;
   align-self: center;
   justify-self: center;
-  /* position: sticky; */
-  /* top: 1px; */
+
 }
 
 .army-2 {
   width: fit-content;
+  /* width: 30vw; */
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -44,8 +45,6 @@
   grid-area: army2;
   align-self: center;
   justify-self: center;
-  /* position: sticky; */
-  /* top: 1px; */
 }
 
 /* container div for beligierent divs */
@@ -111,13 +110,20 @@
 }
 
 .content {
-  width: 70%;
+  /* width: 60%; */
+  width: 40vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   grid-area: content;
+}
+
+.battle-title h1{
+  margin-bottom: 10px;
+  width: 40vw;
+  text-align: center;
 }
 
 /* div of main battle <img> */
@@ -137,7 +143,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 70%;
+  width: 40vw;
   color: whitesmoke;
 
   backdrop-filter: blur(5px);
@@ -156,9 +162,6 @@
   margin-top: 20px;
   text-align: justify;
   width: 100%;
-
-  /* overflow-y:scroll; */
-  /* height: 220px; */
 }
 
 .prelude h2,
@@ -208,7 +211,7 @@
   margin-top: 20px;
   justify-self: center;
   grid-area: quiz;
-  width: 70%;
+  width: 40vw;
 }
 
 .video {
@@ -222,7 +225,7 @@
 }
 
 /* -------------MEDIA QUERIES ------------------------------------- */
-
+/* laptop-tablet */
 @media screen and (max-width: 1500px) {
   .battle-container {
     grid-template-areas:
@@ -244,7 +247,7 @@
   }
 
   .battle-img {
-    width: 50%;
+    width: 50vw;
     object-fit: contain;
   }
 
@@ -252,6 +255,10 @@
     object-fit: contain;
     width: 70px;
     height: 70px;
+  }
+
+  .quiz-wrapper{
+    width: 40vw;
   }
 }
 
@@ -263,7 +270,7 @@
     width: 80vw;
   }
 
-  .content .title h1{
+  .battle-title h1{
     font-size: 1.3rem;
     width: 90vw;
     text-align: center;
@@ -320,4 +327,10 @@
     border-radius: 6px;
 
   }
+  
+  .quiz-wrapper{
+    width: 80vw;
+  }
+
+
 }
