@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CommanderCard.css"
 
-
+// commander card in carousel on commanders page
 export default function CommanderCard({commander}){
 
     //mansfeld's flag is black, rendering black text unreaddable

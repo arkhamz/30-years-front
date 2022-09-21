@@ -32,7 +32,7 @@ function Commanders() {
       {commanders && (
         <Carousel breakPoints={breakPoints}>
           {commanders.map(function (item, index, arr) {
-          return <CommanderCard commander={item} key={item.id}/>
+          return <CommanderCard className="commanders-card-single" commander={item} key={item.id}/>
         })}
         </Carousel>
       )}

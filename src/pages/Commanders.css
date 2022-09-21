@@ -1,6 +1,7 @@
 .commanders-container {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  min-height: calc(100vh - 100px);
   background-color: #1b1b1b;
   display: flex;
   flex-direction: column;
@@ -11,8 +12,6 @@
 
 .commanders-header {
   color: white;
-  /* position: fixed;
-  top: 15%; */
 }
 
 a {
@@ -41,4 +40,13 @@ a {
   box-shadow: 0 0 1px 3px white !important;
 }
 
-/* media queries */
+/* MEDIA QUERIES - mobile  */
+@media screen and (max-width: 500px) {
+
+  .commanders-header {
+    text-align:center;
+  }
+
+ 
+  
+}

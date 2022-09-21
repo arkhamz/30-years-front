@@ -67,13 +67,12 @@
     margin-right: 10px;
 }
 
-
-
 .commander-header{
     color: white;
+    text-align: center;
 }
 
-/* MEDIA QUERY */
+/* MEDIA QUERY - smaller screens */
 
 @media  screen and (max-width: 1350px) {
 
@@ -90,30 +89,30 @@
     }
 
     .commander-pic-title{
-        width: 60vw;
+        max-width: 70vw;
         margin: 0 auto;
         grid-area: pic;
 
     }
 
+    /* Picture of commander */
     .commander-portrait{
-        height: 50vw;
+        max-width: 70vw;
         object-fit: contain;
       
     }
 
     .commander-details{
-        width: 60vw;
+        max-width: 70vw;
         margin: 0 auto;
         border: 1px solid white;
         border-radius: 7px;
         margin-top: 20px;
         grid-area: details;
-
     }
 
     .commander-bio{
-        width: 60vw;
+        max-width: 70vw;
         justify-content: center;
         align-items: center;
         margin: 0 auto;
@@ -125,9 +124,10 @@
     .commander-details h2{
         border: none;
         box-shadow: none;
-
     }
 
+    .commander-header{
+        width: 80vw;
+    }
 
-    
 }
