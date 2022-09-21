@@ -125,32 +125,24 @@ function BattleDetail() {
 
               {/* ---------------BATTLE CONTENT - title,picture,date */}
               <div className="content">
-                <div className="battle-title">
+          
+                  <SpringFade className="pic-content">
                   <h1>
                     {battleTitle.startsWith("Siege")
                       ? `${battleTitle} - ${battle.year}`
-                      : `Battle of ${battleTitle} - ${battle.year}`}
+                      : `Battle of ${battleTitle}`}
                   </h1>
-                </div>
-
-                <div className="battle-img">
-                  <SpringFade>
+                  <h2>{battle.date}</h2>
                     <img
                       loading="lazy"
                       className="battle-pic"
                       src={battle.imageUrl}
                       alt=""
                     />
+                    <h2>Result: {battleResult}</h2>
                   </SpringFade>
-                </div>
-
-                <div className="year">
-                  <h2>{battle.date}</h2>
-                </div>
-                <div className="battle-result">
-                  {/* {" "} */}
-                  <h2>Result: {battleResult}</h2>
-                </div>
+                
+                
               </div>
 
               <div className="battle-detail">

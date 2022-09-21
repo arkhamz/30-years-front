@@ -1,9 +1,9 @@
 .questions-container {
   background-image: linear-gradient(
-    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.2),
     rgba(128, 128, 128, 0.4)
   );
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
   display: flex;
   flex-direction: column;
   align-items: center;
