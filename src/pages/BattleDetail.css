@@ -1,19 +1,6 @@
 /* medieval font? */
 @import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
 
-/* grid container - layout via grid-template-columns */
-/* .battle-container {
-  width: 100%;
-  min-height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-content: center;
-  justify-items: space-between;
-  background-image: url("../smoke1.jpeg");
-  background-size: cover;
-  color: white;
-} */
-
 .battle-container {
   width: 100%;
   min-height: 100%;
@@ -43,7 +30,7 @@
   align-self: center;
   justify-self: center;
   /* position: sticky; */
-  top: 1px;
+  /* top: 1px; */
 }
 
 .army-2 {
@@ -58,7 +45,7 @@
   align-self: center;
   justify-self: center;
   /* position: sticky; */
-  top: 1px;
+  /* top: 1px; */
 }
 
 /* container div for beligierent divs */
@@ -77,6 +64,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 /* img element */
@@ -264,5 +252,72 @@
     object-fit: contain;
     width: 70px;
     height: 70px;
+  }
+}
+
+
+/* MEDIA QUERIES - mobile  */
+@media screen and (max-width: 500px) {
+
+  .content,.battle-detail{
+    width: 80vw;
+  }
+
+  .content .title h1{
+    font-size: 1.3rem;
+    width: 90vw;
+    text-align: center;
+  }
+
+  .battle-result{
+    font-size: 0.7rem;
+    width: 90vw;
+    text-align: center;
+  }
+
+  .battle-img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .beligerent-flag {
+    object-fit: contain;
+    width: 30px;
+    height: 30px;
+  }
+
+  .beligerent h3{
+    font-size: small;
+  }
+
+  .beligerents-1, .beligerents-2 {
+    gap: 3px;
+  }
+
+  .commander-flag {
+    object-fit: cover;
+    border-radius: 60%;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .stats-1 h3,
+  .stats-2 h3 {
+    font-size: small;
+  }
+
+  .stats-1 svg,
+  .stats-2 svg {
+    font-size: 1.5rem;
+  }
+
+  .video {
+    width: 80vw;
+    grid-area: frame;
+  }
+  
+  .video iframe{
+    border-radius: 6px;
+
   }
 }

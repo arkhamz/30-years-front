@@ -56,6 +56,7 @@ function Atlas() {
                 iconUrl: gunIcon,
                 iconSize: [60, 60],
                 iconAnchor: [12, 41],
+                // if battle index batches last index, give animate class
                 className: index === arr.length - 1 ? "recent" : "",
               });
 

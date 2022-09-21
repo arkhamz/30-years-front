@@ -147,7 +147,7 @@ function BattleDetail() {
                 <div className="year">
                   <h2>{battle.date}</h2>
                 </div>
-                <div className="result">
+                <div className="battle-result">
                   {" "}
                   <h2>Result: {battleResult}</h2>
                 </div>
