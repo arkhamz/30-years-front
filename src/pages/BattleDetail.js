@@ -163,8 +163,6 @@ function BattleDetail() {
 
               {/* ARMY TWO------------------------------------ */}
 
-              {/* ARMY TWO */}
-
               <div className="army-2">
                 <div className="beligerents-2">
                   {/* ARMY TWO */}

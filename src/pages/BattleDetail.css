@@ -241,8 +241,6 @@
     font-size: smaller;
   }
 
-
-
   .battle-pic {
     width: 50vw;
     object-fit: contain;
@@ -269,8 +267,6 @@
     text-align: center;
   }
 
-  
-
 }
 
 
@@ -293,9 +289,10 @@
     text-align: center;
   }
 
-  .battle-img {
+  .battle-pic {
     width: 100%;
     object-fit: contain;
+    margin: 0 auto;
   }
 
   .beligerent-flag {
