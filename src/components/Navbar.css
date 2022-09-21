@@ -67,6 +67,13 @@ ul.links a {
 .active{
   border-bottom: 2px solid white;
 }
+/* progress icons */
+.status-light {
+  color: white;
+  filter: contrast(2);
+  transition: color 300ms ease-in-out;
+}
+
 
 
 /* -------------------collapsible navbar code-------------- */
@@ -115,7 +122,7 @@ ul.links a {
   .nav-toggler {
     display: block;
     position: absolute;
-    left: 3%;
+    left: 2%;
     z-index: 4000000;
     /* makes div visible, and the icons inside.
     is fixed on screen, 3% from the left of viewport */
@@ -136,9 +143,4 @@ nav .status {
 
 
 
-.status-light {
-  color: white;
-  filter: contrast(2);
-  transition: color 300ms ease-in-out;
-}
 

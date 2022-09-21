@@ -1,6 +1,7 @@
 .signup-container {
   background-color: #1b1b1b;
-  min-height: calc(100vh - 100px);
+  /* min-height: calc(100vh - 100px); */
+  min-height: 100%;
   width: 100%;
   color: white;
   display: flex;
@@ -88,22 +89,14 @@ input:-webkit-autofill {
 @media screen and (max-width: 500px) {
 
   .signup-form {
-   
-    /* width: 80vw;
-    height: 60vh; */
     width: 80%;
     min-height: 65%;
-    position:fixed;
-    background-attachment:scroll;
-    
+    position: sticky;
   }
 
   .signup-title{
     font-size: 1.5rem;
-  }
 
-  .signup-form input{
-    height: 20%;
   }
 
 }

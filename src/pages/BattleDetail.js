@@ -116,14 +116,14 @@ function BattleDetail() {
                       ? `   ${armyOneStrength.guns}`
                       : "   unknown"}
                   </h3>
-                  <h3>
-                    <GiDeathSkull /> / <GiArmBandage /> -
-                    {armyOneCasualties && `   ${armyOneCasualties}`}
-                  </h3>
+                  <div className="casualty">
+                    <h3><GiDeathSkull /> / <GiArmBandage /> -</h3>
+                    {armyOneCasualties && `${armyOneCasualties}`}
+                  </div>
                 </div>
               </div>
 
-              {/* BATTLE CONTENT - title,picture,date */}
+              {/* ---------------BATTLE CONTENT - title,picture,date */}
               <div className="content">
                 <div className="battle-title">
                   <h1>
@@ -148,7 +148,7 @@ function BattleDetail() {
                   <h2>{battle.date}</h2>
                 </div>
                 <div className="battle-result">
-                  {" "}
+                  {/* {" "} */}
                   <h2>Result: {battleResult}</h2>
                 </div>
               </div>
@@ -223,10 +223,10 @@ function BattleDetail() {
                       ? `   ${armyTwoStrength.guns}`
                       : "   unknown"}
                   </h3>
-                  <h3>
-                    <GiDeathSkull /> / <GiArmBandage /> -
-                    {armyTwoCasualties && `   ${armyTwoCasualties}`}
-                  </h3>
+                  <div className="casualty">
+                    <h3><GiDeathSkull /> / <GiArmBandage /> -</h3>
+                    {armyTwoCasualties && ` ${armyTwoCasualties}`}
+                  </div>
                 </div>
               </div>
 

@@ -52,9 +52,11 @@
   
   .questions-container {
    width: 100%;
-   min-height: 45vh;
+   min-height: 40vh;
    margin: 0 auto;
    align-items: center;
+   justify-content: space-around;
+   text-align: center;
   }
 
  
