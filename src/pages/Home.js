@@ -54,6 +54,12 @@ function Home() {
   return (
     <>
     <div className="home-container">
+      {/* <SpringFade>
+        <div className="home-icon">
+          <Icon />
+        </div>
+      </SpringFade> */}
+
       <SpringFade>
         <div className="home-content">
           <h2 className="home-title"> Explore Historical Battles & Events</h2>
@@ -66,11 +72,7 @@ function Home() {
         </div>
       </SpringFade>
 
-      <SpringFade>
-        <div className="home-icon">
-          <Icon />
-        </div>
-      </SpringFade>
+      
     </div>
     <Footer/>
     </>

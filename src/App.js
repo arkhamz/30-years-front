@@ -20,6 +20,7 @@ import Spinner from "./components/Spinner";
 import Error from "./pages/Error";
 import MessageBox from "./components/MessageBox";
 import { fetchProgress } from "./store/battle/battleThunks";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();

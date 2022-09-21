@@ -65,3 +65,15 @@
     font-size: medium;
   }
 }
+
+/* MEDIA QUERIES - mobile  */
+@media screen and (max-width: 500px) {
+
+  .login-form {
+   
+    width: 80vw;
+    height: 60vh;
+   
+  }
+
+}

@@ -21,7 +21,8 @@
 .home-footer .internal{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .footer-logo-container{
@@ -42,3 +43,18 @@
 .social svg{
     font-size: xx-large;
 }
+
+
+
+
+/* MEDIA QUERIES  */
+@media screen and (max-width: 500px) {
+
+    .internal {
+      font-size: smaller;
+    }
+    
+  
+  
+    
+  }
