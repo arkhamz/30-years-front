@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { useState,useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { logout } from "../store/user/userThunks";
 import { useDispatch, useSelector } from "react-redux";
 import test from "../okayTest.svg";
@@ -25,6 +25,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const progress = useSelector(selectProgress);
   const [title,setTitle] = useState("");
+  const navigator = useNavigate();
 
   function handleClick() {
     dispatch(logout());
@@ -58,7 +59,9 @@ function Navbar() {
         onClick={handleLinkClick}
         className={menuOpen ? "links links-active" : "links"}
       >
-        <img className="nav-logo" src={test} alt="" />
+        <img onClick={e => {
+          !token && navigator("/");
+        }} className="nav-logo" src={test} alt="" />
         <div className="status">
           {token && progress
             ? statusIcons(progress).map(function (item, index, arr) {
