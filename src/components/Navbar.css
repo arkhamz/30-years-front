@@ -86,7 +86,7 @@ ul.links a {
 /* when menuOPen is true, this class sets media query ul.links top from -100 (
   (above screen) to 0 (at top of screen) */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 936px) {
 
     /* <ul> of navigation list items */
     ul.links {
@@ -128,8 +128,11 @@ nav .status {
   border-radius: 3px;
 }
 
+
+
 .status-light {
   color: white;
   filter: contrast(2);
   transition: color 300ms ease-in-out;
 }
+
