@@ -54,18 +54,12 @@ function Home() {
   return (
     <>
     <div className="home-container">
-      {/* <SpringFade>
-        <div className="home-icon">
-          <Icon />
-        </div>
-      </SpringFade> */}
-
       <SpringFade>
         <div className="home-content">
           <h2 className="home-title"> Explore Historical Battles & Events</h2>
-          <h4 className="home-subtitle">
+          <p className="home-subtitle">
             An interactive journey through history
-          </h4>
+          </p>
           <button onClick={handleClick} className="home-btn">
             Thirty Years' War (1618-1648)
           </button>
