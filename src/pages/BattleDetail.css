@@ -38,6 +38,11 @@
 
 }
 
+
+.beligerent h3, .beligerent h3{
+  color: silver;
+}
+
 /* div container of beligerent name and pic */
 .beligerent {
   display: flex;
@@ -242,8 +247,8 @@
 
   .beligerent-flag {
     object-fit: cover;
-    width: 70px;
-    height: 70px;
+    max-width: 70px;
+    max-height: 70px;
     border-radius: 60%;
   }
 
@@ -258,6 +263,14 @@
     justify-content: center;
     margin:40px 0
   }
+
+  .commander-flag {
+ 
+    width: 45px;
+    height: 45px;
+  }
+  
+
 
   .commander{
     flex-direction:column;
@@ -311,7 +324,7 @@
   }
 
   .beligerent-flag {
-    object-fit: contain;
+    object-fit: cover;
     width: 30px;
     height: 30px;
   }

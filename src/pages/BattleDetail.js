@@ -69,9 +69,11 @@ function BattleDetail() {
               
 
                 <div className="beligerents-1">
+                <h2>Imperial-Allied Forces</h2>
                   {battle.armyOne?.beligerents.map(function (item) {
                     return (
                       <div className="beligerent" key={uuidv4()}>
+                        
                         <img
                           loading="lazy"
                           className="beligerent-flag"
@@ -165,6 +167,7 @@ function BattleDetail() {
 
               
                 <div className="beligerents-2">
+                <h2>Anti-Imperial Forces</h2>
                   {/* ARMY TWO */}
                   {battle.armyTwo.beligerents.map(function (item) {
                     return (
