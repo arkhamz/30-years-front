@@ -111,7 +111,7 @@ ul.links a {
       flex-direction: column;
       gap: 20px;
       align-items: center;
-      transition: 200ms ease-in-out;
+      transition: 450ms ease-in-out;
       background-color: #2b2a2a;
       z-index: 4000000;
       /* high Z index needed to show over everything, had 4000 previously
