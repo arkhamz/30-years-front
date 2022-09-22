@@ -244,6 +244,8 @@
   .battle-pic {
     width: 50vw;
     object-fit: contain;
+    /* check if fine
+    dsl */
   }
 
   .beligerent-flag {
