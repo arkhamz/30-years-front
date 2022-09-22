@@ -10,6 +10,8 @@
   width: 100%;
   gap: 10px;
   max-height: 50vh;
+  border-radius: 6px;
+  padding: 6px;
 }
 
 .questions {

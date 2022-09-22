@@ -66,8 +66,8 @@ function BattleDetail() {
           {/* greater than means that the user has already unlocked it */}
           {progress && progress >= Number(id) ? (
             <>
-              {/* ARMY ONE */}
-              <div className="army-1">
+              
+
                 <div className="beligerents-1">
                   {battle.armyOne?.beligerents.map(function (item) {
                     return (
@@ -121,7 +121,7 @@ function BattleDetail() {
                     {armyOneCasualties && `${armyOneCasualties}`}
                   </div>
                 </div>
-              </div>
+              
 
               {/* ---------------BATTLE CONTENT - title,picture,date */}
               <div className="content">
@@ -139,7 +139,7 @@ function BattleDetail() {
                       src={battle.imageUrl}
                       alt=""
                     />
-                    <h2>Result: {battleResult}</h2>
+                    <h2 className="battle-result">Result: {battleResult}</h2>
                   </SpringFade>
                 
                 
@@ -163,7 +163,7 @@ function BattleDetail() {
 
               {/* ARMY TWO------------------------------------ */}
 
-              <div className="army-2">
+              
                 <div className="beligerents-2">
                   {/* ARMY TWO */}
                   {battle.armyTwo.beligerents.map(function (item) {
@@ -218,7 +218,7 @@ function BattleDetail() {
                     {armyTwoCasualties && ` ${armyTwoCasualties}`}
                   </div>
                 </div>
-              </div>
+              
 
               <div className="quiz-wrapper">
                 {/* render quiz if battle id/param matches current unlock/progress */}

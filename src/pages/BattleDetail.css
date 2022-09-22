@@ -6,55 +6,36 @@
   min-height: 100%;
   display: grid;
   grid-template-areas:
-    "army1 content army2"
-    "army1 detail army2"
-    ". quiz ."
+    "belig1 content belig2"
+    "com1 detail com2"
+    "stats1 quiz stats2"
     ". frame .";
-  align-items: center;
+    
+  /* align-items: center; */
   justify-items: center;
+  justify-content:space-around;
+  align-content:center;
   background-image: url("../smoke1.jpeg");
   background-size: cover;
   color: white;
 }
 
-/* container div for army's beligerents, commanders and stats */
-.army-1 {
-  max-width: 30%;
-  /* width: fit-content; */
-  /* width: 30vw; */
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-evenly; */
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  grid-area: army1;
-  align-self: center;
-  justify-self: center;
-
-}
-
-.army-2 {
-  max-width: 30%;
-  /* width: fit-content; */
-  /* width: 30vw; */
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-evenly; */
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  grid-area: army2;
-  align-self: center;
-  justify-self: center;
-}
-
 /* container div for beligierent divs */
-.beligerents-1, .beligerents-2 {
+
+
+.beligerents-1{
   display: flex;
   gap: 15px;
+  grid-area:belig1;
+  align-self:end;
+}
+
+.beligerents-2{
+  display: flex;
+  gap: 15px;
+  grid-area: belig2;
+  align-self:end;
+
 }
 
 /* div container of beligerent name and pic */
@@ -80,15 +61,22 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  grid-area: com1;
+  align-self: start;
+  margin-top: 20vh;
 }
 
 .commanders-2 {
   width: max-content;
+  /* height: 100px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  grid-area:com2;
+  align-self: start;
+  margin-top: 20vh;
 }
 
 /* div container of commander name and pic */
@@ -138,7 +126,6 @@
   gap: 20px;
   width: 40vw;
   color: whitesmoke;
-
   backdrop-filter: blur(5px);
   grid-area: detail;
 }
@@ -146,7 +133,7 @@
 .battle-detail p,
 .battle-detail h2 {
   line-height: 25px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: bold;
 }
 
@@ -172,6 +159,7 @@
   gap: 15px;
   align-self: center;
   text-align: center;
+  grid-area:stats1;
 }
 
 .stats-1 h3,
@@ -188,6 +176,7 @@
   gap: 15px;
   align-self: center;
   text-align: center;
+  grid-area:stats2;
 }
 
 .stats-1 svg,
@@ -205,9 +194,10 @@
 }
 
 .quiz-wrapper {
-  margin-top: 20px;
+  margin: 20px 0;
   justify-self: center;
   grid-area: quiz;
+  align-self:flex-start;
   width: 40vw;
 }
 
@@ -221,37 +211,60 @@
   width: 100%;
 }
 
+.battle-result{
+  text-align: center;
+}
+
 /* -------------MEDIA QUERIES ------------------------------------- */
 /* laptop-tablet */
 @media screen and (max-width: 1400px) {
   .battle-container {
     grid-template-areas:
       "content content"
-      "army1 army2"
+      "belig1 belig2"
+      "com1 com2"
       "detail detail"
+      "stats1 stats2"
       "quiz quiz"
       "frame frame";
       align-items: center;
+      justify-content: center;
+      column-gap: 100px;
+      row-gap: 50px;
   }
 
-  .army-1,
-  .army-2 {
-    height: auto;
-    align-self: baseline;
-    font-size: smaller;
-  }
 
   .battle-pic {
     width: 50vw;
     object-fit: contain;
-    /* check if fine
-    dsl */
+   
   }
 
   .beligerent-flag {
-    object-fit: contain;
+    object-fit: cover;
     width: 70px;
     height: 70px;
+    border-radius: 60%;
+  }
+
+  .beligerents-1,.beligerents-2{
+    flex-direction: column;
+    align-self: flex-start;
+  }
+
+  .commanders-1,.commanders-2{
+    align-self: baseline;
+    align-items: baseline;
+    justify-content: center;
+    margin:40px 0
+  }
+
+  .commander{
+    flex-direction:column;
+    margin: 0 auto;
+    align-items: center;
+    /* justify-content: center; */
+    justify-self: center;
   }
 
   .quiz-wrapper{
@@ -273,7 +286,7 @@
 
 
 /* MEDIA QUERIES - mobile  */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 658px) {
 
   .content,.battle-detail{
     width: 80vw;
