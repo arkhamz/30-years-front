@@ -3,26 +3,37 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    min-width: 60vw;
+    min-width: 30vw;
     height: 7vh;
     top: -100%;
-    left: 50%;
-    background-color:#2b2a2a;
+    left: 38%;
     border-radius: 6px;
     border: 1px solid grey;
     z-index: 1000;
-    color: white;
     font-size: large;
-    /* opacity:0; */
-    transition: 600ms ease-in-out;
+    transition: top 500ms ease-in-out;
+    box-shadow:0 0 15px 5px #ccc;
+    background-color:#ebebeb;
+    color:black;
 
+    animation-name: message;
+    animation-timing-function: ease-in-out;
+    animation-direction:alternate-reverse;
+    animation-iteration-count: infinite;
+    animation-duration: 850ms;
 }
 
 
 .message-box.message-active{
     top: 40%;
     transform: translate(-50%,-50%);
-    /* opacity:1; */
+}
+
+@keyframes message {
+
+    0%{ transform:scale(1)}
+    100%{transform:scale(1.1)}
+    
 }
 
 
