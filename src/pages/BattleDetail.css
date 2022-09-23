@@ -12,32 +12,32 @@
     ". frame .";
   /* align-items: center; */
   justify-items: center;
-  justify-content:space-around;
-  align-content:center;
+  justify-content: space-around;
+  align-content: center;
   background-image: url("../smoke1.jpeg");
   background-size: cover;
   color: white;
 }
 
 /* container div for beligierent divs */
-.beligerents-1{
+.beligerents-1 {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   gap: 15px;
-  grid-area:belig1;
-  align-self:end;
+  grid-area: belig1;
+  align-self: end;
 }
 
-.beligerents-2{
+.beligerents-2 {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   gap: 15px;
   grid-area: belig2;
-  align-self:end;
-
+  align-self: end;
 }
 
-.beligerent h3, .beligerent h3{
+.beligerent h3,
+.beligerent h3 {
   color: white;
 }
 
@@ -77,7 +77,7 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  grid-area:com2;
+  grid-area: com2;
   align-self: start;
   margin-top: 20vh;
 }
@@ -102,22 +102,21 @@
 .content {
   /* width: 60%; */
   /* width: 40vw; */
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   grid-area: content;
-  justify-self:center;
+  justify-self: center;
 }
 
-.battle-result{
+.battle-result {
   text-align: center;
 }
 
-
-.battle-title h1{
+.battle-title h1 {
   margin-bottom: 10px;
   width: 40vw;
   text-align: center;
@@ -170,7 +169,7 @@ img.battle-pic {
   gap: 15px;
   align-self: center;
   text-align: center;
-  grid-area:stats1;
+  grid-area: stats1;
 }
 
 .stats-1 h3,
@@ -187,7 +186,7 @@ img.battle-pic {
   gap: 15px;
   align-self: center;
   text-align: center;
-  grid-area:stats2;
+  grid-area: stats2;
 }
 
 .stats-1 svg,
@@ -195,7 +194,7 @@ img.battle-pic {
   font-size: 2rem;
 }
 
-.stats-2 h2{
+.stats-2 h2 {
   width: max-content;
 }
 
@@ -208,7 +207,7 @@ img.battle-pic {
   margin: 20px 0;
   justify-self: center;
   grid-area: quiz;
-  align-self:flex-start;
+  align-self: flex-start;
   width: 40vw;
 }
 
@@ -234,18 +233,17 @@ img.battle-pic {
       "stats1 stats2"
       "quiz quiz"
       "frame frame"; */
-      grid-template-areas:
+    grid-template-areas:
       "belig1 content belig2"
       "com1 detail com2"
       "stats1 quiz stats2"
       ". frame .";
-      align-items: center;
-      justify-content: center;
-      align-content: flex-end;
-      /* column-gap: 100px;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-end;
+    /* column-gap: 100px;
       row-gap: 50px; */
   }
-
 
   img.battle-pic {
     /* width: 50vw; */
@@ -260,83 +258,83 @@ img.battle-pic {
     border-radius: 60%;
   }
 
-  .beligerents-1,.beligerents-2{
+  .beligerents-1,
+  .beligerents-2 {
     flex-direction: column;
     align-self: flex-end;
   }
 
-  .commanders-1,.commanders-2{
+  .commanders-1,
+  .commanders-2 {
     align-self: baseline;
     align-items: baseline;
     justify-content: center;
-    margin:40px 0
+    margin: 40px 0;
   }
 
   .commander-flag {
- 
     width: 45px;
     height: 45px;
   }
-  
-  .commander{
-    flex-direction:column;
+
+  .commander {
+    flex-direction: column;
     margin: 0 auto;
     align-items: center;
     /* justify-content: center; */
     justify-self: center;
   }
 
-  .quiz-wrapper{
+  .quiz-wrapper {
     width: 40vw;
   }
 
-  .casualty{
-    display:flex;
+  .casualty {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
-  .casualty h3{
+
+  .casualty h3 {
     display: flex;
     text-align: center;
   }
-
 }
 
 /* MEDIA QUERIES - mobile  */
 @media screen and (max-width: 658px) {
-
   .battle-container {
-      grid-template-areas:
+    grid-template-areas:
       "content content"
       "belig1 belig2"
       "com1 com2"
       "detail detail"
       "stats1 stats2"
-      "quiz frame"
+      "quiz quiz"
       "frame frame";
-      align-items: center;
-      justify-content: center;
-      align-content: flex-end;
-      /* column-gap: 100px;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-end;
+    /* column-gap: 100px;
       row-gap: 50px; */
   }
 
-  .content,.battle-detail{
+  .content,
+  .battle-detail {
     width: 80vw;
   }
 
-  .content{
+  .content {
     margin-bottom: 5%;
   }
 
-  .battle-title h1{
+  .battle-title h1 {
     font-size: 1.3rem;
     width: 90vw;
     text-align: center;
   }
 
-  .battle-result{
+  .battle-result {
     font-size: 0.7rem;
     width: 90vw;
     text-align: center;
@@ -354,14 +352,14 @@ img.battle-pic {
     height: 30px;
   }
 
-  .beligerent h3{
+  .beligerent h3 {
     font-size: small;
   }
 
-  .beligerents-1, .beligerents-2 {
+  .beligerents-1,
+  .beligerents-2 {
     gap: 0px;
     align-self: start;
- 
   }
 
   .commander-flag {
@@ -370,7 +368,7 @@ img.battle-pic {
     width: 30px;
     height: 30px;
   }
-  
+
   .stats-1 h3,
   .stats-2 h3 {
     font-size: small;
@@ -385,12 +383,12 @@ img.battle-pic {
     width: 80vw;
     grid-area: frame;
   }
-  
-  .video iframe{
+
+  .video iframe {
     border-radius: 6px;
   }
-  
-  .quiz-wrapper{
+
+  .quiz-wrapper {
     width: 80vw;
   }
 }
