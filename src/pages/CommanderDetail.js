@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectOneCommander } from "../store/commander/commanderSelectors";
 import { fetchOneCommander } from "../store/commander/commanderThunks";
 import { useEffect } from "react";
-import { useParams,Navigate } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import "./CommanderDetail.css";
 import { clearCommanderDetail } from "../store/commander/commanderSlice";
 // import { Fade } from "react-awesome-reveal";
@@ -12,6 +12,7 @@ function CommanderDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const commander = useSelector(selectOneCommander);
+  const navigator = useNavigate();
 
 
   console.log(commander);
@@ -55,6 +56,7 @@ function CommanderDetail() {
                 className="flag-small"
                 src={commander.loyaltyImageUrl}
                 alt=""
+                onClick={e => navigator("/game")}
               />
             </div>
 
