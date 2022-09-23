@@ -10,7 +10,6 @@
     "com1 detail com2"
     "stats1 quiz stats2"
     ". frame .";
-    
   /* align-items: center; */
   justify-items: center;
   justify-content:space-around;
@@ -21,10 +20,9 @@
 }
 
 /* container div for beligierent divs */
-
-
 .beligerents-1{
   display: flex;
+  flex-wrap:wrap;
   gap: 15px;
   grid-area:belig1;
   align-self:end;
@@ -32,15 +30,15 @@
 
 .beligerents-2{
   display: flex;
+  flex-wrap:wrap;
   gap: 15px;
   grid-area: belig2;
   align-self:end;
 
 }
 
-
 .beligerent h3, .beligerent h3{
-  color: silver;
+  color: white;
 }
 
 /* div container of beligerent name and pic */
@@ -103,14 +101,21 @@
 
 .content {
   /* width: 60%; */
-  width: 40vw;
+  /* width: 40vw; */
+  width:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   grid-area: content;
+  justify-self:center;
 }
+
+.battle-result{
+  text-align: center;
+}
+
 
 .battle-title h1{
   margin-bottom: 10px;
@@ -119,8 +124,9 @@
 }
 
 /* <img> of main battle */
-.battle-pic {
-  width: 100%;
+img.battle-pic {
+  max-width: 60%;
+  border-radius: 6px;
 }
 
 /* div containing prelude and description divs of header and paragraph */
@@ -216,33 +222,35 @@
   width: 100%;
 }
 
-.battle-result{
-  text-align: center;
-}
-
 /* -------------MEDIA QUERIES ------------------------------------- */
 /* laptop-tablet */
 @media screen and (max-width: 1400px) {
   .battle-container {
-    grid-template-areas:
+    /* grid-template-areas:
       "content content"
       "belig1 belig2"
       "com1 com2"
       "detail detail"
       "stats1 stats2"
       "quiz quiz"
-      "frame frame";
+      "frame frame"; */
+      grid-template-areas:
+      "belig1 content belig2"
+      "com1 detail com2"
+      "stats1 quiz stats2"
+      ". frame .";
       align-items: center;
       justify-content: center;
-      column-gap: 100px;
-      row-gap: 50px;
+      align-content: flex-end;
+      /* column-gap: 100px;
+      row-gap: 50px; */
   }
 
 
-  .battle-pic {
-    width: 50vw;
+  img.battle-pic {
+    /* width: 50vw; */
+    width: 100%;
     object-fit: contain;
-   
   }
 
   .beligerent-flag {
@@ -254,7 +262,7 @@
 
   .beligerents-1,.beligerents-2{
     flex-direction: column;
-    align-self: flex-start;
+    align-self: flex-end;
   }
 
   .commanders-1,.commanders-2{
@@ -270,8 +278,6 @@
     height: 45px;
   }
   
-
-
   .commander{
     flex-direction:column;
     margin: 0 auto;
@@ -297,12 +303,31 @@
 
 }
 
-
 /* MEDIA QUERIES - mobile  */
 @media screen and (max-width: 658px) {
 
+  .battle-container {
+      grid-template-areas:
+      "content content"
+      "belig1 belig2"
+      "com1 com2"
+      "detail detail"
+      "stats1 stats2"
+      "quiz quiz"
+      "frame frame";
+      align-items: center;
+      justify-content: center;
+      align-content: flex-end;
+      /* column-gap: 100px;
+      row-gap: 50px; */
+  }
+
   .content,.battle-detail{
     width: 80vw;
+  }
+
+  .content{
+    margin-bottom: 5%;
   }
 
   .battle-title h1{
@@ -334,7 +359,9 @@
   }
 
   .beligerents-1, .beligerents-2 {
-    gap: 3px;
+    gap: 0px;
+    align-self: start;
+ 
   }
 
   .commander-flag {
@@ -361,12 +388,9 @@
   
   .video iframe{
     border-radius: 6px;
-
   }
   
   .quiz-wrapper{
     width: 80vw;
   }
-
-
 }

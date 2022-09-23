@@ -69,7 +69,7 @@ function BattleDetail() {
               
 
                 <div className="beligerents-1">
-                <h2>Imperial-Allied Forces</h2>
+                {/* <h2>Imperial-Allied Forces</h2> */}
                   {battle.armyOne?.beligerents.map(function (item) {
                     return (
                       <div className="beligerent" key={uuidv4()}>
@@ -126,9 +126,8 @@ function BattleDetail() {
               
 
               {/* ---------------BATTLE CONTENT - title,picture,date */}
-              <div className="content">
-          
-                  <SpringFade className="pic-content">
+              {/* <div className="content"> */}
+                  <SpringFade className="content">
                   <h1>
                     {battleTitle.startsWith("Siege")
                       ? `${battleTitle} - ${battle.year}`
@@ -143,9 +142,7 @@ function BattleDetail() {
                     />
                     <h2 className="battle-result">Result: {battleResult}</h2>
                   </SpringFade>
-                
-                
-              </div>
+               {/* </div> */}
 
               <div className="battle-detail">
                 <SpringFade>
@@ -167,7 +164,8 @@ function BattleDetail() {
 
               
                 <div className="beligerents-2">
-                <h2>Anti-Imperial Forces</h2>
+                {/* <h2>Anti-Imperial Forces</h2> */}
+                {/* <h2>Beligerent</h2> */}
                   {/* ARMY TWO */}
                   {battle.armyTwo.beligerents.map(function (item) {
                     return (

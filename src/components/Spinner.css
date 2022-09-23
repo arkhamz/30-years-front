@@ -37,8 +37,9 @@
 
 /* swords */
 
-.sword-1,.sword-2,.sword-3{
+.sword-1 svg,.sword-2 svg,.sword-3 svg{
     position: absolute;
+    opacity:0;
     color: white;
     background-color:transparent;
     z-index: 1000;
@@ -55,19 +56,19 @@
     height: 100px;
 }
 
-.sword-1{
+.sword-1 svg{
     left: 35%;
     top: 30%;
     animation-delay: 0.8s;
 }
 
-.sword-2{
+.sword-2 svg{
     left: 35%;
     top:30%;
     animation-delay: 0.4s;
 }
 
-.sword-3{
+.sword-3 svg{
     left: 35%;
     top: 30%;
     animation-delay: -0.1s;
