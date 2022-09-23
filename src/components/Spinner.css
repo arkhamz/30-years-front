@@ -1,9 +1,9 @@
-.spinner-container{
-    width:30%;
-    left:50%;
-    top:30%;
-    transform:translate(-50%,-50%);
-    position: absolute;
+.spinner-container {
+  width: 30%;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 /* .spinner{
@@ -37,64 +37,66 @@
 
 /* swords */
 
-.sword-1 svg,.sword-2 svg,.sword-3 svg{
-    position: absolute;
-    opacity:0;
-    color: white;
-    background-color:transparent;
-    z-index: 1000;
-    animation-name: sword;
-    animation-timing-function: ease-in-out;
-    animation-direction:normal;
-    animation-iteration-count: infinite;
-    animation-duration: 1.5s;
-    transition: opacity 200ms ease-in-out;
+.sword-1 svg,
+.sword-2 svg,
+.sword-3 svg {
+  position: absolute;
+  opacity: 0;
+  color: white;
+  background-color: transparent;
+  z-index: 1000;
+  animation-name: sword;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  transition: opacity 200ms ease-in-out;
 }
 
-.sword svg{
-    width: 100px;
-    height: 100px;
+.sword svg {
+  width: 100px;
+  height: 100px;
 }
 
-.sword-1 svg{
-    left: 35%;
-    top: 30%;
-    animation-delay: 0.8s;
+.sword-1 svg {
+  left: 35%;
+  top: 30%;
+  animation-delay: 0.8s;
 }
 
-.sword-2 svg{
-    left: 35%;
-    top:30%;
-    animation-delay: 0.4s;
+.sword-2 svg {
+  left: 35%;
+  top: 30%;
+  animation-delay: 0.4s;
 }
 
-.sword-3 svg{
-    left: 35%;
-    top: 30%;
-    animation-delay: -0.1s;
-    color: black;
+.sword-3 svg {
+  left: 35%;
+  top: 30%;
+  animation-delay: -0.1s;
+  color: black;
 }
 
-@keyframes sword{
-    0% {
-        transform: translateX(0px);
-        opacity:0;
-    }
+@keyframes sword {
+  0% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
 
-    25%{
-        opacity: 0.25'
-    }
+  25% {
+    opacity: 0.25;
+  }
 
-    50%{
-        opacity: 0.5;
-    }
+  50% {
+    opacity: 0.5;
+  }
 
-    75%{
-        opacity: 0.75'
-    }
+  75% {
+    opacity: 0.75;
+  }
 
-    100%{
-        transform: translateX(150px);
-        opacity:0;
-    }
+  100% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
 }
