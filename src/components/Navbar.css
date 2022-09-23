@@ -109,6 +109,7 @@ ul.links a {
       height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content:center;
       gap: 20px;
       align-items: center;
       transition: 450ms ease-in-out;
@@ -116,6 +117,10 @@ ul.links a {
       z-index: 4000000;
       /* high Z index needed to show over everything, had 4000 previously
       but leaflet map was higher, had to do a large number to override leaflet map */
+    }
+
+    ul.links a, ul.links svg{
+      font-size:1.5rem;
     }
 
   /* normally hidden div - contains menu icons */
