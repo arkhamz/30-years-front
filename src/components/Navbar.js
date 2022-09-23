@@ -11,7 +11,6 @@ import {
 } from "../store/user/userSelectors";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaGlobeEurope } from "react-icons/fa";
-// import { GiCrossedSwords } from "react-icons/gi";
 import {statusIcons, titler} from "../helpers";
 
 function Navbar() {
