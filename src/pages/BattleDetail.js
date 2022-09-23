@@ -236,6 +236,7 @@ function BattleDetail() {
                 {/*show video if battle ID is less than progress, i.e. already unlocked/not the current unlock  */}
                 {Number(id) < progress && (
                   <>
+                    
                     <iframe
                       loading="lazy"
                       width="560"
@@ -246,6 +247,7 @@ function BattleDetail() {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
+                    
                   </>
                 )}
               </div>
