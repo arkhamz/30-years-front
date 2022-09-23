@@ -58,11 +58,11 @@ function CommanderDetail() {
               />
             </div>
 
-            <div className="commander-bio">
-              <SpringFade>
+            
+              <SpringFade className="commander-bio">
               <p>{commander.bio}</p>
               </SpringFade>
-            </div>
+            
           
         </div>
       )}

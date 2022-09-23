@@ -1,0 +1,49 @@
+.memory-container {
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction : column;
+    color:white;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-image:url("../smoke1.jpeg");
+    background-size: cover;
+    background-position:right;
+  }
+  
+  .card-list {
+    list-style-type: none;
+    display: grid;
+    /* grid-template-columns: repeat(6, 130px); */
+    grid-template-columns: repeat(4, 10vw);
+    width: 60%;
+    min-height: 500px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px;
+  }
+  
+  .Card {
+    align-self: center;
+    justify-self: center;
+  }
+
+  .turns-new{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .turns-new button{
+
+        background-color: #2b2a2a;
+        border: 1px solid white;
+        border-radius: 4px;
+        padding: 3px;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+  }

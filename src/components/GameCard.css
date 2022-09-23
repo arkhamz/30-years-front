@@ -1,0 +1,50 @@
+.card-container {
+    position: relative;
+  }
+  
+  .card-container img {
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Image of pokemon front */
+  .front {
+    position: absolute;
+    transform: rotateY(90deg);
+    transition: all ease-in 0.2s;
+    /* rotateY of 90 hides it */
+  }
+  
+  /* front image inside div with flipped class */
+  .flipped .front {
+    transform: rotateY(0deg);
+    /* rotateY 0 makes it visible */
+  }
+  
+  .back {
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+    box-shadow:0 0 5px 1px #ccc;
+    cursor: pointer;
+    animation-name: appear;
+    animation-duration: 1s;
+
+  }
+  
+  .flipped .back {
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+  }
+  
+  /* when flipped
+  - rotate front into view (0deg) on Y axis
+  - rotate back out of view, 90 deg on Y axis
+  add transition animations to rotate changes*/
+
+  /* basic fadein when card backs appear */
+@keyframes appear{
+    0%{opacity:0;}
+    100%{opacity: 1;}
+}

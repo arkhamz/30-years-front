@@ -21,6 +21,7 @@ import Error from "./pages/Error";
 import MessageBox from "./components/MessageBox";
 import { fetchProgress } from "./store/battle/battleThunks";
 import Footer from "./components/Footer";
+import Game from "./pages/Game";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,7 +72,8 @@ function App() {
             <Route path="/signup" element={ !token ? <Signup /> : <Navigate to="/background" />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to="/atlas" />} />
             <Route path="/404" element={<Error/>} />
-            <Route path ="*" element={<Navigate to="/404" />} />
+            <Route path="/game" element={token ? <Game/> : <Navigate to="/login" />} />
+            <Route path="*" element={<Navigate to="/404" />} />
           </Routes>
         </>
       )}
