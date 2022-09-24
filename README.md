@@ -1,6 +1,6 @@
 ## Inspiration & Overview:
 
-The idea for History Mate came mostly from my consumption of the many educational and interesting animated history documentary channels, currently thriving on youtube. I greatly enjoy these channels, and wanted to try to create something myself, that someone could use to learn about a historical event or conflict, in an interactive way, compared to simply watching a 20-30 minute video.
+The idea for History Mate came mostly from the many educational and interesting animated history documentary channels currently thriving on youtube. I greatly enjoy these channels, and wanted to try to create something myself, that someone could use to learn about a historical event or conflict, in an interactive way, compared to simply watching a 20-30 minute video.
 
 ## Features
 
