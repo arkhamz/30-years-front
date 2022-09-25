@@ -9,3 +9,9 @@ When signed up and logged into the app, a user is able to view the real-life loc
 A user can also learn about the background/prelude to the historical event, as well as the main figures/persons. An observant user can also discover a simple minigame when exploring the app.
 
 ## Tech Summary
+- HTML/CSS/Javascript
+- React & Redux(Toolkit)
+- Express, Sequelize ORM, Firebase Authentication
+
+### Try it out
+[HistoryMate](https://historymate.netlify.app/)
